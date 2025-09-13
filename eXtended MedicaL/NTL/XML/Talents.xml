@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Talents>
+    <!-- /// Vanilla Overrides - Medic  Talents /// -->
+    <!-- Blood Donor -> Blood Worker; allows you to craft blood cheaper -->
+    <Talent identifier="blooddonor">
+      <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="5,2" sheetelementsize="128,128"/>
+      <Description tag="talentdescription.blooddonor" />
+      <AddedRecipe itemidentifier="antibloodloss2" />
+    <!-- Noone would use this currently because you can just craft O-. Will probably change stuff so this makes sense later
+      <AddedRecipe itemidentifier="ntl_bloodpackoplus" />
+      <AddedRecipe itemidentifier="ntl_bloodpackaminus" />
+      <AddedRecipe itemidentifier="ntl_bloodpackaplus" />
+      <AddedRecipe itemidentifier="ntl_bloodpackbminus" />
+      <AddedRecipe itemidentifier="ntl_bloodpackbplus" />
+      <AddedRecipe itemidentifier="ntl_bloodpackabminus" />
+      <AddedRecipe itemidentifier="ntl_bloodpackabplus" />
+-->
+    </Talent>
+    <!-- Bloody Business - Makes you able to make syntesized genetic materials crafted from creature loot which deconstructs into UGM + find more blood (vanilla) -->
+    <Talent identifier="bloodybusiness">
+      <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="1,4" sheetelementsize="128,128" />
+      <Description tag="talentdescription.bloodybusiness">
+        <Replace tag="[item]" value="entityname.alienblood" color="gui.orange" />
+      </Description>
+      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.ntl_synthesizedgeneticmaterial" color="gui.orange" />
+     </Description>
+      <AbilityGroupEffect abilityeffecttype="OnLootCharacter">
+        <Conditions>
+          <AbilityConditionCharacter targettype="Monster">
+            <Conditional IsMachine="false" />
+            <Conditional IsHusk="false" />
+            <Conditional maxhealth="gt 300"/>
+          </AbilityConditionCharacter>
+          <AbilityConditionCharacterNotLooted identifier="bloodybusiness" />
+        </Conditions>
+        <Abilities>
+          <CharacterAbilityApplyStatusEffects>
+            <StatusEffects>
+              <StatusEffect type="OnAbility" target="UseTarget" spawnitemrandomly="true" >
+                <SpawnItem identifiers="alienblood" spawnposition="ThisInventory" />
+              </StatusEffect>
+            </StatusEffects>
+          </CharacterAbilityApplyStatusEffects>
+          <CharacterAbilityMarkAsLooted identifier="bloodybusiness" />
+        </Abilities>
+      </AbilityGroupEffect>
+      <AddedRecipe itemidentifier="ntl_synthesizedgeneticmaterial" />
+    </Talent>
+  </Talents>
+</Override>
+
+

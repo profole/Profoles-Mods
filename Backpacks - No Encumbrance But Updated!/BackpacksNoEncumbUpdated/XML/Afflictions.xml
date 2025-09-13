@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Afflictions>
+  <!-- /// Afflictions /// -->
+  <!-- Shielded -->
+  <Affliction name="Shielded" identifier="shielded" description="Because of your powered Shield Backpack all damage taken are reduced by 20% and water pressure is entirely negated." type="shield" isbuff="true" limbspecific="false" indicatorlimb="Torso" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1" strengthchange="-1" resistancefor="damage,gunshotwound,internaldamage,blunttrauma,lacerations,bitewounds,explosiondamage,bleeding,burn,acidburn,stun,concussion,radiationsickness,incrementalstun,progressivestun" minresistance="0.2" maxresistance="0.2"></Effect>
+    <icon texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Shielded affliction.png" sourcerect="256,896,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Super-Shielded -->
+  <Affliction name="Super-Shielded" identifier="supershielded" description="Because of your super-powered Shield Backpack all damage taken are reduced by 30% and water pressure is entirely negated." type="shield" isbuff="true" limbspecific="false" indicatorlimb="Torso" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1" strengthchange="-1" resistancefor="damage,gunshotwound,internaldamage,blunttrauma,lacerations,bitewounds,explosiondamage,bleeding,burn,acidburn,stun,concussion,radiationsickness,incrementalstun,progressivestun" minresistance="0.3" maxresistance="0.3"></Effect>
+    <icon texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Shielded affliction.png" sourcerect="256,896,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Over-Shielded -->
+  <Affliction name="Over-Shielded" identifier="overshielded" description="Because of your over-powered Shield Backpack all damage taken are reduced by 40%, and water pressure is entirely negated. Also your wounds seems to close quickly" type="shield" isbuff="true" limbspecific="false" indicatorlimb="Torso" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1" strengthchange="-1" resistancefor="damage,gunshotwound,internaldamage,blunttrauma,lacerations,bitewounds,explosiondamage,bleeding,burn,acidburn,stun,concussion,radiationsickness,incrementalstun,progressivestun" minresistance="0.4" maxresistance="0.4"></Effect>
+    <icon texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Shielded affliction.png" sourcerect="256,896,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+</Afflictions>

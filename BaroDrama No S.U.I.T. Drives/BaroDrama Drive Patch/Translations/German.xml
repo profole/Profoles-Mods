@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="German" nowhitespace="false" translatedname="Deutsch">
+  <!-- /// Items /// -->
+  <!-- BaroDrama Blueprint Unlocker -->
+  <entityname.nodrive_blueprintunlock>BaroDrama Rezeptfreitschalter</entityname.nodrive_blueprintunlock>
+  <entitydescription.nodrive_blueprintunlock>Schaltet alle BaroDrama Rezepte frei.</entitydescription.nodrive_blueprintunlock>
+  <!-- /// Talents /// -->
+  <!-- BaroDrama Blueprints -->
+  <talentname.nodrive_blueprints>BaroDrama Rezepte</talentname.nodrive_blueprints>
+</infotexts>

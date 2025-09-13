@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+  <Override>
+    <!-- /// Bloodpack Items /// -->
+    <!-- Blood Pack (O-) -->
+    <entityname.antibloodloss2>Blood Pack (O-)</entityname.antibloodloss2>
+    <entitydescription.antibloodloss2>A pack of O- blood substitute for the treatment of blood loss.\nUniversal Donor</entitydescription.antibloodloss2>
+    <!-- Blood Pack (O+) -->
+    <entityname.ntl_bloodpackoplus>Blood Pack (O+)</entityname.ntl_bloodpackoplus>
+    <entitydescription.ntl_bloodpackoplus>A pack of O+ blood substitute for the treatment of blood loss.\nCan be donated to: O+, A+, B+, AB+</entitydescription.ntl_bloodpackoplus>
+    <!-- Blood Pack (A-) -->
+    <entityname.ntl_bloodpackaminus>Blood Pack (A-)</entityname.ntl_bloodpackaminus>
+    <entitydescription.ntl_bloodpackaminus>A pack of A- blood substitute for the treatment of blood loss.\nCan be donated to: A-, A+, AB-, AB+</entitydescription.ntl_bloodpackaminus>
+    <!-- Blood Pack (A+) -->
+    <entityname.ntl_bloodpackaplus>Blood Pack (A+)</entityname.ntl_bloodpackaplus>
+    <entitydescription.ntl_bloodpackaplus>A pack of A+ blood substitute for the treatment of blood loss.\nCan be donated to: A+, AB+</entitydescription.ntl_bloodpackaplus>
+    <!-- Blood Pack (B-) -->
+    <entityname.ntl_bloodpackbminus>Blood Pack (B-)</entityname.ntl_bloodpackbminus>
+    <entitydescription.ntl_bloodpackbminus>A pack of B- blood substitute for the treatment of blood loss.\nCan be donated to: B-, B+, AB-, AB+</entitydescription.ntl_bloodpackbminus>
+    <!-- Blood Pack (B+) -->
+    <entityname.ntl_bloodpackbplus>Blood Pack (B+)</entityname.ntl_bloodpackbplus>
+    <entitydescription.ntl_bloodpackbplus>A pack of B+ blood substitute for the treatment of blood loss.\nCan be donated to: B+, AB+</entitydescription.ntl_bloodpackbplus>
+    <!-- Blood Pack (AB-) -->
+    <entityname.ntl_bloodpackabminus>Blood Pack (AB-)</entityname.ntl_bloodpackabminus>
+    <entitydescription.ntl_bloodpackabminus>A pack of AB- blood substitute for the treatment of blood loss.\nCan be donated to: B-, B+, AB-, AB+</entitydescription.ntl_bloodpackabminus>
+    <!-- Blood Pack (AB+) -->
+    <entityname.ntl_bloodpackabplus>Blood Pack (AB+)</entityname.ntl_bloodpackabplus>
+    <entitydescription.ntl_bloodpackabplus>A pack of AB+ blood substitute for the treatment of blood loss.\nCan be donated to: B+, AB+</entitydescription.ntl_bloodpackabplus>
+    <!-- Empty Blood Pack -->
+    <entityname.ntl_emptybloodpack>Empty Blood Pack</entityname.ntl_emptybloodpack>
+    <entitydescription.ntl_emptybloodpack>An empty pack for blood substitute. Can be used to draw blood from healthy humans to receive a full blood pack of the appropriate blood type.</entitydescription.ntl_emptybloodpack>
+    <!-- /// Genetic Items /// -->
+    <!-- Synthesized Gentic Material -->
+   <entityname.ntl_synthesizedgeneticmaterial>Synthesized Gentic Material</entityname.ntl_synthesizedgeneticmaterial>
+   <entitydescription.ntl_synthesizedgeneticmaterial>Genetic material synthesized from creature remains.\nCan be deconstructed for unidentified genetic material.</entitydescription.ntl_synthesizedgeneticmaterial>
+    <!-- /// Medical Equipment Items /// -->
+    <!-- Handheld Health Scanner -->
+    <entityname.ntl_handheldhealthscanner>Handheld Health Scanner</entityname.ntl_handheldhealthscanner>
+    <entitydescription.ntl_handheldhealthscanner>A small handheld device that shows information about the vital signs and status of the target.</entitydescription.ntl_handheldhealthscanner>
+    <!-- /// Blood Type Afflictions /// -->
+    <!-- O- Blood -->
+    <afflictionname.ntl_bloodtypeominus>O- Blood</afflictionname.ntl_bloodtypeominus>
+    <afflictiondescription.ntl_bloodtypeominus>Can receive from: O-\nUniversal Donor</afflictiondescription.ntl_bloodtypeominus>
+    <!-- O+ Blood -->
+    <afflictionname.ntl_bloodtypeoplus>O+ Blood</afflictionname.ntl_bloodtypeoplus>
+    <afflictiondescription.ntl_bloodtypeoplus>Can receive from:O-, O+\nCan donate to:O+, A+, B+, AB+</afflictiondescription.ntl_bloodtypeoplus>
+    <!-- A- Blood -->
+    <afflictionname.ntl_bloodtypeaminus>A- Blood</afflictionname.ntl_bloodtypeaminus>
+    <afflictiondescription.ntl_bloodtypeaminus>Can receive from: O-, A-\nCan donate to:A-, A+, AB-, AB+</afflictiondescription.ntl_bloodtypeaminus>
+    <!-- A+ Blood -->
+    <afflictionname.ntl_bloodtypeaplus>A+ Blood</afflictionname.ntl_bloodtypeaplus>
+    <afflictiondescription.ntl_bloodtypeaplus>Can receive from:O-, O+, A-, A+\nCan donate to: A+, AB+</afflictiondescription.ntl_bloodtypeaplus>
+    <!-- B- Blood -->
+    <afflictionname.ntl_bloodtypebminus>B- Blood</afflictionname.ntl_bloodtypebminus>
+    <afflictiondescription.ntl_bloodtypebminus>Can receive from: O-, B-\nCan donate to:B-, B+, AB-, AB+</afflictiondescription.ntl_bloodtypebminus>
+    <!-- B+ Blood -->
+    <afflictionname.ntl_bloodtypebplus>B+ Blood</afflictionname.ntl_bloodtypebplus>
+    <afflictiondescription.ntl_bloodtypebplus>Can receive from:O-, O+, B-, B+\nCan donate to: B+, AB+</afflictiondescription.ntl_bloodtypebplus>
+    <!-- AB- Blood- -->
+    <afflictionname.ntl_bloodtypeabminus>AB- Blood</afflictionname.ntl_bloodtypeabminus>
+    <afflictiondescription.ntl_bloodtypeabminus>Can receive from: O-, B-\nCan donate to:B-, B+, AB-, AB+</afflictiondescription.ntl_bloodtypeabminus>
+    <!-- AB+ Blood -->
+    <afflictionname.ntl_bloodtypeabplus>AB+ Blood</afflictionname.ntl_bloodtypeabplus>
+    <afflictiondescription.ntl_bloodtypeabplus>Can receive from:O-, O+, B-, B+\nCan donate to: B+, AB+</afflictiondescription.ntl_bloodtypeabplus>
+    <!-- /// False Damage Afflictions /// -->
+    <!-- Hemotransfusion Shock -->
+    <afflictionname.ntl_hemotransfusionshock>Hemotransfusion Shock</afflictionname.ntl_hemotransfusionshock>
+    <!-- /// Medicine/Procedure Afflictions /// -->
+    <!-- Bandaged -->
+    <afflictionname.ntl_bandaged>Bandaged</afflictionname.ntl_bandaged>
+    <afflictiondescription.ntl_bandaged>This limb has been bandaged. Taking it off without waiting some time for the injuries to heal might be a bad idea. Keep clean and dry.</afflictiondescription.ntl_bandaged>
+    <!-- Plastisealed -->
+    <afflictionname.ntl_plastisealed>Plastisealed</afflictionname.ntl_plastisealed>
+    <afflictiondescription.ntl_plastisealed>Plastiseal was been applied on this limb. Taking it off without waiting some time for the injuries to heal might be a bad idea.</afflictiondescription.ntl_plastisealed>
+    <!-- Bleeding (Bandaged) -->
+    <afflictionname.ntl_treatedbleeding>Bleeding (Treated)</afflictionname.ntl_treatedbleeding>
+    <!-- Burn (Bandaged) -->
+    <afflictionname.ntl_treatedburn>Burn (Treated)</afflictionname.ntl_treatedburn>
+    <!-- /// Utility Afflictions /// -->
+    <!-- Bloodfucked -->
+    <afflictionname.ntl_bloodfucked>Bloodfucked</afflictionname.ntl_bloodfucked>
+    <afflictiondescription.ntl_bloodfucked>This character has multiple blood type afflictions at the same time, do not administer any blood incompatible to any of them!\nIf this afflictions persists, please consult the steam workshop page of eXtended MedicaL.</afflictiondescription.ntl_bloodfucked>
+    <!-- /// Medic Talent Overrides /// -->
+    <!-- Blood Worker -->
+    <talentname.blooddonor>Blood Worker</talentname.blooddonor>
+    <talentdescription.blooddonor>You can craft ‖color:gui.orange‖Blood Packs (O-)‖end‖ with ‖color:gui.orange‖Saline‖end‖ instead of ‖color:gui.orange‖Blood Packs‖end‖.</talentdescription.blooddonor>
+  </Override>
+</infotexts>

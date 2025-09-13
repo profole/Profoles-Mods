@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Less Than Lethal" modversion="1.0.3" corepackage="False" steamworkshopid="3200609389" gameversion="1.7.7.0">
+  <Item file="%ModDir%/LTL/XML/Items.xml" />
+  <Text file="%ModDir%/LTL/Translations/English.xml" />
+  <Text file="%ModDir%/LTL/Translations/German.xml" />
+</contentpackage>

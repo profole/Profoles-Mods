@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+  <!-- /// Items /// -->
+  <!-- BaroDrama Blueprint Unlocker -->
+  <entityname.nodrive_blueprintunlock>BaroDrama Blueprint Unlocker</entityname.nodrive_blueprintunlock>
+  <entitydescription.nodrive_blueprintunlock>Unlocks all BaroDrama suit recipes.</entitydescription.nodrive_blueprintunlock>
+  <!-- /// Talents /// -->
+  <!-- BaroDrama Blueprints -->
+  <talentname.nodrive_blueprints>BaroDrama Blueprints</talentname.nodrive_blueprints>
+</infotexts>

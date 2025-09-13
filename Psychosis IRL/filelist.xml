@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Psychosis IRL" modversion="1.0.1" corepackage="False" steamworkshopid="3386261601" gameversion="1.7.7.0">
+  <Afflictions file="%ModDir%/Psychosis IRL/XML/Afflictions.xml" />
+</contentpackage>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sounds>
+  <!-- /// Impact /// -->
+  <!-- Impact_Mug -->
+  <impact_mug file="%ModDir%/DRE/Sounds/MugImpact1.ogg" range="500" />
+  <impact_mug file="%ModDir%/DRE/Sounds/MugImpact2.ogg" range="500" />
+  <impact_mug file="%ModDir%/DRE/Sounds/MugImpact3.ogg" range="500" />
+  <impact_mug file="%ModDir%/DRE/Sounds/MugImpact4.ogg" range="500" />
+</sounds>

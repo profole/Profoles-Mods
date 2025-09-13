@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Bad Apple!! but it's BrokenSprites" modversion="1.0.2" corepackage="False" steamworkshopid="3380700096" gameversion="1.7.7.0">
+  <Item file="%ModDir%/BadAppleBrokenSprites/XML/Items.xml" />
+</contentpackage>

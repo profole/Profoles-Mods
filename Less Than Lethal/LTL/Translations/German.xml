@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="German" nowhitespace="false" translatedname="Deutsch">
+  <!-- /// Ammunition  /// -->
+  <!-- LTL SMG Magazine -->
+  <entityname.ltlsmgmagazine>NLW Maschinenpistolenmagazin</entityname.ltlsmgmagazine>
+  <entitydescription.ltlsmgmagazine>Ein Magazin für Maschinenpistolenkugeln vom Kaliber .45 welches grob mit Farbe markiert wurde um anzuzeigen, das es weniger tödlich ist als normale Munition. Um widerspenstige Besatzungsmitglieder wieder gefügig zu machen ohne tödliche, nur weniger tödliche, Wunden zu verursachen.</entitydescription.ltlsmgmagazine>
+  <!-- LTL Rifle Round -->
+  <entityname.ltlriflebullet>NLW Gewehrkugel</entityname.ltlriflebullet>
+  <entitydescription.ltlriflebullet>Eine Gewehrkugel Kaliber .30 welche grob mit Farbe markiert wurde um anzuzeigen, das sie weniger tödlich ist als normale Munition. Um widerspenstige Besatzungsmitglieder wieder gefügig zu machen ohne tödliche, nur weniger tödliche, Wunden zu verursachen.</entitydescription.ltlriflebullet>
+  <!-- LTL Assault Rifle Magazine -->
+  <entityname.ltlassaultriflemagazine>NLW Sturmgewehrmagazin</entityname.ltlassaultriflemagazine>
+  <entitydescription.ltlassaultriflemagazine>Ein Magazin für 6,8-mm-Patronen welches grob mit Farbe markiert wurde um anzuzeigen, das es weniger tödlich ist als normale Munition. Um widerspenstige Besatzungsmitglieder wieder gefügig zu machen ohne tödliche, nur weniger tödliche, Wunden zu verursachen.</entitydescription.ltlassaultriflemagazine>
+  <!-- LTL Revolver Round -->
+  <entityname.ltlrevolverround>NLW Revolvermunition</entityname.ltlrevolverround>
+  <entitydescription.ltlrevolverround>9 Millimeter, grob mit Farbe markiert wurde um anzuzeigen, das sie weniger tödlich ist als normale Munition. Um widerspenstige Besatzungsmitglieder wieder gefügig zu machen ohne tödliche, nur weniger tödliche, Wunden zu verursachen.</entitydescription.ltlrevolverround>
+</infotexts>

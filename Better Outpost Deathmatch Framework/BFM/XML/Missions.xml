@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- /// PvP Missions ///-->
+<!-- Outpost Deathmatch (BFM) - Custom mission so we dont override vanilla events -->
+<CombatMission identifier="bfm_outpostdeathmatch" type="bfm_outpostcombat" multiplayeronly="true" commonness="100" reward="2000" pointsperkill="10" allowrespawning="true" wincondition="KillCount" loadsubmarines="false" AllowOutpostNPCs="False" ForceOutpostGenerationParameters="colonypvp" AllowOutpostSelectionFromTag="bfm_PvPOutpost" ForceRespawnMode="MidRound">
+  <!-- ^^ Only allow selecting compatible tagged outposts -->
+  <LocationType identifier="city" />
+  <Icon texture="Content/UI/MissionIcons2.png" sourcerect="0,768,256,256" color="243,146,55" />
+  <message text="missionmessage0.outpostdeathmatch" />
+  <message text="missionmessage1.outpostdeathmatch" />
+  <!-- Trigger the custom main event -->
+  <TriggerEvent state="0" eventidentifier="bfm_mainevent" />
+  <OverrideMusic state="0" type="pvp" />
+</CombatMission>

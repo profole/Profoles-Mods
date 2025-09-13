@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Better Outpost Deathmatch Framework" modversion="1.4.4" corepackage="False" steamworkshopid="3352526950" gameversion="1.7.7.0">
+  <Item file="%ModDir%/BFM/XML/Items.xml" />
+  <RandomEvents file="%ModDir%/BFM/XML/Events.xml" />
+  <Missions file="%ModDir%/BFM/XML/Missions.xml" />
+  <Text file="%ModDir%/BFM/Translations/English.xml" />
+  <Outpost file="%ModDir%/BFM/Subs/Kattenberg Outpost (BFM).sub" />
+  <Outpost file="%ModDir%/BFM/Subs/Raate Colony (BFM).sub" />
+</contentpackage>

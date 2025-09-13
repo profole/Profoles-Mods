@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Backpacks - No Encumbrance But Updated!" modversion="1.0.3" corepackage="False" steamworkshopid="3153735548" gameversion="1.7.7.0">
+  <Item file="%ModDir%/BackpacksNoEncumbUpdated/XML/Items.xml" />
+  <Afflictions file="%ModDir%/BackpacksNoEncumbUpdated/XML/Afflictions.xml" />
+  <Text file="%ModDir%/BackpacksNoEncumbUpdated/Translations/English.xml" />
+</contentpackage>

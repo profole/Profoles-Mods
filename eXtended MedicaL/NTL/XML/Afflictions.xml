@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Afflictions>
+  <!-- /// Blood Types - These afflictions are used to identify blood type /// -->
+  <!-- Blood Type: O- -->
+  <Affliction
+    identifier="ntl_bloodtypeominus"
+    type="ntl_bloodtype"
+    isbuff="true"
+    targets="human"
+    healableinmedicalclinic="false"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1"
+    treatmentthreshold="1000"
+    maxstrength="1">
+  </Affliction>
+  <!-- Blood Type: O+ -->
+  <Affliction
+    identifier="ntl_bloodtypeoplus"
+    type="ntl_bloodtype"
+    isbuff="true"
+    targets="human"
+    healableinmedicalclinic="false"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1"
+    treatmentthreshold="1000"
+    maxstrength="1">
+  </Affliction>
+  <!-- Blood Type: A- -->
+  <Affliction
+    identifier="ntl_bloodtypeaminus"
+    type="ntl_bloodtype"
+	isbuff="true"
+    targets="human"
+    healableinmedicalclinic="false"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1"
+    treatmentthreshold="1000"
+    maxstrength="1">
+  </Affliction>
+  <!-- Blood Type: A+ -->
+  <Affliction
+    identifier="ntl_bloodtypeaplus"
+    type="ntl_bloodtype"
+	isbuff="true"
+    targets="human"
+    healableinmedicalclinic="false"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1"
+    treatmentthreshold="1000"
+    maxstrength="1">
+  </Affliction>
+  <!-- Bloodtype: B- -->
+  <Affliction
+    identifier="ntl_bloodtypebminus"
+    type="ntl_bloodtype"
+	isbuff="true"
+    targets="human"
+    healableinmedicalclinic="false"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1"
+    treatmentthreshold="1000"
+    maxstrength="1">
+  </Affliction>
+  <!-- Blood Type: B+ -->
+  <Affliction
+    identifier="ntl_bloodtypebplus"
+    type="ntl_bloodtype"
+	isbuff="true"
+    targets="human"
+    healableinmedicalclinic="false"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1"
+    treatmentthreshold="1000"
+    maxstrength="1">
+  </Affliction>
+  <!-- Blood Type: AB- -->
+  <Affliction
+    identifier="ntl_bloodtypeabminus"
+    type="ntl_bloodtype"
+	isbuff="true"
+    targets="human"
+    healableinmedicalclinic="false"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1"
+    treatmentthreshold="1000"
+    maxstrength="1">
+  </Affliction>
+  <!-- Blood Type: AB+ -->
+  <Affliction
+    identifier="ntl_bloodtypeabplus"
+    type="ntl_bloodtype"
+	isbuff="true"
+    targets="human"
+    healableinmedicalclinic="false"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1"
+    treatmentthreshold="1000"
+    maxstrength="1">
+  </Affliction>
+  <!-- /// False Damage - These afflictions cause other afflictions or do other negative things but do not cause damage to vitality /// -->
+  <!-- Hemotransfusion Shock - Incompatible blood type received? Do not worry, hemotransfusion shock will quickly put an end to your misery! -->
+  <Affliction
+    identifier="ntl_hemotransfusionshock"
+    type="ntl_falsedamage"
+    targets="human"
+    healableinmedicalclinic="false"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1"
+    treatmentthreshold="1000"
+    maxstrength="150">
+    <!-- One wrong bloodpack administered gives 75 shock, so after the first 2 you theoretically no longer get any negative effects -->
+    <Effect minstrength="0" maxstrength="150" strengthchange="-1">
+      <StatusEffect target="Character" interval="0.5">
+        <Affliction identifier="organdamage" amount="0.5"/>
+      </StatusEffect>
+    </Effect>
+  </Affliction>
+  <!-- /// True Damage - These afflictions cause vitality damage /// -->
+  <!--
+Nothing here... yet...
+  -->
+  <!-- /// Medicine/Procedure - Caused by medical equipment or procedure /// -->
+  <!-- Bandaged (Healing) - Hidden affliction to replace bleeding and burn with the treatedbleeding and treatedburn afflictions -->
+  <Affliction
+    identifier="ntl_bandagedhealing"
+    type="ntl_procedureaffliction"
+	isbuff="true"
+    targets="human"
+    limbspecific="true"
+    healableinmedicalclinic="false"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1000"
+    treatmentthreshold="1000"
+    maxstrength="240">
+    <!-- Replace bleeding with treatedbleeding -->
+    <Effect minstrength="0" maxstrength="300" strengthchange="-1">
+      <StatusEffect target="Limb" interval="1" disabledeltatime="true">
+        <!-- Check for bleeding -->
+        <Conditional bleeding="gt 0" />
+        <!-- If present on limb, replace it with treatedbleeding -->
+        <ReduceAffliction identifier="bleeding" amount="2"/>
+        <Affliction identifier="ntl_treatedbleeding" amount="2"/>
+      </StatusEffect>
+      <!-- Replace burn with bandagedburn-->
+      <StatusEffect target="Limb" interval="1" disabledeltatime="true">
+        <!-- Check for burn -->
+        <Conditional burn="gt 0" />
+        <!-- If present on limb, replace it with bandagedburn -->
+        <ReduceAffliction identifier="burn" amount="1"/>
+        <Affliction identifier="ntl_treatedburn" amount="1"/>
+      </StatusEffect>
+    </Effect>
+  </Affliction>
+  <!-- Bandaged - Visible affliction that just sustains the treated afflictions-->
+  <Affliction
+    identifier="ntl_bandaged"
+    type="ntl_procedureaffliction"
+	isbuff="true"
+    targets="human"
+    limbspecific="true"
+    hideiconafterdelay="true"
+    healableinmedicalclinic="false"
+    showiconthreshold="1"
+    showinhealthscannerthreshold="1"
+    treatmentthreshold="1000"
+    maxstrength="300">
+    <Effect minstrength="0" maxstrength="300" strengthchange="-1" speedmultiplier="0.7">
+    <!-- Bandages can get dirty 
+      <StatusEffect target="Limb" interval="10" disabledeltatime="true" ConditionalComparison="And">
+We have this setting, so lets use it!
+        <Conditional WorldHostility="gte medium" />
+        <Affliction identifier="ntl_dirtybandage" amount="1" probability="0.001" />
+      </StatusEffect>  
+-->
+    </Effect>
+    <Description textidentifier="afflictiondescription.ntl_bandaged" minstrength="0" maxstrength="300"/>
+    <icon texture="%ModDir%/NTL/Textures/AfflictionIcons.png" sheetindex="0,4" sheetelementsize="128,128" origin="0,0" color="10,193,114,255"/>
+  </Affliction>
+  <!-- Plastisealed (Healing) - Hidden affliction to replace bleeding and burn with the treatedbleeding and treatedburn afflictions -->
+  <Affliction
+    identifier="ntl_plastisealedhealing"
+    type="ntl_procedureaffliction"
+	isbuff="true"
+    targets="human"
+    limbspecific="true"
+    healableinmedicalclinic="false"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1000"
+    treatmentthreshold="1000"
+    maxstrength="200">
+    <!-- Replace bleeding with treatedbleeding -->
+    <Effect minstrength="0" maxstrength="300" strengthchange="-1">
+      <StatusEffect target="Limb" interval="1" disabledeltatime="true">
+        <!-- Check for bleeding -->
+        <Conditional bleeding="gt 0" />
+        <!-- If present on limb, replace it with treatedbleeding -->
+        <ReduceAffliction identifier="bleeding" amount="2"/>
+        <Affliction identifier="ntl_treatedbleeding" amount="2"/>
+      </StatusEffect>
+      <!-- Replace burn with bandagedburn-->
+      <StatusEffect target="Limb" interval="1" disabledeltatime="true">
+        <!-- Check for burn -->
+        <Conditional burn="gt 0" />
+        <!-- If present on limb, replace it with bandagedburn -->
+        <ReduceAffliction identifier="burn" amount="1"/>
+        <Affliction identifier="ntl_treatedburn" amount="1"/>
+      </StatusEffect>
+    </Effect>
+  </Affliction>
+  <!-- Plastisealed - Visible affliction that just sustains the treated afflictions, cannot get dirty -->
+  <Affliction
+    identifier="ntl_plastisealed"
+    type="ntl_procedureaffliction"
+	isbuff="true"
+    targets="human"
+    limbspecific="true"
+    hideiconafterdelay="true"
+    healableinmedicalclinic="false"
+    showiconthreshold="1"
+    showinhealthscannerthreshold="1"
+    treatmentthreshold="1000"
+    maxstrength="300">
+    <Effect minstrength="0" maxstrength="300" strengthchange="-1" speedmultiplier="0.7">
+    </Effect>
+    <Description textidentifier="afflictiondescription.ntl_plastisealed" minstrength="0" maxstrength="300"/>
+    <icon texture="%ModDir%/NTL/Textures/AfflictionIcons.png" sheetindex="0,4" sheetelementsize="128,128" origin="0,0" color="10,193,114,255"/>
+  </Affliction>
+  <!-- Treated Bleeding - Less vitality loss, cheaper to heal and heals faster -->
+  <Affliction
+    identifier="ntl_treatedbleeding"
+    type="ntl_procedureaffliction"
+	isbuff="true"
+    targets="human"
+    limbspecific="true"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1"
+    treatmentthreshold="1000"
+    maxstrength="100"
+    healcostmultiplier="1.5">
+    <!-- Decreases vitality less than normal bleeding -->
+    <Effect minstrength="20" maxstrength="40" strengthchange="-0.2" minvitalitydecrease="0" maxvitalitydecrease="2">
+      <!-- Replace bandagedbleeding with bleeding when bandage is removed -->
+	  <StatusEffect target="Limb" interval="1" disabledeltatime="true">
+        <!-- Check for bandaged -->
+        <Conditional bandaged="lt 1" />
+        <!-- If not present on limb, replace bandagedbleeding with bleeding -->
+        <ReduceAffliction identifier="ntl_treatedbleeding" amount="2"/>
+        <Affliction identifier="bleeding" amount="2"/>
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="40" maxstrength="60" strengthchange="-0.2" minvitalitydecrease="2" maxvitalitydecrease="4">
+      <StatusEffect target="Limb" interval="1" disabledeltatime="true">
+        <!-- Check for bandaged -->
+        <Conditional bandaged="lt 1" />
+        <!-- If not present on limb, replace bandagedbleeding with bleeding -->
+        <ReduceAffliction identifier="ntl_treatedbleeding" amount="2"/>
+        <Affliction identifier="bleeding" amount="2"/>
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="60" maxstrength="100" strengthchange="-0.2" minvitalitydecrease="4" maxvitalitydecrease="8">
+      <StatusEffect target="Limb" interval="1" disabledeltatime="true">
+        <!-- Check for bandaged -->
+        <Conditional bandaged="lt 1" />
+        <!-- If not present on limb, replace bandagedbleeding with bleeding -->
+        <ReduceAffliction identifier="ntl_treatedbleeding" amount="2"/>
+        <Affliction identifier="bleeding" amount="2"/>
+      </StatusEffect>
+    </Effect>
+  </Affliction>
+  <!-- Treated Burn - Less vitality loss, cheaper to heal and heals faster -->
+  <Affliction
+    identifier="ntl_treatedburn"
+    type="ntl_procedureaffliction"
+	isbuff="true"
+    targets="human"
+    limbspecific="true"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1"
+    treatmentthreshold="1000"
+    maxstrength="200"
+    healcostmultiplier="1.25">
+    <!-- Decreases vitality less than normal burn -->
+    <Effect minstrength="0" maxstrength="30" strengthchange="-0.1" minvitalitydecrease="0" maxvitalitydecrease="15">
+      <!-- Replace bandagedburn with burn when bandage is removed -->
+      <StatusEffect target="Limb" interval="1" disabledeltatime="true">
+        <!-- Check for bandaged -->
+        <Conditional bandaged="lt 1" />
+        <!-- If present on limb, replace bandagedburn with burn -->
+        <ReduceAffliction identifier="burn" amount="1"/>
+        <Affliction identifier="ntl_treatedburn" amount="1"/>
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="30" maxstrength="60" strengthchange="-0.1" minvitalitydecrease="15" maxvitalitydecrease="30">
+      <StatusEffect target="Limb" interval="1" disabledeltatime="true">
+        <!-- Check for bandaged -->
+        <Conditional bandaged="lt 1" />
+        <!-- If present on limb, replace bandagedburn with burn -->
+        <ReduceAffliction identifier="burn" amount="1"/>
+        <Affliction identifier="ntl_treatedburn" amount="1"/>
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="60" maxstrength="200" strengthchange="-0.1" minvitalitydecrease="30" maxvitalitydecrease="100">
+      <StatusEffect target="Limb" interval="1" disabledeltatime="true">
+        <!-- Check for bandaged -->
+        <Conditional bandaged="lt 1" />
+        <!-- If present on limb, replace bandagedburn with burn -->
+        <ReduceAffliction identifier="burn" amount="1"/>
+        <Affliction identifier="ntl_treatedburn" amount="1"/>
+      </StatusEffect>
+    </Effect>
+  </Affliction>
+  <!-- /// Utility /// -->
+  <!-- Bloodtype Determination Cooldown - Should hopefully prevent characters getting multiple bloodtypes (also used to cooldown empty bloodpacks) -->
+  <Affliction
+    identifier="ntl_bloodtypedeterminationcooldown"
+    type="ntl_utility"
+	isbuff="true"
+    targets="human"
+    healableinmedicalclinic="false"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1000"
+    treatmentthreshold="1000"
+    maxstrength="1"
+    duration="2">
+  </Affliction>
+  <!-- Bloodfucked - Inform the player something is broken -->
+  <Affliction
+    identifier="ntl_bloodfucked"
+    type="ntl_utility"
+	isbuff="true"
+    targets="human"
+    healableinmedicalclinic="false"
+    showiconthreshold="1"
+    showinhealthscannerthreshold="1"
+    treatmentthreshold="1000"
+    maxstrength="1"
+    duration="2"
+    indicatorlimb="Head">
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="906,524,112,112" color="255,255,0,255" origin="0,0"/>
+  </Affliction>
+</Afflictions>

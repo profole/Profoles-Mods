@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RandomEvents>
+  <EventPrefabs>
+    <!-- /// Utility Events /// -->
+    <!-- Main Event invokes all other events -->
+    <ScriptedEvent identifier="bfm_mainevent">
+      <TriggerEventAction identifier="bfm_spawntrashcanitems" />
+      <TriggerEventAction identifier="bfm_spawnsupplycabitems" />
+      <!--
+      <TriggerEventAction identifier="bfm_refillextinguishers" />
+-->
+      <TriggerEventAction identifier="bfm_weapondrops" />
+    </ScriptedEvent>
+    <!-- /// Basic Supply Events /// -->
+    <!-- Event to spawn items in trash cans -->
+    <ScriptedEvent identifier="bfm_spawntrashcanitems">
+      <Label name="repeat" />
+      <!-- Reset selectedtrashcan tag -->
+      <ClearTagAction tag="bfm_selectedtrashcan" />
+      <!-- Tag a random trashcan to spawn items in them -->
+      <TagAction criteria="itemidentifier:opdeco_trashcan" tag="bfm_selectedtrashcan" submarinetype="outpost" ChooseRandom="true" ChooseRandomExcludingTag="bfm_usedtrashcan" ContinueIfNoTargetsFound="true" />
+      <!-- Tag trashcan as already filled -->
+      <TagAction criteria="eventtag:bfm_selectedtrashcan" tag="bfm_usedtrashcan" submarinetype="outpost" ContinueIfNoTargetsFound="true" />
+      <CountTargetsAction TargetTag="bfm_selectedtrashcan" minamount="1">
+        <Success>
+          <RNGAction chance="0.6">
+            <Success>
+              <SpawnAction itemidentifier="antibleeding1" amount="4" targetinventory="bfm_selectedtrashcan" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+            </Success>
+            <Failure>
+              <SpawnAction itemidentifier="revolverround" amount="12" targetinventory="bfm_selectedtrashcan" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+            </Failure>
+          </RNGAction>
+          <RNGAction chance="0.6">
+            <Success>
+              <SpawnAction itemidentifier="antibloodloss2" amount="2" targetinventory="bfm_selectedtrashcan" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+            </Success>
+            <Failure>
+              <SpawnAction itemidentifier="smgmagazine" amount="1" targetinventory="bfm_selectedtrashcan" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+            </Failure>
+          </RNGAction>
+          <RNGAction chance="0.6">
+            <Success>
+              <SpawnAction itemidentifier="opium" amount="2" targetinventory="bfm_selectedtrashcan" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+            </Success>
+            <Failure>
+              <SpawnAction itemidentifier="spear" amount="12" targetinventory="bfm_selectedtrashcan" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+            </Failure>
+          </RNGAction>
+        </Success>
+      </CountTargetsAction>
+      <!-- Repeat 10 times -->
+      <GoTo name="repeat" maxtimes="10" />
+    </ScriptedEvent>
+    <!-- Event to spawn items in supplycabs -->
+    <ScriptedEvent identifier="bfm_spawnsupplycabitems">
+      <Label name="repeat" />
+      <!-- Reset selectedsupplycab tag -->
+      <ClearTagAction tag="bfm_selectedsupplycab" />
+      <!-- Tag a random supplycabinet to spawn items in them -->
+      <TagAction criteria="itemidentifier:suppliescabinet" tag="bfm_selectedsupplycab" submarinetype="outpost" ChooseRandom="true" ChooseRandomExcludingTag="bfm_usedsupplycab" ContinueIfNoTargetsFound="true" />
+      <!-- Tag supplycab as already filled -->
+      <TagAction criteria="eventtag:bfm_selectedsupplycab" tag="bfm_usedsupplycab" submarinetype="outpost" ContinueIfNoTargetsFound="true" />
+      <CountTargetsAction TargetTag="bfm_selectedsupplycab" minamount="1">
+        <Success>
+          <RNGAction chance="0.5">
+            <Success>
+              <RNGAction chance="0.75">
+                <Success>
+                  <SpawnAction itemidentifier="antibleeding1" amount="4" targetinventory="bfm_selectedsupplycab" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+                  <SpawnAction itemidentifier="antibloodloss1" amount="4" targetinventory="bfm_selectedtrashcan" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+                </Success>
+                <Failure>
+                  <SpawnAction itemidentifier="revolver" TargetTag="spawnedrevolver" amount="1" targetinventory="bfm_selectedsupplycab" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+                  <SpawnAction itemidentifier="revolverround" amount="6" targetinventory="spawnedrevolver" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+                </Failure>
+              </RNGAction>
+            </Success>
+            <Failure>
+              <RNGAction chance="0.9">
+                <Success>
+                  <SpawnAction itemidentifier="wrench" amount="1" targetinventory="bfm_selectedsupplycab" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+                </Success>
+                <Failure>
+                  <SpawnAction itemidentifier="heavywrench" amount="1" targetinventory="bfm_selectedsupplycab" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+                </Failure>
+              </RNGAction>
+            </Failure>
+          </RNGAction>
+          <RNGAction chance="0.5">
+            <Success>
+              <RNGAction chance="0.9">
+                <Success>
+                  <SpawnAction itemidentifier="crowbar" amount="1" targetinventory="bfm_selectedsupplycab" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+                </Success>
+                <Failure>
+                  <SpawnAction itemidentifier="boardingaxe" amount="1" targetinventory="bfm_selectedsupplycab" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+                </Failure>
+              </RNGAction>
+            </Success>
+            <Failure>
+              <RNGAction chance="0.5">
+                <Success>
+                  <SpawnAction itemidentifier="screwdriver" amount="1" targetinventory="bfm_selectedsupplycab" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+                </Success>
+                <Failure>
+                  <SpawnAction itemidentifier="weldingtool" amount="1" TargetTag="spawnedwelder" targetinventory="bfm_selectedsupplycab" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+                  <SpawnAction itemidentifier="weldingfueltank" amount="1" targetinventory="spawnedwelder" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+                  <SpawnAction itemidentifier="weldingfueltank" amount="4" targetinventory="bfm_selectedsupplycab" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+                </Failure>
+              </RNGAction>
+            </Failure>
+          </RNGAction>
+        </Success>
+      </CountTargetsAction>
+      <!-- Repeat 10 times -->
+      <GoTo name="repeat" maxtimes="10" />
+    </ScriptedEvent>
+    <!-- Fire Extinguisher cleanup and refill event - since this wont fucking work, I'll fix it later
+    <ScriptedEvent identifier="bfm_refillextinguishers">
+	  <Label name="repeat" />
+	  
+      <ClearTagAction tag="bfm_extinguisherrefill" />
+      <TagAction criteria="itemtag:extinguisherholder" tag="bfm_extinguisherrefill" submarinetype="outpost" ContinueIfNoTargetsFound="true" />
+      <CheckConditionalAction targettag="bfm_extinguisherrefill" targetitemcomponent="ItemContainer" ContainedItemCount="0" AutoFill="true">
+        <Success>
+          <SpawnAction itemidentifier="extinguisher" targetinventory="bfm_extinguisherrefill" SpawnIfInventoryFull="false" ContinueIfFailedToSpawn="true" />
+        </Success>
+      </CheckConditionalAction>
+	  
+      <ClearTagAction tag="bfm_extinguishercleanup" />
+      <TagAction criteria="itemidentifier:extinguisher" tag="bfm_extinguishercleanup" submarinetype="outpost" ContinueIfNoTargetsFound="true" />
+      <CheckConditionalAction targettag="bfm_extinguishercleanup" ParentInventory="null">
+        <Success>
+	      <RemoveItemAction TargetTag="bfm_extinguishercleanup" amount="9999" />
+        </Success>
+      </CheckConditionalAction>
+
+Wait 30 seconds 
+	  <WaitAction time="10" />
+	  
+Repeat indefinitely 
+      <GoTo name="repeat" />
+
+    </ScriptedEvent>
+-->
+    <!-- /// Main Events /// -->
+    <!-- Weapondrops Event -->
+    <ScriptedEvent identifier="bfm_weapondrops">
+      <!-- Tier 1 -->
+      <SpawnAction itemtag="weapondroptier1" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+      <SpawnAction itemtag="weapondroptier1" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+      <SpawnAction itemtag="weapondroptier1" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+      <SpawnAction itemtag="weapondroptier1" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+      <RNGAction chance="0.3">
+        <Success>
+          <SpawnAction itemtag="weapondroptier1_special" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+          <SpawnAction itemtag="weapondroptier1_special" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+          <SpawnAction itemtag="weapondroptier1" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+          <SpawnAction itemtag="weapondroptier1" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+        </Success>
+      </RNGAction>
+      <!-- Wait 90 seconds -->
+      <WaitAction time="90" />
+      <!-- Repeat 1 time -->
+      <GoTo name="phase2" maxtimes="1" />
+      <!-- Tier 2 -->
+      <Label name="phase2" />
+      <SpawnAction itemtag="weapondroptier1" SpawnPointTag="deathmatchweapondrop1" ignorebyai="true" offset="200" />
+      <SpawnAction itemtag="weapondroptier1" SpawnPointTag="deathmatchweapondrop2" ignorebyai="true" offset="200" />
+      <SpawnAction itemtag="weapondroptier2" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+      <SpawnAction itemtag="weapondroptier2" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+      <RNGAction chance="0.3">
+        <Success>
+          <SpawnAction itemtag="weapondroptier1" SpawnPointTag="deathmatchweapondrop1" ignorebyai="true" offset="200" />
+          <SpawnAction itemtag="weapondroptier1" SpawnPointTag="deathmatchweapondrop2" ignorebyai="true" offset="200" />
+          <SpawnAction itemtag="weapondroptier2_special" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+          <SpawnAction itemtag="weapondroptier2_special" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+        </Success>
+      </RNGAction>
+      <!-- Wait 90 seconds -->
+      <WaitAction time="90" />
+      <!-- Repeat 3 times -->
+      <GoTo name="phase2" maxtimes="3" />
+      <!-- Tier 3 -->
+      <Label name="phase3" />
+      <SpawnAction itemtag="weapondroptier2" SpawnPointTag="deathmatchweapondrop1" ignorebyai="true" offset="200" />
+      <SpawnAction itemtag="weapondroptier2" SpawnPointTag="deathmatchweapondrop2" ignorebyai="true" offset="200" />
+      <SpawnAction itemtag="weapondroptier3" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+      <SpawnAction itemtag="weapondroptier3" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+      <RNGAction chance="0.3">
+        <Success>
+          <SpawnAction itemtag="weapondroptier2" SpawnPointTag="deathmatchweapondrop1" ignorebyai="true" offset="200" />
+          <SpawnAction itemtag="weapondroptier2" SpawnPointTag="deathmatchweapondrop2" ignorebyai="true" offset="200" />
+          <SpawnAction itemtag="weapondroptier3_special" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+          <SpawnAction itemtag="weapondroptier3_special" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+        </Success>
+      </RNGAction>
+      <!-- Wait 90 seconds -->
+      <WaitAction time="90" />
+      <!-- Repeat 3 times -->
+      <GoTo name="phase3" maxtimes="3" />
+      <!-- Tier 4 -->
+      <Label name="phase4" />
+      <SpawnAction itemtag="weapondroptier3" SpawnPointTag="deathmatchweapondrop1" ignorebyai="true" offset="200" />
+      <SpawnAction itemtag="weapondroptier3" SpawnPointTag="deathmatchweapondrop2" ignorebyai="true" offset="200" />
+      <SpawnAction itemtag="weapondroptier4" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+      <SpawnAction itemtag="weapondroptier4" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+      <RNGAction chance="0.3">
+        <Success>
+          <SpawnAction itemtag="weapondroptier3" SpawnPointTag="deathmatchweapondrop1" ignorebyai="true" offset="200" />
+          <SpawnAction itemtag="weapondroptier3" SpawnPointTag="deathmatchweapondrop2" ignorebyai="true" offset="200" />
+          <SpawnAction itemtag="weapondroptier4_special" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+          <SpawnAction itemtag="weapondroptier4_special" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+        </Success>
+      </RNGAction>
+      <!-- Wait 90 seconds -->
+      <WaitAction time="90" />
+      <!-- Repeat 3 times -->
+      <GoTo name="phase4" maxtimes="3" />
+      <!-- Tier 4 Continued -->
+      <Label name="phase5" />
+      <SpawnAction itemtag="weapondroptier4" SpawnPointTag="deathmatchweapondrop1" ignorebyai="true" offset="200" />
+      <SpawnAction itemtag="weapondroptier4" SpawnPointTag="deathmatchweapondrop2" ignorebyai="true" offset="200" />
+      <SpawnAction itemtag="weapondroptier4" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+      <SpawnAction itemtag="weapondroptier4" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+      <RNGAction chance="0.3">
+        <Success>
+          <SpawnAction itemtag="weapondroptier4" SpawnPointTag="deathmatchweapondrop1" ignorebyai="true" offset="200" />
+          <SpawnAction itemtag="weapondroptier4" SpawnPointTag="deathmatchweapondrop2" ignorebyai="true" offset="200" />
+          <SpawnAction itemtag="weapondroptier4_special" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+          <SpawnAction itemtag="weapondroptier4_special" SpawnPointTag="deathmatchweapondrop3" ignorebyai="true" offset="200" />
+        </Success>
+      </RNGAction>
+      <!-- Wait 90 seconds -->
+      <WaitAction time="90" />
+      <!-- Repeat indefinitely -->
+      <GoTo name="phase5" />
+    </ScriptedEvent>
+  </EventPrefabs>
+</RandomEvents>

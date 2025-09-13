@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Afflictions>
+  <!-- /// Beer Afflictions /// -->
+  <!-- Red Rock-Blasted -->
+  <Affliction identifier="dre_redrockblasterbuff" description="" type="dre_beerbuff" isbuff="true" limbspecific="false" maxstrength="900" MedicalSkillGain="0.0">
+    <Effect minstrength="0" maxstrength="900" strengthchange="-1">
+      <StatValue stattype="MaximumHealthMultiplier" value="1.30" />
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,896,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Crushing Skulls -->
+  <Affliction identifier="dre_skullcrusheralebuff" description="" type="dre_beerbuff" isbuff="true" limbspecific="false" maxstrength="900" MedicalSkillGain="0.0">
+    <Effect minstrength="0" maxstrength="900" strengthchange="-1">
+      <StatValue stattype="MeleeAttackMultiplier" value="1.10" />
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,896,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Increased IQ -->
+  <Affliction identifier="dre_smartstoutbuff" description="" type="dre_beerbuff" isbuff="true" limbspecific="false" maxstrength="900" MedicalSkillGain="0.0">
+    <Effect minstrength="0" maxstrength="900" strengthchange="-1">
+      <StatValue stattype="ElectricalSkillBonus" value="10" />
+      <StatValue stattype="HelmSkillBonus" value="10" />
+      <StatValue stattype="MechanicalSkillBonus" value="10" />
+      <StatValue stattype="MedicalSkillBonus" value="10" />
+      <StatValue stattype="WeaponsSkillBonus" value="10" />
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,896,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Incendiary Heart -->
+  <Affliction identifier="dre_burninglovebuff" description="" type="dre_beerbuff" isbuff="true" limbspecific="false" maxstrength="60" MedicalSkillGain="0.0">
+    <Effect minstrength="0" maxstrength="60" strengthchange="-1" />
+    <PeriodicEffect mininterval="10" maxinterval="20">
+      <StatusEffect type="OnActive" target="Character">
+        <Fire size="5" />
+      </StatusEffect>
+    </PeriodicEffect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,896,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Partytime -->
+  <Affliction identifier="dre_blackreachblondebuff" description="" type="dre_beerbuff" isbuff="true" limbspecific="false" maxstrength="60" MedicalSkillGain="0.0">
+    <Effect minstrength="0" maxstrength="60" strengthchange="-1">
+      <StatusEffect target="Character" targetlimbs="Torso">
+        <ParticleEmitter particle="plasmasparkred" copyentityangle="false" anglemin="-360" anglemax="360" particlespersecond="50" velocitymin="100" velocitymax="500" scalemin="0.5" scalemax="2" />
+        <ParticleEmitter particle="plasmaspark" copyentityangle="false" anglemin="-360" anglemax="360" particlespersecond="50" velocitymin="100" velocitymax="500" scalemin="0.5" scalemax="2" />
+        <ParticleEmitter particle="weldspark" copyentityangle="false" anglemin="-360" anglemax="360" particlespersecond="50" velocitymin="100" velocitymax="500" scalemin="0.5" scalemax="2" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,896,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Flintlocked -->
+  <Affliction identifier="dre_flintlockesdelightbuff" description="" type="dre_beerbuff" isbuff="true" limbspecific="false" maxstrength="30" MedicalSkillGain="0.0">
+    <Effect minstrength="0" maxstrength="30" strengthchange="-1" />
+    <PeriodicEffect mininterval="0.4" maxinterval="4">
+      <StatusEffect target="Character" targetlimbs="RightLeg">
+        <Affliction identifier="stun" strength="0.25" />
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="10000" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="10000" />
+        <Explosion range="100.0" structuredamage="0" ballastfloradamage="0" itemdamage="0" force="300" severlimbsprobability="0">
+          <Affliction identifier="stun" strength="0.25" />
+        </Explosion>
+      </StatusEffect>
+    </PeriodicEffect>
+    <PeriodicEffect mininterval="0.4" maxinterval="4">
+      <StatusEffect target="Character" targetlimbs="LeftLeg">
+        <Affliction identifier="stun" strength="0.25" />
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="10000" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="10000" />
+        <Explosion range="100.0" structuredamage="0" ballastfloradamage="0" itemdamage="0" force="300" severlimbsprobability="0">
+          <Affliction identifier="stun" strength="0.25" />
+        </Explosion>
+      </StatusEffect>
+    </PeriodicEffect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,896,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+</Afflictions>

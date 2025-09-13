@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Talents>
+  <!-- /// Blueprint Unlock Talent /// -->
+  <!-- BaroDrama Blueprints -->
+  <Talent identifier="nodrive_blueprints">
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="0,0" sheetelementsize="128,128" />
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.barodrama_eelsuit,entityname.barodrama_moraysuit,entityname.barodrama_lampreysuit,entityname.barodrama_whalesuit,entityname.barodrama_belugiasuit,entityname.barodrama_orcasuit,entityname.barodrama_waspsuit,entityname.barodrama_beetlesuit,entityname.barodrama_vipersuit,entityname.barodrama_mantissuit,entityname.barodrama_cobrasuit,entityname.barodrama_windersuit,entityname.barodrama_tyrantsuit,entityname.barodrama_directorsuit,entityname.barodrama_renegadesuit" color="gui.orange" />
+    </Description>
+    <AddedRecipe itemidentifier="barodrama_eelsuit" />
+    <AddedRecipe itemidentifier="barodrama_moraysuit" />
+    <AddedRecipe itemidentifier="barodrama_lampreysuit" />
+    <AddedRecipe itemidentifier="barodrama_whalesuit" />
+    <AddedRecipe itemidentifier="barodrama_belugiasuit" />
+    <AddedRecipe itemidentifier="barodrama_orcasuit" />
+    <AddedRecipe itemidentifier="barodrama_waspsuit" />
+    <AddedRecipe itemidentifier="barodrama_beetlesuit" />
+    <AddedRecipe itemidentifier="barodrama_mantissuit" />
+    <AddedRecipe itemidentifier="barodrama_vipersuit" />
+    <AddedRecipe itemidentifier="barodrama_cobrasuit" />
+    <AddedRecipe itemidentifier="barodrama_windersuit" />
+    <AddedRecipe itemidentifier="barodrama_renegadesuit" />
+    <AddedRecipe itemidentifier="barodrama_directorsuit" />
+    <AddedRecipe itemidentifier="barodrama_tyrantsuit" />
+    <AbilityGroupInterval interval="0.9">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffectsToLastOrderedCharacter>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+              <Affliction identifier="tyranttetherpoint" amount="100.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffectsToLastOrderedCharacter>
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+</Talents>

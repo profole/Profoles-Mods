@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Items>
+  <!-- /// EHA Overrides /// -->
+    <!-- Prototype USB - Make craftable -->
+    <Item identifier="scp_prototypeusb" maxstacksize="4" description="" category="materials" tags="smallitem" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light" scale="0.2">
+      <PreferredContainer primary="storagecab" />
+      <PreferredContainer primary="wreckstoragecab,wrecksecarmcab" minamount="0" maxamount="1" spawnprobability="0.065" />
+      <PreferredContainer primary="abandonedsecarmcab,abandonedarmcab" minamount="0" maxamount="1" spawnprobability="0.08" />
+      <Price baseprice="1200" displaynonempty="true" sold="false"></Price>
+      <Fabricate suitablefabricators="fabricator" requiredtime="30">
+        <RequiredItem identifier="fpgacircuit" amount="8" />
+        <RequiredItem identifier="paralyxis" amount="8" />
+        <RequiredItem identifier="fulgurium" amount="8" />
+        <RequiredItem identifier="dementonite" amount="8" />
+        <RequiredItem identifier="physicorium" amount="8" />
+      </Fabricate>
+      <Deconstruct time="25">
+        <Item identifier="steel" />
+      </Deconstruct>
+      <Sprite texture="%ModDir:2764968387%/Materials/wreckitems.png" sourcerect="861,42,89,89" depth="0.55" origin="0.5,0.5" />
+      <Body width="50" height="25" density="50" />
+      <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" handle1="0,0" holdangle="90" msg="ItemMsgPickUpSelect"></Holdable>
+      <AiTarget sightrange="1250" static="true" />
+    </Item>
+    <!-- Tau Cannon Parts - Make craftable -->
+    <Item identifier="scp_taucannonparts" description="" category="materials" tags="mediumitem" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light" scale="0.25">
+      <PreferredContainer primary="storagecab" />
+      <PreferredContainer primary="wreckstoragecab,wrecksecarmcab,wreckengcab" minamount="0" maxamount="1" spawnprobability="0.01" minleveldifficulty="30" />
+      <Price baseprice="2000"></Price>
+      <Fabricate suitablefabricators="fabricator" requiredtime="30">
+        <RequiredItem identifier="scp_prototypeusb" />
+        <RequiredItem identifier="steel" amount="8" />
+        <RequiredItem identifier="fulgurium" amount="8" />
+        <RequiredItem identifier="dementonite" amount="8" />
+        <RequiredItem identifier="physicorium" amount="8" />
+      </Fabricate>
+      <Deconstruct time="25">
+        <Item identifier="fulgurium" amount="4" />
+      </Deconstruct>
+      <InventoryIcon name="taupartsinv" texture="%ModDir:2764968387%/Materials/materials.png" sourcerect="681,542,219,90" depth="0.55" origin="0.5,0.5" />
+      <Sprite texture="%ModDir:2764968387%/Materials/materials.png" sourcerect="8,729,361,155" depth="0.55" origin="0.5,0.5" />
+      <Body width="50" height="25" density="50" />
+      <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" holdangle="90" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+      </Holdable>
+      <AiTarget sightrange="1250" static="true" />
+    </Item>
+  </Items>
+</Override>

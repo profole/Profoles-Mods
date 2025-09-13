@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="German" nowhitespace="false" translatedname="Deutsch">
+  <!-- /// Ingredients /// -->
+  <!-- Starch Nut -->
+  <entityname.dre_starchnut>Stärkenuss</entityname.dre_starchnut>
+  <entitydescription.dre_starchnut>Wird benutzt um Craft(bares) Bier zu brauen. Kommt auf ganz Europa vor.</entitydescription.dre_starchnut>
+  <!-- Yeast Cone -->
+  <entityname.dre_yeastcone>Hefekuppe</entityname.dre_yeastcone>
+  <entitydescription.dre_yeastcone>Wird benutzt um Craft(bares) Bier zu brauen. Kommt auf ganz Europa vor.</entitydescription.dre_yeastcone>
+  <!-- Malt Star -->
+  <entityname.dre_maltstar>Malzstern</entityname.dre_maltstar>
+  <entitydescription.dre_maltstar>Wird benutzt um Craft(bares) Bier zu brauen. Kommt auf ganz Europa vor.</entitydescription.dre_maltstar>
+  <!-- Barley Bulb -->
+  <entityname.dre_barleybulb>Gerstenblüte</entityname.dre_barleybulb>
+  <entitydescription.dre_barleybulb>Wird benutzt um Craft(bares) Bier zu brauen. Kommt auf ganz Europa vor.</entitydescription.dre_barleybulb>´
+  <!-- /// Beer /// -->
+  <!-- Oily Oaf -->
+  <entityname.dre_oilyoaf>Oily Oaf</entityname.dre_oilyoaf>
+  <entitydescription.dre_oilyoaf>[ THE ORIGINAL ] \nDas klassische Oily Oaf. Eines the leichteren Biere aber der reiche, butterige Nachgeschmack kombiniert mit einem niedrigen Preis macht das Oily Oaf quasi unverzichtbar.</entitydescription.dre_oilyoaf>
+  <!-- Leaf Lover's Special -->
+  <entityname.dre_leafloversspecial>Leaf Lover's Special</entityname.dre_leafloversspecial>
+  <entitydescription.dre_leafloversspecial>[ Independent ] \nDer einzige Grund warum Leaf Lover's noch im Umlauf ist, ist um die Koalitionsregierung zufriedenzustellen. Es killt deinen Rausch schneller als eine Gehaltskürzung und lässt dich mit dem selben, leerem Gefühl alleine. Kann jedoch eventuell bei einer Betriebsbesichtigung behilflich sein, lass einfach keinen Wissen das du eins hattest.</entitydescription.dre_leafloversspecial>
+  <!-- Blackout Stout -->
+  <entityname.dre_blackoutstout>Blackout Stout</entityname.dre_blackoutstout>
+  <entitydescription.dre_blackoutstout>[ Independent ] \nBekannt durch Raum und Zeit, ein Krug Blackout macht jeden KO. Ein wahrer Test für den wahren Säufer.</entitydescription.dre_blackoutstout>
+  <!-- Red Rock Blaster -->
+  <entityname.dre_redrockblaster>Red Rock Blaster</entityname.dre_redrockblaster>
+  <entitydescription.dre_redrockblaster>[ BREWERY CO. ] \nWenn du dir absolut sicher bist das du jeden der in deinem Weg stehen töten musst, gibt es keine Alternative. Mit einer ausgeglichene Mischung aus edel gereiftem stout, Habanero Sauce, und militärtauglichem Kampfstimulant, wird dich Red Rock Blaster nur noch rot sehen lassen.</entitydescription.dre_redrockblaster>
+  <!-- Skull Crusher Ale -->
+  <entityname.dre_skullcrusherale>Skull Crusher Ale</entityname.dre_skullcrusherale>
+  <entitydescription.dre_skullcrusherale>[ Independent ] \nDie kosmische Wut von tausenden, tobenden Sonnen kommt in dieser mitternachtschwarzen, glitzernden Mischung zusammen. People ask why we remember Karl. People ask what made him a legend. Rumor has it Skull Crusher Ale is at least partly to blame. Make of that what you will. Beware.</entitydescription.dre_skullcrusherale>
+  <!-- Smart Stout -->
+  <entityname.dre_smartstout>Smart Stout</entityname.dre_smartstout>
+  <entitydescription.dre_smartstout>[ Independent ] \nWährend dich saufen normalerweise mental verlangsmert, hat Smart Stout den gegenwärtigen Effekt. Trink genug von diesem reichen, goldenem Nektar und du wirst komplexe Raumfahrtberechnungen schneller lösen als du "Diese Bier mag ich! Noch eins!" sagen kannst. Wie? Man sagt es hat irgendwas mit Wissenschaft zu tun. Irgendwie.</entitydescription.dre_smartstout>
+  <!-- Burning Love -->
+  <entityname.dre_burninglove>Burning Love</entityname.dre_burninglove>
+  <entitydescription.dre_burninglove>[ FOUNDERS BREWERY ] \nWer kocht hier? Naja, DU! Burning Love ist für starken Geschmak und totale Ignoranz gegenüber der Scoville-Skala bekannt. Konsum auf eigene Gefahr.</entitydescription.dre_burninglove>
+  <!-- Blackreach Blonde -->
+  <entityname.dre_blackreachblonde>Blackreach Blonde</entityname.dre_blackreachblonde>
+  <entitydescription.dre_blackreachblonde>[ LONGBEARD BREWERY ] \nWahl der Partyliebhaber. Charmant, sprudelnd und fruchtig ist Blackreach Blonde dafür bekannt jeden zum lachen zu bringen. </entitydescription.dre_blackreachblonde>
+  <!-- Flintlocke's Delight -->
+  <entityname.dre_flintlockesdelight>Flintlocke's Delight</entityname.dre_flintlockesdelight>
+  <entitydescription.dre_flintlockesdelight>[ THE SEVENTH DWARVES BREWERY ] \nWie funktioniert es? Dunkle Magie? Genmanipulation? Niemand weiß es! Sicher ist, dass Flintlocke's Delight ein Favorit von jedem Sprengmeistern ist. Außerdem schmeckt es großartig - solange man den Geschmack von Schwarzpulver mag. </entitydescription.dre_flintlockesdelight>
+  <!-- /// Kegs /// -->
+  <!-- Keg of Oily Oaf -->
+  <entityname.dre_oilyoafkeg>Oily Oaf Fass</entityname.dre_oilyoafkeg>
+  <entitydescription.dre_oilyoafkeg>Ein Fass gefüllt mit Oily Oaf. Wird benutzt um Becher an einer Auffüllstation wieder aufzufüllen.</entitydescription.dre_oilyoafkeg>
+  <!-- Keg of Leaf Lover's Special -->
+  <entityname.dre_leafloversspecialkeg>Leaf Lover's Special Fass</entityname.dre_leafloversspecialkeg>
+  <entitydescription.dre_leafloversspecialkeg>Ein Fass gefüllt mit Leaf Lover's Special. Wird benutzt um Becher an einer Auffüllstation wieder aufzufüllen.</entitydescription.dre_leafloversspecialkeg>
+  <!-- Keg of Blackout Stout -->
+  <entityname.dre_blackoutstoutkeg>Blackout Stout Fass</entityname.dre_blackoutstoutkeg>
+  <entitydescription.dre_blackoutstoutkeg>Ein Fass gefüllt mit Blackout Stout. Wird benutzt um Becher an einer Auffüllstation wieder aufzufüllen.</entitydescription.dre_blackoutstoutkeg>
+  <!-- Keg of Red Rock Blaster -->
+  <entityname.dre_redrockblasterkeg>Red Rock Blaster Fass</entityname.dre_redrockblasterkeg>
+  <entitydescription.dre_redrockblasterkeg>Ein Fass gefüllt mit Red Rock Blaster. Wird benutzt um Becher an einer Auffüllstation wieder aufzufüllen.</entitydescription.dre_redrockblasterkeg>
+  <!-- Keg of Skull Crusher Ale -->
+  <entityname.dre_skullcrusheralekeg>Skull Crusher Ale Fass</entityname.dre_skullcrusheralekeg>
+  <entitydescription.dre_skullcrusheralekeg>Ein Fass gefüllt mit Skull Crusher Ale. Wird benutzt um Becher an einer Auffüllstation wieder aufzufüllen.</entitydescription.dre_skullcrusheralekeg>
+  <!-- Keg of Smart Stout -->
+  <entityname.dre_smartstoutkeg>Smart Stout Fass</entityname.dre_smartstoutkeg>
+  <entitydescription.dre_smartstoutkeg>Ein Fass gefüllt mit Smart Stout. Wird benutzt um Becher an einer Auffüllstation wieder aufzufüllen.</entitydescription.dre_smartstoutkeg>
+  <!-- Keg of Burning Love-->
+  <entityname.dre_burninglovekeg>Burning Love Fass</entityname.dre_burninglovekeg>
+  <entitydescription.dre_burninglovekeg>Ein Fass gefüllt mit Burning Love. Wird benutzt um Becher an einer Auffüllstation wieder aufzufüllen.</entitydescription.dre_burninglovekeg>
+  <!-- Keg of Blackreach Blonde-->
+  <entityname.dre_blackreachblondekeg>Blackreach Blonde Fass</entityname.dre_blackreachblondekeg>
+  <entitydescription.dre_blackreachblondekeg>Ein Fass gefüllt mit Blackreach Blonde. Wird benutzt um Becher an einer Auffüllstation wieder aufzufüllen.</entitydescription.dre_blackreachblondekeg>
+  <!-- Keg of Flintlocke's Delight -->
+  <entityname.dre_flintlockesdelightkeg>Flintlocke's Delight Fass</entityname.dre_flintlockesdelightkeg>
+  <entitydescription.dre_flintlockesdelightkeg>Ein Fass gefüllt mit Flintlocke's Delight. Wird benutzt um Becher an einer Auffüllstation wieder aufzufüllen.</entitydescription.dre_flintlockesdelightkeg>
+  <!-- /// Other /// -->
+  <!-- Empty Mug -->
+  <entityname.dre_emptymug>Leerer Becher</entityname.dre_emptymug>
+  <entitydescription.dre_emptymug>Kann an einer Auffüllstation wieder aufgefüllt werden. Oder du wirfst damit um dich. Deine Entscheidung.</entitydescription.dre_emptymug>
+  <!-- /// Afflictions /// -->
+  <!-- Red Rock-Blasted -->
+  <afflictionname.dre_redrockblasterbuff>Red Rock-Blasted</afflictionname.dre_redrockblasterbuff>
+  <afflictiondescription.dre_redrockblasterbuff>A Red Rock Blaster a day keeps the Medical Doctor away!</afflictiondescription.dre_redrockblasterbuff>
+  <!-- Crushing Skulls -->
+  <afflictionname.dre_skullcrusheralebuff>Crushing Skulls</afflictionname.dre_skullcrusheralebuff>
+  <afflictiondescription.dre_skullcrusheralebuff>Für Karl</afflictiondescription.dre_skullcrusheralebuff>
+  <!-- Increased IQ -->
+  <afflictionname.dre_smartstoutbuff>Erhöhter IQ</afflictionname.dre_smartstoutbuff>
+  <afflictiondescription.dre_smartstoutbuff>Ummmmmmmm... also eigentlich... :nerd:</afflictiondescription.dre_smartstoutbuff>
+  <!-- Incendiary Heart -->
+  <afflictionname.dre_burninglovebuff>Pyrotechnisches Herz</afflictionname.dre_burninglovebuff>
+  <afflictiondescription.dre_burninglovebuff>MEIN HERZ IS ON FIREEEEEEEEEEEEEEEEEEE</afflictiondescription.dre_burninglovebuff>
+  <!-- Partytime -->
+  <afflictionname.dre_blackreachblondebuff>Partystimmung</afflictionname.dre_blackreachblondebuff>
+  <afflictiondescription.dre_blackreachblondebuff>/e dance</afflictiondescription.dre_blackreachblondebuff>
+  <!-- Flintlocked -->
+  <afflictionname.dre_flintlockesdelightbuff>Flintlocked</afflictionname.dre_flintlockesdelightbuff>
+  <afflictiondescription.dre_flintlockesdelightbuff>Europan Detonator</afflictiondescription.dre_flintlockesdelightbuff>
+</infotexts>

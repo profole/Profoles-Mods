@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="[ X M L ] eXtended MedicaL" modversion="1.0.0" corepackage="False" gameversion="1.6.17.0">
+  <Item file="%ModDir%/NTL/XML/Items.xml" />
+  <Text file="%ModDir%/NTL/Translations/English.xml" />
+  <Afflictions file="%ModDir%/NTL/XML/Afflictions.xml" />
+  <Talents file="%ModDir%/NTL/XML/Talents.xml" />
+</contentpackage>

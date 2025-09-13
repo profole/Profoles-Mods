@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+  <!-- /// Mission /// -->
+  <!-- Output Deatmatch -->
+  <missionname.bfm_outpostdeathmatch>Outpost Deathmatch</missionname.bfm_outpostdeathmatch>
+  <!-- Output Deatmatch (BFM) -->
+  <missiontype.bfm_outpostcombat>Outpost Deathmatch (BFM)</missiontype.bfm_outpostcombat>
+</infotexts>

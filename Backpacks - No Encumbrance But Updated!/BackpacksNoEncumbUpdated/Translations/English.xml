@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+  <!-- Ammunition Case -->
+  <entityname.ammopack>Ammuntion Case</entityname.ammopack>
+  <entitydescription.ammopack>A case allowing easier ammunition management and transport.</entitydescription.ammopack>
+  <!-- Light Backpack -->
+  <entityname.backpack1>Light Backpack</entityname.backpack1>
+  <entitydescription.backpack1>A smaller and lighter version of the backpack assistants are able to make.</entitydescription.backpack1>
+  <!-- Deep Diving Operations Suit -->
+  <entityname.ddossuit>Deep Diving Operation Suit</entityname.ddossuit>
+  <entitydescription.ddossuit>A diving suit produced for high-risk deep diving operations in hazadous environments. With an integrated batter-powered propulsion system, storage system and a compact holder for storage containers.</entitydescription.ddossuit>
+  <!-- Heavy Backpack -->
+  <entityname.heavybackpack>Heavy Backpack</entityname.heavybackpack>
+  <entitydescription.heavybackpack>Large backpack used to transport heavy tools or equipment more easily. Can be used to store large items like turret ammunition.</entitydescription.heavybackpack>
+  <!-- Heavy Crate -->
+  <entityname.heavycrate>Heavy Crate</entityname.heavycrate>
+  <entitydescription.heavycrate>A heavy, movable crate used to store turret turret ammunition and diving suits.</entitydescription.heavycrate>
+ <!-- Medical Backpack -->
+ <entityname.medicalbackpack>Medical Backpack</entityname.medicalbackpack>
+  <entitydescription.medicalbackpack>Used by medical personnel to act independently of medbays by allowing them to transport medbays.</entitydescription.medicalbackpack>
+  <!-- Medical Case -->
+  <entityname.medipack>Medical Case</entityname.medipack>
+  <entitydescription.medipack>A case easier medicine management and transport.</entitydescription.medipack>
+  <!-- Oxy-Gen. Backpack -->
+  <entityname.oxy-genbackpack>Oxy-Gen. Backpack</entityname.oxy-genbackpack>
+  <entitydescription.oxy-genbackpack>A portable rebreathing station converted into a backpack allowing the user to breath underwater and refill oxygen tanks.</entitydescription.oxy-genbackpack>
+  <!-- Power-Backpack -->
+  <entityname.power-backpack>Power-Backpack</entityname.power-backpack>
+  <entitydescription.power-backpack>A portable high-intensity light emitter equiped with charging docks and storage.</entitydescription.power-backpack>
+  <!-- Shield-Backpack -->
+  <entityname.shieldbackpack>Shield Backpack</entityname.shieldbackpack>
+  <entitydescription.shieldbackpack>A revolutionnary device used to reduce damage taken when powered depending on the battery type used. Use of alien power sources is not recommended by the original creator, but may be worth attempting...</entitydescription.shieldbackpack>
+ <!-- Techno-Backpack -->
+  <entityname.techno-backpack>Techno-Backpack</entityname.techno-backpack>
+  <entitydescription.techno-backpack>Advanced gear, equipped with a portable status monitor, item finder and electrical monitor as well as a sonar and thermal scanner.</entitydescription.techno-backpack>
+</infotexts>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Talent Books" modversion="1.0.1" corepackage="False" steamworkshopid="3386239602" gameversion="1.7.7.0">
+  <Item file="%ModDir%/Talent Books/XML/Items.xml" />
+  <Text file="%ModDir%/Talent Books/Translations/English.xml" />
+</contentpackage>

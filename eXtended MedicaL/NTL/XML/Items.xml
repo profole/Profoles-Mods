@@ -1,0 +1,1304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Items>
+    <!-- /// Vanilla Overrides /// -->
+    <!-- Blood Pack (O-) - Universal donor, donates to all, vanilla blood packs are O- blood -->
+    <Item identifier="antibloodloss2" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1,antibloodloss2" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+      <PreferredContainer primary="medcab" minamount="2" maxamount="3" notcampaign="true" />
+      <PreferredContainer secondary="outpostmedcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.05" />
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="medcontainer" />
+      <PreferredContainer secondary="researchcontainer" spawnprobability="0.02" />
+      <!-- Blood Packs are divided into 4 price categories: 200 (AB+); 240 (A+, B+, AB-); 260 (O+, A-, B-); 300 (O-) -->
+      <Price baseprice="300">
+        <Price storeidentifier="merchantmedical" multiplier="0.9" />
+        <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2" />
+      </Price>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem tag="antibloodloss2" />
+      </Fabricate>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25" requiresrecipe="true" displayname="cheapitem">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem identifier="saline" />
+      </Fabricate>
+      <Deconstruct time="20">
+        <Item identifier="sodium" />
+        <Item identifier="stabilozine" />
+      </Deconstruct>
+      <SuitableTreatment type="bloodloss" suitability="120" />
+      <Sprite texture="%ModDir%/NTL/Textures/Blood Packs.png" sourcerect="128,85,64,85" depth="0.6" origin="0.5,0.5" />
+      <Body width="80" height="42" density="11" />
+      <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+        <RequiredSkill identifier="medical" level="55" />
+        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        </StatusEffect>
+        <!-- Universal donor can never be incompatible -->
+        <StatusEffect tags="medical" type="OnSuccess" target="UseTarget, This" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1.25" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="UseTarget, This" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <!-- Spawn an empty blood pack when used-->
+          <SpawnItem identifier="ntl_emptybloodpack" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Remove />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget, This" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </Holdable>
+      <AiTarget sightrange="1000" static="true" />
+      <SkillRequirementHint identifier="medical" level="55" />
+    </Item>
+    <!-- Saline - Nerfed bloodloss healing, removed infection healing and added blood type determination -->
+    <Item identifier="antibloodloss1" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1,petfood2,petfood3" useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_soft">
+      <Upgrade gameversion="0.10.0.0" scale="0.5" />
+      <PreferredContainer secondary="wrecksupplycab,beaconsupplycab" amount="1" spawnprobability="0.1" />
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="1" maxamount="3" spawnprobability="0.5" />
+      <PreferredContainer primary="medcab" secondary="medcontainer"/>
+      <Price baseprice="50" minavailable="12">
+        <Price storeidentifier="merchantoutpost"/>
+        <Price storeidentifier="merchantcity"/>
+        <Price storeidentifier="merchantresearch"/>
+        <Price storeidentifier="merchantmilitary"/>
+        <Price storeidentifier="merchantmine"/>
+        <Price storeidentifier="merchantmedical" multiplier="0.9"/>
+      </Price>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="15" amount="2" >
+        <RequiredSkill identifier="medical" level="10" />
+        <RequiredItem identifier="sodium"  />
+        <RequiredItem identifier="chlorine" amount="2" />
+        <RequiredItem identifier="ntl_emptybloodpack" amount="2" />
+      </Fabricate>
+      <Deconstruct time="5"/>
+      <SuitableTreatment type="bloodloss" suitability="30" />
+      <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,640,64,64" origin="0.5,0.5" />
+      <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,261,83,46" depth="0.6" origin="0.5,0.5" />
+      <Body width="80" height="45" density="11" />
+      <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+        <RequiredSkill identifier="medical" level="40" />
+        <StatusEffect tags="medical" type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSuccess" target="UseTarget, This" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="0.5" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="UseTarget, This" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="0.35" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <!-- Spawn an empty blood pack when used-->
+          <SpawnItem identifier="ntl_emptybloodpack" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Remove />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </Holdable>
+      <AiTarget sightrange="1000" static="true" />
+      <SkillRequirementHint identifier="medical" level="40" />
+    </Item>
+    <!-- Alien Blood - make it cause hemotransfusion shock and suck except when ur xenobiologic -->
+    <Item identifier="alienblood" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="chemicalcrate" description="" Tags="smallitem,chem,medical" useinhealthinterface="true" scale="0.5" RequireAimToUse="True">
+      <Upgrade gameversion="0.10.0.0" scale="0.5" />
+      <PreferredContainer primary="medfabcab" secondary="medcontainer"/>
+      <PreferredContainer secondary="storageorgan" minamount="1" maxamount="2" spawnprobability="1"/>
+      <Price baseprice="100" sold="false">
+        <Price storeidentifier="merchantoutpost" multiplier="0.85" />
+        <Price storeidentifier="merchantcity" multiplier="0.85" />
+        <Price storeidentifier="merchantresearch" sold="true" multiplier="1.2" minavailable="2"/>
+        <Price storeidentifier="merchantmilitary" multiplier="0.9" />
+        <Price storeidentifier="merchantmine" multiplier="0.85" />
+      </Price>
+      <SuitableTreatment type="damage" suitability="-10" />
+      <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="448,771,64,64" origin="0.5,0.5" />
+      <Sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" sourcerect="1,128,30,58" depth="0.6" origin="0.5,0.5" />
+      <Body width="30" height="55" density="11" />
+      <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" holdangle="10" handle1="0,0" msg="ItemMsgPickUpSelect">
+        <RequiredSkill identifier="medical" level="55" />
+        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1.25" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1" />
+        </StatusEffect>
+        <!-- Give hemotransfusion shock -->
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget" disabledeltatime="true">
+          <Affliction identifier="ntl_hemotransfusionshock" amount="75" />
+          <!-- Don't give shock if you are xenobiologic -->
+          <Conditional xenobiology="eq 0" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget" disabledeltatime="true">
+          <Affliction identifier="ntl_hemotransfusionshock" amount="25" />
+          <!-- Give less shock when xenobiologic -->
+          <Conditional xenobiology="eq 1" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </Holdable>
+      <SkillRequirementHint identifier="medical" level="55"/>
+    </Item>
+    <!-- Bandage - No longer heals bleeding/burn directly but instead gives bandaged afflictions -->
+    <Item identifier="antibleeding1" aliases="Bandage" category="Medical" Tags="smallitem,medical,ntl_antibleeding" maxstacksize="32" maxstacksizecharacterinventory="8" useinhealthinterface="true" cargocontaineridentifier="mediccrate" scale="0.5" impactsoundtag="impact_soft" RequireAimToUse="True">
+      <PreferredContainer secondary="supplycab" minamount="1" maxamount="2" spawnprobability="0.5" notcampaign="true"/>
+      <PreferredContainer secondary="wrecksupplycab,beaconsupplycab" amount="1" spawnprobability="0.3" />
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="1" maxamount="2" spawnprobability="0.8" />
+      <PreferredContainer secondary="outpostmedcab" minamount="1" maxamount="3" spawnprobability="0.5" />
+      <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.2" />
+      <PreferredContainer secondary="researchcontainer" spawnprobability="0.02"/>
+      <PreferredContainer primary="medcab" secondary="medcontainer"/>
+      <Price baseprice="30" minavailable="25">
+        <Price storeidentifier="merchantoutpost"/>
+        <Price storeidentifier="merchantcity"/>
+        <Price storeidentifier="merchantresearch"/>
+        <Price storeidentifier="merchantmilitary"/>
+        <Price storeidentifier="merchantmine"/>
+        <Price storeidentifier="merchantmedical" multiplier="0.9"/>
+      </Price>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="15" amount="2">
+        <RequiredSkill identifier="medical" level="5" />
+        <RequiredItem identifier="organicfiber" />
+      </Fabricate>
+      <Deconstruct time="2"/>
+      <SuitableTreatment type="bleeding" suitability="30" />
+      <SuitableTreatment type="burn" suitability="15" />
+      <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="310,33,26,42" depth="0.6" origin="0.5,0.5" />
+      <Body width="25" height="40" density="10.05" />
+      <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="10" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+        <RequiredSkill identifier="medical" level="40" />
+        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+          <Sound file="Content/Items/Medical/Bandage1.ogg" range="500" />
+          <Sound file="Content/Items/Medical/Bandage2.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSuccess" target="Limb" disabledeltatime="true">
+          <Affliction identifier="ntl_bandagedhealing" amount="15" />
+          <Affliction identifier="ntl_bandaged" amount="300" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="Limb" disabledeltatime="true">
+          <Affliction identifier="ntl_bandagedhealing" amount="10" />
+          <Affliction identifier="ntl_bandaged" amount="300" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </MeleeWeapon>
+      <SkillRequirementHint identifier="medical" level="20" />
+    </Item >
+    <!-- Plastiseal - No longer heals bleeding/burn directly but instead gives plastisealed afflictions + cannot get dirty -->
+    <Item identifier="antibleeding2" category="Medical" Tags="smallitem,medical,ntl_antibleeding" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft" RequireAimToUse="True">
+      <PreferredContainer primary="medcab" secondary="medcontainer"/>
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="1" maxamount="2" spawnprobability="0.4" />
+      <PreferredContainer secondary="outpostmedcab" minamount="1" maxamount="3" spawnprobability="0.3" />
+      <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.1" />
+      <PreferredContainer secondary="researchcontainer" spawnprobability="0.02"/>
+      <Price baseprice="100">
+        <Price storeidentifier="merchantmedical" minavailable="12" />
+      </Price>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25" amount="3">
+        <RequiredSkill identifier="medical" level="25" />
+        <RequiredItem identifier="antibleeding1" amount="3" />
+        <RequiredItem identifier="elastin" />
+      </Fabricate>
+      <Deconstruct time="2"/>
+      <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="959,771,63,59" origin="0.5,0.5" />
+      <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="340,33,26,42" depth="0.6" origin="0.5,0.5" />
+      <Body width="25" height="40" density="10.05" />
+      <SuitableTreatment type="bleeding" suitability="40" />
+      <SuitableTreatment type="burn" suitability="50" />
+      <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="10" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+        <RequiredSkill identifier="medical" level="30" />
+        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+          <Sound file="Content/Items/Medical/Bandage1.ogg" range="500" />
+          <Sound file="Content/Items/Medical/Bandage2.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSuccess" target="Limb" disabledeltatime="true">
+          <Affliction identifier="ntl_plastisealedhealing" amount="25" />
+          <Affliction identifier="ntl_plastisealed" amount="300" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="Limb" disabledeltatime="true">
+          <Affliction identifier="ntl_plastisealedhealing" amount="15" />
+          <Affliction identifier="ntl_plastisealed" amount="300" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </MeleeWeapon>
+      <SkillRequirementHint identifier="medical" level="30" />
+    </Item >
+    <!-- Antibiotic Glue - Still directly heals bleeding/burn but untrained use may cause a heart attack -->
+    <Item identifier="antibleeding3" category="Medical" Tags="smallitem,medical,ntl_antibleeding" maxstacksize="8" maxstacksizecharacterinventory="1" MaxStackSizeHoldableOrWearableInventory="1" cargocontaineridentifier="mediccrate" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+      <PreferredContainer primary="medcab" secondary="medcontainer"/>
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.3" />
+      <PreferredContainer secondary="outpostmedcab" amount="1" spawnprobability="0.2" />
+      <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.05" />
+      <Price baseprice="190">
+        <Price storeidentifier="merchantmedical" multiplier="0.9" minavailable="10" minleveldifficulty="25" />
+      </Price>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="45" amount="1" >
+        <RequiredSkill identifier="medical" level="60" />
+        <RequiredItem identifier="stabilozine" amount="1" />
+        <RequiredItem identifier="antibiotics" amount="2" />
+        <RequiredItem identifier="elastin" amount="1" />
+      </Fabricate>
+      <Deconstruct time="20">
+        <Item identifier="antibiotics" />
+      </Deconstruct>
+      <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,448,64,64" origin="0.5,0.5" />
+      <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="312,8,63,22" depth="0.6" origin="0.5,0.5" />
+      <Body width="60" height="20" density="12" />
+      <SuitableTreatment type="bleeding" suitability="80" />
+      <SuitableTreatment type="burn" suitability="60" />
+      <SuitableTreatment type="damage" suitability="-1" />
+      <SuitableTreatment type="infection" suitability="100" />
+      <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="10" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+        <RequiredSkill identifier="medical" level="70" />
+        <StatusEffect type="OnUse" target="This" Condition="-12.5">
+          <Sound file="Content/Items/Medical/Bandage1.ogg" range="500" />
+          <Sound file="Content/Items/Medical/Bandage2.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSuccess" target="This, Limb" duration="2.0">
+          <ReduceAffliction type="bleeding" amount="40" />
+          <ReduceAffliction type="burn" amount="20" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSuccess" target="This, Limb" duration="60.0">
+          <ReduceAffliction type="infection" amount="10" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="This, Limb" duration="2.0">
+          <ReduceAffliction type="bleeding" amount="30" />
+          <ReduceAffliction type="burn" amount="15" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="This, Limb" duration="60.0">  
+          <ReduceAffliction type="infection" amount="8" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="This, Limb" duration="5.0">
+          <Affliction identifier="organdamage" amount="1.25" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </MeleeWeapon>
+      <SkillRequirementHint identifier="medical" level="70" />
+    </Item>
+    <!-- /// Blood Packs /// -->
+    <!-- Blood Pack (O+) - donates to all positive -->
+    <Item identifier="ntl_bloodpackoplus" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1,antibloodloss2" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+      <PreferredContainer primary="medcab" minamount="1" maxamount="2" notcampaign="true" />
+      <PreferredContainer secondary="outpostmedcab" minamount="0" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.05" />
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="0" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="medcontainer" />
+      <PreferredContainer secondary="researchcontainer" spawnprobability="0.02" />
+      <!-- Blood Packs are divided into 4 price categories: 200 (AB+); 240 (A+, B+, AB-); 260 (O+, A-, B-); 300 (O-) -->
+      <Price baseprice="260">
+        <Price storeidentifier="merchantmedical" multiplier="0.9" />
+        <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2" />
+      </Price>
+      <!-- Noone would use this currently because you can just craft O-. Will probably change stuff so this makes sense later
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem tag="antibloodloss2" />
+      </Fabricate>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25" requiresrecipe="true" displayname="cheapitem">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem identifier="saline" />
+      </Fabricate>
+-->
+      <Deconstruct time="20">
+        <Item identifier="sodium" />
+        <Item identifier="stabilozine" />
+      </Deconstruct>
+      <Sprite texture="%ModDir%/NTL/Textures/Blood Packs.png" sourcerect="128,170,64,85" depth="0.6" origin="0.5,0.5" />
+      <Body width="80" height="42" density="11" />
+      <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+        <RequiredSkill identifier="medical" level="55" />
+        <StatusEffect tags="medical" type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1.25" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1" />
+        </StatusEffect>
+        <!-- Apply hemotransfusion shock on incompatible donation -->
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget" comparison="or" disabledeltatime="true">
+          <Affliction identifier="ntl_hemotransfusionshock" amount="75" />
+          <Conditional ntl_bloodtypeominus="eq 1" />
+          <Conditional ntl_bloodtypeaminus="eq 1" />
+          <Conditional ntl_bloodtypebminus="eq 1" />
+          <Conditional ntl_bloodtypeabminus="eq 1" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <!-- Spawn an empty blood pack when used-->
+          <SpawnItem identifier="ntl_emptybloodpack" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Remove />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </Holdable>
+      <SkillRequirementHint identifier="medical" level="55" />
+    </Item>
+    <!-- Blood Pack (A-) - donates to all A and AB -->
+    <Item identifier="ntl_bloodpackaminus" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1,antibloodloss2" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+      <PreferredContainer primary="medcab" minamount="1" maxamount="2" notcampaign="true" />
+      <PreferredContainer secondary="outpostmedcab" minamount="0" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.05" />
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="0" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="medcontainer" />
+      <PreferredContainer secondary="researchcontainer" spawnprobability="0.02" />
+      <!-- Blood Packs are divided into 4 price categories: 200 (AB+); 240 (A+, B+, AB-); 260 (O+, A-, B-); 300 (O-) -->
+      <Price baseprice="260">
+        <Price storeidentifier="merchantmedical" multiplier="0.9" />
+        <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2" />
+      </Price>
+      <!-- Noone would use this currently because you can just craft O-. Will probably change stuff so this makes sense later
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem tag="antibloodloss2" />
+      </Fabricate>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25" requiresrecipe="true" displayname="cheapitem">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem identifier="saline" />
+      </Fabricate>
+-->
+      <Deconstruct time="20">
+        <Item identifier="sodium" />
+        <Item identifier="stabilozine" />
+      </Deconstruct>
+      <Sprite texture="%ModDir%/NTL/Textures/Blood Packs.png" sourcerect="192,170,64,85" depth="0.6" origin="0.5,0.5" />
+      <Body width="80" height="42" density="11" />
+      <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+        <RequiredSkill identifier="medical" level="55" />
+        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1.25" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1" />
+        </StatusEffect>
+        <!-- Apply hemotransfusion shock on incompatible donation -->
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget" comparison="or" disabledeltatime="true">
+          <Affliction identifier="ntl_hemotransfusionshock" amount="75" />
+          <Conditional ntl_bloodtypeominus="eq 1" />
+          <Conditional ntl_bloodtypeoplus="eq 1" />
+          <Conditional ntl_bloodtypebminus="eq 1" />
+          <Conditional ntl_bloodtypebplus="eq 1" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <!-- Spawn an empty blood pack when used -->
+          <SpawnItem identifier="ntl_emptybloodpack" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Remove />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </Holdable>
+      <SkillRequirementHint identifier="medical" level="55" />
+    </Item>
+    <!-- Blood Pack (A+) - donates to A+ and AB+ -->
+    <Item identifier="ntl_bloodpackaplus" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1,antibloodloss2" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+      <PreferredContainer primary="medcab" minamount="1" maxamount="2" notcampaign="true" />
+      <PreferredContainer secondary="outpostmedcab" minamount="0" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.05" />
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="0" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="medcontainer" />
+      <PreferredContainer secondary="researchcontainer" spawnprobability="0.02" />
+      <!-- Blood Packs are divided into 4 price categories: 200 (AB+); 240 (A+, B+, AB-); 260 (O+, A-, B-); 300 (O-) -->
+      <Price baseprice="240">
+        <Price storeidentifier="merchantmedical" multiplier="0.9" />
+        <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2" />
+      </Price>
+      <!-- Noone would use this currently because you can just craft O-. Will probably change stuff so this makes sense later
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem tag="antibloodloss2" />
+      </Fabricate>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25" requiresrecipe="true" displayname="cheapitem">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem identifier="saline" />
+      </Fabricate>
+-->
+      <Deconstruct time="20">
+        <Item identifier="sodium" />
+        <Item identifier="stabilozine" />
+      </Deconstruct>
+      <Sprite texture="%ModDir%/NTL/Textures/Blood Packs.png" sourcerect="64,0,64,85" depth="0.6" origin="0.5,0.5" />
+      <Body width="80" height="42" density="11" />
+      <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+        <RequiredSkill identifier="medical" level="55" />
+        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1.25" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1" />
+        </StatusEffect>
+        <!-- Apply hemotransfusion shock on incompatible donation -->
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget" comparison="or" disabledeltatime="true">
+          <Affliction identifier="ntl_hemotransfusionshock" amount="75" />
+          <Conditional ntl_bloodtypeominus="eq 1" />
+          <Conditional ntl_bloodtypeoplus="eq 1" />
+          <Conditional ntl_bloodtypeaminus="eq 1" />
+          <Conditional ntl_bloodtypebplus="eq 1" />
+          <Conditional ntl_bloodtypebminus="eq 1" />
+          <Conditional ntl_bloodtypeabminus="eq 1" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <!-- Spawn an empty blood pack when used -->
+          <SpawnItem identifier="ntl_emptybloodpack" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Remove />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </Holdable>
+      <SkillRequirementHint identifier="medical" level="55" />
+    </Item>
+    <!-- Blood Pack (B-) - donates to all B and AB -->
+    <Item identifier="ntl_bloodpackbminus" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1,antibloodloss2" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+      <PreferredContainer primary="medcab" minamount="1" maxamount="2" notcampaign="true" />
+      <PreferredContainer secondary="outpostmedcab" minamount="0" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.05" />
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="0" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="medcontainer" />
+      <PreferredContainer secondary="researchcontainer" spawnprobability="0.02" />
+      <!-- Blood Packs are divided into 4 price categories: 200 (AB+); 240 (A+, B+, AB-); 260 (O+, A-, B-); 300 (O-) -->
+      <Price baseprice="260">
+        <Price storeidentifier="merchantmedical" multiplier="0.9" />
+        <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2" />
+      </Price>
+      <!-- Noone would use this currently because you can just craft O-. Will probably change stuff so this makes sense later
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem tag="antibloodloss2" />
+      </Fabricate>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25" requiresrecipe="true" displayname="cheapitem">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem identifier="saline" />
+      </Fabricate>
+-->
+      <Deconstruct time="20">
+        <Item identifier="sodium" />
+        <Item identifier="stabilozine" />
+      </Deconstruct>
+      <Sprite texture="%ModDir%/NTL/Textures/Blood Packs.png" sourcerect="128,0,64,85" depth="0.6" origin="0.5,0.5" />
+      <Body width="80" height="42" density="11" />
+      <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+        <RequiredSkill identifier="medical" level="55" />
+        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1.25" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1" />
+        </StatusEffect>
+        <!-- Apply hemotransfusion shock on incompatible donation -->
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget" comparison="or" disabledeltatime="true">
+          <Affliction identifier="ntl_hemotransfusionshock" amount="75" />
+          <Conditional ntl_bloodtypeominus="eq 1" />
+          <Conditional ntl_bloodtypeoplus="eq 1" />
+          <Conditional ntl_bloodtypeaminus="eq 1" />
+          <Conditional ntl_bloodtypeaplus="eq 1" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <!-- Spawn an empty blood pack when used -->
+          <SpawnItem identifier="ntl_emptybloodpack" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Remove />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </Holdable>
+      <SkillRequirementHint identifier="medical" level="55" />
+    </Item>
+    <!-- Blood Pack (B+) - donates to B+ and AB+ -->
+    <Item identifier="ntl_bloodpackbplus" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1,antibloodloss2" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+      <PreferredContainer primary="medcab" minamount="1" maxamount="2" notcampaign="true" />
+      <PreferredContainer secondary="outpostmedcab" minamount="0" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.05" />
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="0" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="medcontainer" />
+      <PreferredContainer secondary="researchcontainer" spawnprobability="0.02" />
+      <!-- Blood Packs are divided into 4 price categories: 200 (AB+); 240 (A+, B+, AB-); 260 (O+, A-, B-); 300 (O-) -->
+      <Price baseprice="240">
+        <Price storeidentifier="merchantmedical" multiplier="0.9" />
+        <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2" />
+      </Price>
+      <!-- Noone would use this currently because you can just craft O-. Will probably change stuff so this makes sense later
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem tag="antibloodloss2" />
+      </Fabricate>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25" requiresrecipe="true" displayname="cheapitem">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem identifier="saline" />
+      </Fabricate>
+-->
+      <Deconstruct time="20">
+        <Item identifier="sodium" />
+        <Item identifier="stabilozine" />
+      </Deconstruct>
+      <Sprite texture="%ModDir%/NTL/Textures/Blood Packs.png" sourcerect="64,170,64,85" depth="0.6" origin="0.5,0.5" />
+      <Body width="80" height="42" density="11" />
+      <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+        <RequiredSkill identifier="medical" level="55" />
+        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1.25" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1" />
+        </StatusEffect>
+        <!-- Apply hemotransfusion shock on incompatible donation -->
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget" comparison="or" disabledeltatime="true">
+          <Affliction identifier="ntl_hemotransfusionshock" amount="75" />
+          <Conditional ntl_bloodtypeominus="eq 1" />
+          <Conditional ntl_bloodtypeoplus="eq 1" />
+          <Conditional ntl_bloodtypeaminus="eq 1" />
+          <Conditional ntl_bloodtypeaplus="eq 1" />
+          <Conditional ntl_bloodtypebminus="eq 1" />
+          <Conditional ntl_bloodtypeabminus="eq 1" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <!-- Spawn an empty blood pack when used -->
+          <SpawnItem identifier="ntl_emptybloodpack" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Remove />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </Holdable>
+      <SkillRequirementHint identifier="medical" level="55" />
+    </Item>
+    <!-- Blood Pack (AB-) - donates to all AB -->
+    <Item identifier="ntl_bloodpackabminus" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1,antibloodloss2" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+      <PreferredContainer primary="medcab" minamount="1" maxamount="2" notcampaign="true" />
+      <PreferredContainer secondary="outpostmedcab" minamount="0" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.05" />
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="0" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="medcontainer" />
+      <PreferredContainer secondary="researchcontainer" spawnprobability="0.02" />
+      <Price baseprice="240">
+        <Price storeidentifier="merchantmedical" multiplier="0.9" />
+        <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2" />
+      </Price>
+      <!-- Noone would use this currently because you can just craft O-. Will probably change stuff so this makes sense later
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem tag="antibloodloss2" />
+      </Fabricate>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25" requiresrecipe="true" displayname="cheapitem">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem identifier="saline" />
+      </Fabricate>
+-->
+      <Deconstruct time="20">
+        <Item identifier="sodium" />
+        <Item identifier="stabilozine" />
+      </Deconstruct>
+      <Sprite texture="%ModDir%/NTL/Textures/Blood Packs.png" sourcerect="64,85,64,85" depth="0.6" origin="0.5,0.5" />
+      <Body width="80" height="42" density="11" />
+      <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+        <RequiredSkill identifier="medical" level="55" />
+        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1.25" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1" />
+        </StatusEffect>
+        <!-- Apply hemotransfusion shock on incompatible donation -->
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget" comparison="or" disabledeltatime="true">
+          <Affliction identifier="ntl_hemotransfusionshock" amount="75" />
+          <Conditional ntl_bloodtypeominus="eq 1" />
+          <Conditional ntl_bloodtypeoplus="eq 1" />
+          <Conditional ntl_bloodtypeaminus="eq 1" />
+          <Conditional ntl_bloodtypeaplus="eq 1" />
+          <Conditional ntl_bloodtypebminus="eq 1" />
+          <Conditional ntl_bloodtypebplus="eq 1" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <!-- Spawn an empty blood pack when used -->
+          <SpawnItem identifier="ntl_emptybloodpack" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Remove />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </Holdable>
+      <SkillRequirementHint identifier="medical" level="55" />
+    </Item>
+    <!-- Blood Pack (AB+) - donates to AB+ -->
+    <Item identifier="ntl_bloodpackabplus" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1,antibloodloss2" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+      <PreferredContainer primary="medcab" minamount="1" maxamount="2" notcampaign="true" />
+      <PreferredContainer secondary="outpostmedcab" minamount="0" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.05" />
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="0" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="medcontainer" />
+      <PreferredContainer secondary="researchcontainer" spawnprobability="0.02" />
+      <!-- Blood Packs are divided into 4 price categories: 200 (AB+); 240 (A+, B+, AB-); 260 (O+, A-, B-); 300 (O-) -->
+      <Price baseprice="200">
+        <Price storeidentifier="merchantmedical" multiplier="0.9" />
+        <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2" />
+      </Price>
+      <!-- Noone would use this currently because you can just craft O-. Will probably change stuff so this makes sense later
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem tag="antibloodloss2" />
+      </Fabricate>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="25" requiresrecipe="true" displayname="cheapitem">
+        <RequiredSkill identifier="medical" level="40" />
+        <RequiredItem identifier="alienblood" amount="2" />
+        <RequiredItem identifier="stabilozine" />
+        <RequiredItem identifier="saline" />
+      </Fabricate>
+-->
+      <Deconstruct time="20">
+        <Item identifier="sodium" />
+        <Item identifier="stabilozine" />
+      </Deconstruct>
+      <Sprite texture="%ModDir%/NTL/Textures/Blood Packs.png" sourcerect="0,0,64,85" depth="0.6" origin="0.5,0.5" />
+      <Body width="80" height="42" density="11" />
+      <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+        <RequiredSkill identifier="medical" level="55" />
+        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1.25" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="UseTarget" duration="30">
+          <ReduceAffliction identifier="bloodloss" amount="1" />
+        </StatusEffect>
+        <!-- Apply hemotransfusion shock on incompatible donation -->
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget" comparison="or" disabledeltatime="true">
+          <Affliction identifier="ntl_hemotransfusionshock" amount="75" />
+          <Conditional ntl_bloodtypeominus="eq 1" />
+          <Conditional ntl_bloodtypeoplus="eq 1" />
+          <Conditional ntl_bloodtypeaminus="eq 1" />
+          <Conditional ntl_bloodtypeaplus="eq 1" />
+          <Conditional ntl_bloodtypebminus="eq 1" />
+          <Conditional ntl_bloodtypebplus="eq 1" />
+          <Conditional ntl_bloodtypeabminus="eq 1" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <!-- Spawn an empty blood pack when used -->
+          <SpawnItem identifier="ntl_emptybloodpack" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Remove />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </Holdable>
+      <SkillRequirementHint identifier="medical" level="55" />
+    </Item>
+    <!-- Empty Blood Pack - Used to draw/donate blood and craft saline -->
+    <Item identifier="ntl_emptybloodpack" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,medical" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+      <PreferredContainer primary="medcab" minamount="2" maxamount="3" notcampaign="true" />
+      <PreferredContainer secondary="outpostmedcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.05" />
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="medcontainer" />
+      <PreferredContainer secondary="researchcontainer" spawnprobability="0.02" />
+      <Price baseprice="20">
+        <Price storeidentifier="merchantmedical" multiplier="0.9" />
+        <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2" />
+      </Price>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="15" amount="2">
+        <RequiredSkill identifier="medical" level="20" />
+        <RequiredItem identifier="plastic" />
+      </Fabricate>
+      <Deconstruct time="2" />
+      <Sprite texture="%ModDir%/NTL/Textures/Blood Packs.png" sourcerect="192,0,64,85" depth="0.6" origin="0.5,0.5" />
+      <Body width="80" height="42" density="11" />
+      <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+        <RequiredSkill identifier="medical" level="55" />
+        <StatusEffect type="OnUse" target="UseTarget, This" Condition="-100.0" disabledeltatime="true">
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+          <Conditional bloodloss="eq 0" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="30" comparison="and">
+          <Affliction identifier="bloodloss" amount="1.25" />
+          <Conditional bloodloss="eq 0" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="UseTarget" duration="30" comparison="and">
+          <Affliction identifier="bloodloss" amount="1.5" />
+          <Conditional bloodloss="eq 0" />
+        </StatusEffect>
+        <!-- Check against blood type and spawn the appropriate blood pack -->
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget, This" comparison="and" disabledeltatime="true">
+          <SpawnItem identifier="antibloodloss2" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Conditional ntl_bloodtypeominus="eq 1" />
+          <Conditional bloodloss="eq 0" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget, This" comparison="and" disabledeltatime="true">
+          <SpawnItem identifier="ntl_bloodpackoplus" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Conditional ntl_bloodtypeoplus="eq 1" />
+          <Conditional bloodloss="eq 0" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget, This" comparison="and" disabledeltatime="true">
+          <SpawnItem identifier="ntl_bloodpackaminus" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Conditional ntl_bloodtypeaminus="eq 1" />
+          <Conditional bloodloss="eq 0" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget, This" comparison="and" disabledeltatime="true">
+          <SpawnItem identifier="ntl_bloodpackaplus" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Conditional ntl_bloodtypeaplus="eq 1" />
+          <Conditional bloodloss="eq 0" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget, This" comparison="and" disabledeltatime="true">
+          <SpawnItem identifier="ntl_bloodpackbminus" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Conditional ntl_bloodtypebminus="eq 1" />
+          <Conditional bloodloss="eq 0" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget, This" comparison="and" disabledeltatime="true">
+          <SpawnItem identifier="ntl_bloodpackbplus" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Conditional ntl_bloodtypebplus="eq 1" />
+          <Conditional bloodloss="eq 0" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget, This" comparison="and" disabledeltatime="true">
+          <SpawnItem identifier="ntl_bloodpackabminus" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Conditional ntl_bloodtypeabminus="eq 1" />
+          <Conditional bloodloss="eq 0" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget, This" comparison="and" disabledeltatime="true">
+          <SpawnItem identifier="ntl_bloodpackabplus" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Conditional ntl_bloodtypeabplus="eq 1" />
+          <Conditional bloodloss="eq 0" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </Holdable>
+      <SkillRequirementHint identifier="medical" level="55" />
+    </Item>
+    <!-- /// Genetics /// -->
+    <!-- Synthesized Genetic Material - New thing for the bloody business perk -->
+    <Item identifier="ntl_synthesizedgeneticmaterial" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem" cargocontaineridentifier="chemicalcrate" scale="0.2" impactsoundtag="impact_soft">
+      <PreferredContainer primary="medfabcab" secondary="medcontainer"/>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="45" requiresrecipe="true">
+        <RequiredSkill identifier="medical" level="80" />
+        <RequiredItem identifier="stabilozine" amount="2" />
+        <RequiredItem identifier="alienblood" amount="6" />
+        <RequiredItem identifier="adrenalinegland" />
+        <RequiredItem identifier="swimbladder" />
+      </Fabricate>
+      <Deconstruct time="10" chooserandom="true">
+        <Item identifier="geneticmaterial_unresearched" amount="1" commonness="0.50" />
+        <Item identifier="geneticmaterial_unresearched" amount="2" commonness="0.25" />
+        <Item identifier="geneticmaterial_unresearched" amount="3" commonness="0.05" />
+      </Deconstruct>
+      <Sprite texture="Content/Items/Materials/CraftingElements2.png" depth="0.7" sourcerect="227,291,106,121" origin="0.5,0.5" />
+      <Body width="40" height="45" density="11"/>
+      <Holdable slots="RightHand,LeftHand,Any" holdpos="0,-70" handle1="0,10" handle2="0,-10" />
+    </Item>
+    <!-- /// Medical Equipment /// -->
+    <!-- Handheld Health Scanner - Health Scanner from NT so you no longer need to wear goggles all the time + shows afflictions on use in health interface -->
+    <Item identifier="ntl_handheldhealthscanner" category="Equipment" tags="smallitem,tool,medical,healthscanner" cargocontaineridentifier="mediccrate" impactsoundtag="impact_metal_light" useinhealthinterface="true" scale="0.27" isshootable="true" requireaimtouse="True">
+      <PreferredContainer primary="medcab" amount="1" spawnprobability="0.5" notcampaign="true" notpvp="true"/>
+      <Price baseprice="150">
+        <Price storeidentifier="merchantmedical" minavailable="2" multiplier="0.9" />
+        <Price storeidentifier="merchantresearch" minavailable="2" />
+        <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2" />
+      </Price>
+      <Fabricate suitablefabricators="fabricator" requiredtime="10">
+        <RequiredSkill identifier="electrical" level="30" />
+        <RequiredSkill identifier="medical" level="50" />
+        <RequiredItem identifier="healthscanner" />
+        <RequiredItem identifier="lightcomponent" />
+        <RequiredItem identifier="plastic" />
+      </Fabricate>
+      <Deconstruct time="20">
+        <Item identifier="copper" amount="2" />
+        <Item identifier="plastic" amount="2" />
+      </Deconstruct>
+      <InventoryIcon texture="%ModDir%/NTL/Textures/InventoryItemIconAtlas.png" sourcerect="448,64,64,64" origin="0.5,0.5" />
+      <Sprite texture="%ModDir%/NTL/Textures/InGameItemIconAtlas.png" sourcerect="768,0,128,128" depth="0.6" origin="0.5,0.5" />
+      <Body width="112" height="96" density="25"/>
+      <Holdable slots="Any,RightHand,LeftHand" holdpos="30,-23" aimpos="100,0" handle1="-33,-4" handle2="-33,-4" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Voltage="1.0" setvalue="true">
+          <RequiredItem items="mobilebattery" type="Contained" />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </Holdable>
+      <Propulsion force="0">
+        <RequiredItems items="mobilebattery" type="Contained" msg="ItemMsgBatteryCellRequired" />
+        <StatusEffect type="OnUse" target="Contained" Condition="-1.0">
+          <RequiredItem items="batterycell" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Contained" Condition="-0.5">
+          <RequiredItem items="fulguriumbatterycell" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Contained" Condition="-1.0">
+          <RequiredItem excludedidentifiers="batterycell,fulguriumbatterycell" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="NearbyCharacters" range="50">
+          <Affliction identifier="radiationsickness" amount="0.5" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character">
+          <ReduceAffliction identifier="radiationsickness" amount="0.3" />
+        </StatusEffect>
+        <LightComponent LightColor="100,255,100,200" Flicker="0.5" range="10" powerconsumption="0">
+          <LightTexture texture="Content/Lights/lightcone.png" origin="0.0, 0.4" size="4,4" />
+        </LightComponent>
+      </Propulsion>
+      <LightComponent LightColor="100,255,100,200" Flicker="0.25" range="10" powerconsumption="10" />
+      <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+        <Containable items="mobilebattery" />
+        <StatusEffect type="Always" target="This" Voltage="-0.5" />
+      </ItemContainer>
+      <StatusHUD range="150" overlaycolor="0,50,25,30">
+        <StatusEffect type="Always" target="This,Character" drawhudwhenequipped="true" setvalue="true">
+          <Conditional Voltage="gt 0.5" />
+        </StatusEffect>
+        <StatusEffect type="Always" target="This,Character" drawhudwhenequipped="false" setvalue="true">
+          <Conditional Voltage="lt 0.5" />
+        </StatusEffect>
+      </StatusHUD>
+    </Item>
+    <!-- Trauma Shears - Used to remove bandage/plastiseal -->
+    <Item identifier="ntl_traumashears" category="Equipment"  tags="smallitem,tool,medical" cargocontaineridentifier="mediccrate" impactsoundtag="impact_metal_light" useinhealthinterface="True" scale="0.5">
+      <PreferredContainer primary="medcab" secondary="medcontainer" amount="1"/>
+      <Price baseprice="30">
+        <Price storeidentifier="merchantmedical" sold="true" minamount="1" maxamount="2"/>
+      </Price>
+      <Fabricate suitablefabricators="fabricator">
+        <RequiredSkill identifier="medical" level="10"/>
+        <RequiredSkill identifier="mechanical" level="10"/>
+        <RequiredItem identifier="steel"/>
+        <RequiredItem identifier="plastic"/>
+      </Fabricate>
+      <Deconstruct time="2" />
+      <InventoryIcon texture="%ModDir%/NTL/Textures/InventoryItemIconAtlas.png" sourcerect="0,192,64,64" origin="0.5,0.5"/>
+      <Sprite texture="%ModDir%/NTL/Textures/InventoryItemIconAtlas.png" sourcerect="0,192,64,64" depth="0.55" origin="0.5,0.5"/>
+      <Body width="60" height="55" density="50"/>
+      <SuitableTreatment identifier="ntl_bandaged" suitability="100"/>
+      <SuitableTreatment identifier="ntl_plastisealed" suitability="100"/>
+      <SuitableTreatment identifier="ntl_dirtybandage" suitability="100"/>
+      <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="10,-10" holdangle="210" reload="1.0">
+        <StatusEffect tags="medical" type="OnSuccess" target="Limb" disabledeltatime="true">
+          <ReduceAffliction identifier="ntl_bandagedhealing" amount="1000" />
+          <ReduceAffliction identifier="ntl_bandaged" amount="1000" />
+          <!-- Dirty bandages not implemented yet
+          <ReduceAffliction identifier="ntl_dirtybandage" amount="1000" />
+-->
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="Limb" disabledeltatime="true">
+          <ReduceAffliction identifier="ntl_bandagedhealing" amount="1000" />
+          <ReduceAffliction identifier="ntl_bandaged" amount="1000" />
+          <!-- Dirty bandages not implemented yet
+          <ReduceAffliction identifier="ntl_dirtybandage" amount="1000" />
+-->
+          <Affliction identifier="bleeding" amount="2" />
+        </StatusEffect>
+        <!-- If target does not have a blood type yet, assign one -->
+        <StatusEffect type="OnUse" target="UseTarget" comparison="and">
+          <!-- Make sure target does not have a blood type already or is on cooldown -->
+          <Conditional ntl_bloodtypedeterminationcooldown="eq 0" />
+          <Conditional ntl_bloodtypeominus="eq 0" />
+          <Conditional ntl_bloodtypeoplus="eq 0" />
+          <Conditional ntl_bloodtypeaminus="eq 0" />
+          <Conditional ntl_bloodtypeaplus="eq 0" />
+          <Conditional ntl_bloodtypebminus="eq 0" />
+          <Conditional ntl_bloodtypebplus="eq 0" />
+          <Conditional ntl_bloodtypeabminus="eq 0" />
+          <Conditional ntl_bloodtypeabplus="eq 0" />
+          <!-- Give a random blood type -->
+          <Affliction identifier="ntl_bloodtypeominus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeoplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeaplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypebplus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabminus" amount="1" selectionmode="Random" />
+          <Affliction identifier="ntl_bloodtypeabplus" amount="1" selectionmode="Random" />
+          <!-- Cooldown when getting a blood type to prevent blood packs being spammed causing multiple blood type talents -->
+          <Affliction identifier="ntl_bloodtypedeterminationcooldown" amount="1" />
+        </StatusEffect>
+      </MeleeWeapon>
+      <SkillRequirementHint identifier="medical" level="25"/>
+    </Item>
+  </Items>
+</Override>

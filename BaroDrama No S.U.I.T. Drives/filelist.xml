@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="BaroDrama No S.U.I.T. Drives" modversion="1.0.1" corepackage="False" steamworkshopid="2902880656" gameversion="1.7.7.0">
+  <Item file="%ModDir%/BaroDrama Drive Patch/XML/Items.xml" />
+  <Talents file="%ModDir%/BaroDrama Drive Patch/XML/Talents.xml" />
+  <Text file="%ModDir%/BaroDrama Drive Patch/Translations/English.xml" />
+  <Text file="%ModDir%/BaroDrama Drive Patch/Translations/German.xml" />
+</contentpackage>

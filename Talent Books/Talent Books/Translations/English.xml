@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+  <!-- /// Captain's Talent Books /// -->
+  <entitydescription.talentbook_bigguns>Awards you the talent that's written on the cover of this book.</entitydescription.talentbook_bigguns>
+  <!-- /// Captain's Talent Books /// -->
+  <entityname.talentbook_bigguns>Captain's Talent Book (Big Guns)</entityname.talentbook_bigguns>
+  <entityname.talentbook_bountyhunter>Captain's Talent Book (Bounty Hunter)</entityname.talentbook_bountyhunter>
+  <entityname.talentbook_logisticsexpert>Captain's Talent Book (Logistics Expert)</entityname.talentbook_logisticsexpert>
+  <entityname.talentbook_prodigy>Captain's Talent Book (Prodigy)</entityname.talentbook_prodigy>
+  <entityname.talentbook_inspirationalleader>Captain's Talent Book (Inspirational Leader)</entityname.talentbook_inspirationalleader>
+  <entityname.talentbook_veteran>Captain's Talent Book (Veteran)</entityname.talentbook_veteran>
+  <entityname.talentbook_travelingtradesman>Captain's Talent Book (Travelling Tradesman)</entityname.talentbook_travelingtradesman>
+  <entityname.talentbook_emergencymaneuvers>Captain's Talent Book (Emergency Maneuvers)</entityname.talentbook_emergencymaneuvers>
+  <entityname.talentbook_sailorwithnoname>Captain's Talent Book (Sailor with No Name)</entityname.talentbook_sailorwithnoname>
+  <entityname.talentbook_camaraderie>Captain's Talent Book (Camaraderie)</entityname.talentbook_camaraderie>
+  <entityname.talentbook_downwiththeship>Captain's Talent Book (Down with the Ship)</entityname.talentbook_downwiththeship>
+  <entityname.talentbook_gunsmith>Captain's Talent Book (Gunsmith)</entityname.talentbook_gunsmith>
+  <entityname.talentbook_steadytune>Captain's Talent Book (Steady Tune)</entityname.talentbook_steadytune>
+  <entityname.talentbook_quickdraw>Captain's Talent Book (Quickdraw)</entityname.talentbook_quickdraw>
+  <entityname.talentbook_lonewolf>Captain's Talent Book (Lone Wolf)</entityname.talentbook_lonewolf>
+  <entityname.talentbook_deputy>Captain's Talent Book (Deputy)</entityname.talentbook_deputy>
+  <entityname.talentbook_drunkensailor>Captain's Talent Book (Drunken Sailor)</entityname.talentbook_drunkensailor>
+  <entityname.talentbook_leadingbyexample>Captain's Talent Book (Leading By Example)</entityname.talentbook_leadingbyexample>
+  <entityname.talentbook_helmsman>Captain's Talent Book (Helmsman)</entityname.talentbook_helmsman>
+  <entityname.talentbook_inspiringpresence>Captain's Talent Book (Inspiring Presence)</entityname.talentbook_inspiringpresence>
+  <entityname.talentbook_trickledown>Captain's Talent Book (Trickle Down)</entityname.talentbook_trickledown>
+  <entityname.talentbook_family>Captain's Talent Book (Family)</entityname.talentbook_family>
+  <entityname.talentbook_commendations>Captain's Talent Book (Commendations)</entityname.talentbook_commendations>
+  <entityname.talentbook_yourreputation>Captain's Talent Book (Affiliation)</entityname.talentbook_yourreputation>
+  <entityname.talentbook_affiliation>Captain's Talent Book (Your Reputation...)</entityname.talentbook_affiliation>
+  <entityname.talentbook_campaigning>Captain's Talent Book (Campaigning)</entityname.talentbook_campaigning>
+  <entityname.talentbook_networking>Captain's Talent Book (Networking)</entityname.talentbook_networking>
+  <entityname.talentbook_figurehead>Captain's Talent Book (Figurehead)</entityname.talentbook_figurehead>
+  <!-- /// Security Officer's Talent Books /// -->
+  <entityname.talentbook_protectandserve>Security Officer's Talent Book (Protect and Serve)</entityname.talentbook_protectandserve>
+  <entityname.talentbook_warstories>Security Officer's Talent Book (War Stories)</entityname.talentbook_warstories>
+  <entityname.talentbook_firstaidtraining>Security Officer's Talent Book (First Aid Training)</entityname.talentbook_firstaidtraining>
+  <entityname.talentbook_physicalconditioning>Security Officer's Talent Book (Physical Conditioning)</entityname.talentbook_physicalconditioning>
+  <entityname.talentbook_swole>Security Officer's Talent Book (Swole)</entityname.talentbook_swole>
+  <entityname.talentbook_buff>Security Officer's Talent Book (Buff)</entityname.talentbook_buff>
+  <entityname.talentbook_weaponsmith>Security Officer's Talent Book (Weaponsmith)</entityname.talentbook_weaponsmith>
+  <entityname.talentbook_bythebook>Security Officer's Talent Book (By the Book)</entityname.talentbook_bythebook>
+  <entityname.talentbook_dontpushit>Security Officer's Talent Book (Don't Push It)</entityname.talentbook_dontpushit>
+  <entityname.talentbook_bootcamp>Security Officer's Talent Book (Bootcamp)</entityname.talentbook_bootcamp>
+  <entityname.talentbook_munitionsexpertise>Security Officer's Talent Book (Munitions Expertise)</entityname.talentbook_munitionsexpertise>
+  <entityname.talentbook_boardingparty>Security Officer's Talent Book (Boarding Party)</entityname.talentbook_boardingparty>
+  <entityname.talentbook_scavenger>Security Officer's Talent Book (Scavenger)</entityname.talentbook_scavenger>
+  <entityname.talentbook_slayer>Security Officer's Talent Book (Slayer)</entityname.talentbook_slayer>
+  <entityname.talentbook_easyturtle>Security Officer's Talent Book (Easy Turtle)</entityname.talentbook_easyturtle>
+  <entityname.talentbook_daringdolphin>Security Officer's Talent Book (Daring Dolphin)</entityname.talentbook_daringdolphin>
+  <entityname.talentbook_specops>Security Officer's Talent Book (Spec-Ops)</entityname.talentbook_specops>
+  <entityname.talentbook_pacificationkit>Security Officer's Talent Book (Pacification Kit)</entityname.talentbook_pacificationkit>
+  <entityname.talentbook_beatcop>Security Officer's Talent Book (Beat Cop)</entityname.talentbook_beatcop>
+  <entityname.talentbook_stonewall>Security Officer's Talent Book (Stonewall)</entityname.talentbook_stonewall>
+  <entityname.talentbook_crustyseaman>Security Officer's Talent Book (Crusty Seaman)</entityname.talentbook_crustyseaman>
+  <entityname.talentbook_inordinateexsanguination>Security Officer's Talent Book (Inordinate Exsanguination)</entityname.talentbook_inordinateexsanguination>
+  <entityname.talentbook_implacable>Security Officer's Talent Book (Implacable)</entityname.talentbook_implacable>
+  <entityname.talentbook_rifleman>Security Officer's Talent Book (Rifleman)</entityname.talentbook_rifleman>
+  <entityname.talentbook_tandemfire>Security Officer's Talent Book (Tandem Fire)</entityname.talentbook_tandemfire>
+  <entityname.talentbook_commando>Security Officer's Talent Book (Commando)</entityname.talentbook_commando>
+  <entityname.talentbook_gunrunner>Security Officer's Talent Book (Gun Runner)</entityname.talentbook_gunrunner>
+  <entityname.talentbook_extrapowder>Security Officer's Talent Book (Extra Powder)</entityname.talentbook_extrapowder>
+  <entityname.talentbook_warlord>Security Officer's Talent Book (Warlord)</entityname.talentbook_warlord>
+  <!-- /// Medical Doctor's Talent Books /// -->
+  <entityname.talentbook_firemanscarry>Medical Doctor's Talent Book (Fireman's Carry)</entityname.talentbook_firemanscarry>
+  <entityname.talentbook_healthinsurance>Medical Doctor's Talent Book (Health Insurance)</entityname.talentbook_healthinsurance>
+  <entityname.talentbook_nobodyimportantdies>Medical Doctor's Talent Book (Nobody Important Dies)</entityname.talentbook_nobodyimportantdies>
+  <entityname.talentbook_exampleofhealth>Medical Doctor's Talent Book (Example of Health)</entityname.talentbook_exampleofhealth>
+  <entityname.talentbook_laresistance>Medical Doctor's Talent Book (La Resistance)</entityname.talentbook_laresistance>
+  <entityname.talentbook_selfcare>Medical Doctor's Talent Book (Self-care)</entityname.talentbook_selfcare>
+  <entityname.talentbook_stayinalive>Medical Doctor's Talent Book (Stayin' Alive)</entityname.talentbook_stayinalive>
+  <entityname.talentbook_medicalcompanion>Medical Doctor's Talent Book (Medical Companion)</entityname.talentbook_medicalcompanion>
+  <entityname.talentbook_dontdieonme>Medical Doctor's Talent Book (Don't Die on Me!)</entityname.talentbook_dontdieonme>
+  <entityname.talentbook_nopressure>Medical Doctor's Talent Book (No Pressure)</entityname.talentbook_nopressure>
+  <entityname.talentbook_blooddonor>Medical Doctor's Talent Book (Blood Donor)</entityname.talentbook_blooddonor>
+  <entityname.talentbook_geneharvester>Medical Doctor's Talent Book (Gene Harvester)</entityname.talentbook_geneharvester>
+  <entityname.talentbook_bloodybusiness>Medical Doctor's Talent Book (Bloody Business)</entityname.talentbook_bloodybusiness>
+  <entityname.talentbook_genesplicer>Medical Doctor's Talent Book (Gene Splicer)</entityname.talentbook_genesplicer>
+  <entityname.talentbook_blackmarketgenes>Medical Doctor's Talent Book (Blackmarket Genes)</entityname.talentbook_blackmarketgenes>
+  <entityname.talentbook_genetampering>Medical Doctor's Talent Book (Gene Tampering)</entityname.talentbook_genetampering>
+  <entityname.talentbook_geneticgenious>Medical Doctor's Talent Book (Genetic Genius)</entityname.talentbook_geneticgenious>
+  <entityname.talentbook_medicalexpertise>Medical Doctor's Talent Book (Medical Expertise)</entityname.talentbook_medicalexpertise>
+  <entityname.talentbook_medicalassistance>Medical Doctor's Talent Book (Medical Assistance)</entityname.talentbook_medicalassistance>
+  <entityname.talentbook_emergencyresponse>Medical Doctor's Talent Book (Emergency Response)</entityname.talentbook_emergencyresponse>
+  <entityname.talentbook_drsubmarine>Medical Doctor's Talent Book (Dr. Submarine)</entityname.talentbook_drsubmarine>
+  <entityname.talentbook_vitaminsupplements>Medical Doctor's Talent Book (Vitamin Supplements)</entityname.talentbook_vitaminsupplements>
+  <entityname.talentbook_miracleworker>Medical Doctor's Talent Book (Miracle Worker)</entityname.talentbook_miracleworker>
+  <entityname.talentbook_plaguedoctor>Medical Doctor's Talent Book (Plague Doctor)</entityname.talentbook_plaguedoctor>
+  <entityname.talentbook_deliverysystem>Medical Doctor's Talent Book (Delivery System)</entityname.talentbook_deliverysystem>
+  <entityname.talentbook_labcontacts>Medical Doctor's Talent Book (Lab Contacts)</entityname.talentbook_labcontacts>
+  <entityname.talentbook_supersoldiers>Medical Doctor's Talent Book (Super Soldiers)</entityname.talentbook_supersoldiers>
+  <entityname.talentbook_whatastench>Medical Doctor's Talent Book (What a Stench!)</entityname.talentbook_whatastench>
+  <entityname.talentbook_macrodosing>Medical Doctor's Talent Book (Macrodosing)</entityname.talentbook_macrodosing>
+  <!-- /// Engineer's Talent Books /// -->
+  <entityname.talentbook_dangerzone>Engineer’s Talent Book (Danger Zone)</entityname.talentbook_dangerzone>
+  <entityname.talentbook_stationengineer>Engineer’s Talent Book (Station Engineer)</entityname.talentbook_stationengineer>
+  <entityname.talentbook_junctionjunkie>Engineer’s Talent Book (Junction Junkie)</entityname.talentbook_junctionjunkie>
+  <entityname.talentbook_egghead>Engineer’s Talent Book (Egghead)</entityname.talentbook_egghead>
+  <entityname.talentbook_grounded>Engineer’s Talent Book (Grounded)</entityname.talentbook_grounded>
+  <entityname.talentbook_remotemonitor>Engineer’s Talent Book (Remote Monitor)</entityname.talentbook_remotemonitor>
+  <entityname.talentbook_funwithfission>Engineer’s Talent Book (Fun With Fission)</entityname.talentbook_funwithfission>
+  <entityname.talentbook_melodicrespite>Engineer’s Talent Book (Melodic Respite)</entityname.talentbook_melodicrespite>
+  <entityname.talentbook_submarineofthings>Engineer’s Talent Book (Submarine Of Things)</entityname.talentbook_submarineofthings>
+  <entityname.talentbook_aggressiveengineering>Engineer’s Talent Book (Aggressive Engineering)</entityname.talentbook_aggressiveengineering>
+  <entityname.talentbook_samplecollection>Engineer’s Talent Book (Sample Collection)</entityname.talentbook_samplecollection>
+  <entityname.talentbook_militaryapplications>Engineer’s Talent Book (Military Application)</entityname.talentbook_militaryapplications>
+  <entityname.talentbook_heavyhitter>Engineer’s Talent Book (Heavy Hitter)</entityname.talentbook_heavyhitter>
+  <entityname.talentbook_armsrace>Engineer’s Talent Book (Arms Race)</entityname.talentbook_armsrace>
+  <entityname.talentbook_weaponartisan>Engineer’s Talent Book (Weapon Artisan)</entityname.talentbook_weaponartisan>
+  <entityname.talentbook_nuclearoption>Engineer’s Talent Book (Nuclear Option)</entityname.talentbook_nuclearoption>
+  <entityname.talentbook_gridmaintainer>Engineer’s Talent Book (Grid Maintainer)</entityname.talentbook_gridmaintainer>
+  <entityname.talentbook_pyromaniac>Engineer’s Talent Book (Pyromaniac)</entityname.talentbook_pyromaniac>
+  <entityname.talentbook_unlimitedpower>Engineer’s Talent Book (Unlimited Power)</entityname.talentbook_unlimitedpower>
+  <entityname.talentbook_betterthannew>Engineer’s Talent Book (Better Than New)</entityname.talentbook_betterthannew>
+  <entityname.talentbook_lightingwizard>Engineer’s Talent Book (Lighting Wizard)</entityname.talentbook_lightingwizard>
+  <entityname.talentbook_unstoppablecuriosity>Engineer’s Talent Book (Unstoppable Curiosity)</entityname.talentbook_unstoppablecuriosity>
+  <entityname.talentbook_cruisin>Engineer’s Talent Book (Cruisin’)</entityname.talentbook_cruisin>
+  <entityname.talentbook_buzzin>Engineer’s Talent Book (Buzzin’)</entityname.talentbook_buzzin>
+  <entityname.talentbook_phdinnuclearphysics>Engineer’s Talent Book (Ph.D in Nuclear Physics)</entityname.talentbook_phdinnuclearphysics>
+  <!-- /// Mechanic's Talent Books /// -->
+  <entityname.talentbook_residualwaste>Mechanic's Talent Book (Residual Waste)</entityname.talentbook_residualwaste>
+  <entityname.talentbook_salvagecrew>Mechanic's Talent Book (Salvage Crew)</entityname.talentbook_salvagecrew>
+  <entityname.talentbook_machinemaniac>Mechanic's Talent Book (Machine Maniac)</entityname.talentbook_machinemaniac>
+  <entityname.talentbook_safetyfirst>Mechanic's Talent Book (Safety First)</entityname.talentbook_safetyfirst>
+  <entityname.talentbook_multifunctional>Mechanic's Talent Book (Multifunctional)</entityname.talentbook_multifunctional>
+  <entityname.talentbook_engineengineer>Mechanic's Talent Book (Engine Engineer)</entityname.talentbook_engineengineer>
+  <entityname.talentbook_ballastdenizen>Mechanic's Talent Book (Ballast Denizen)</entityname.talentbook_ballastdenizen>
+  <entityname.talentbook_modularrepairs>Mechanic's Talent Book (Modular Repairs)</entityname.talentbook_modularrepairs>
+  <entityname.talentbook_oiledmachinery>Mechanic's Talent Book (Oiled Machinery)</entityname.talentbook_oiledmachinery>
+  <entityname.talentbook_pumpndump>Mechanic's Talent Book (Pump N Dump)</entityname.talentbook_pumpndump>
+  <entityname.talentbook_ironman>Mechanic's Talent Book (Ironman)</entityname.talentbook_ironman>
+  <entityname.talentbook_retrofit>Mechanic's Talent Book (Retrofit)</entityname.talentbook_retrofit>
+  <entityname.talentbook_miner>Mechanic's Talent Book (Miner)</entityname.talentbook_miner>
+  <entityname.talentbook_massproduction>Mechanic's Talent Book (Mass Production)</entityname.talentbook_massproduction>
+  <entityname.talentbook_scrapsavant>Mechanic's Talent Book (Scrap Savant)</entityname.talentbook_scrapsavant>
+  <entityname.talentbook_toolmaintenance>Mechanic's Talent Book (Tool Maintenance)</entityname.talentbook_toolmaintenance>
+  <entityname.talentbook_ironstorm>Mechanic's Talent Book (Iron Storm)</entityname.talentbook_ironstorm>
+  <entityname.talentbook_hullfixer>Mechanic's Talent Book (Hull Fixer)</entityname.talentbook_hullfixer>
+  <entityname.talentbook_tinkerer>Mechanic's Talent Book (Tinkerer)</entityname.talentbook_tinkerer>
+  <entityname.talentbook_quickfixer>Mechanic's Talent Book (Quickfixer)</entityname.talentbook_quickfixer>
+  <entityname.talentbook_letitdrain>Mechanic's Talent Book (Let It Drain)</entityname.talentbook_letitdrain>
+  <entityname.talentbook_robotics>Mechanic's Talent Book (Robotics)</entityname.talentbook_robotics>
+  <entityname.talentbook_iamthatguy>Mechanic's Talent Book (I Am That Guy)</entityname.talentbook_iamthatguy>
+  <entityname.talentbook_heavylifting>Mechanic's Talent Book (Heavy Lifting)</entityname.talentbook_heavylifting>
+  <entityname.talentbook_mudraptorwrestler>Mechanic's Talent Book (Mudraptor Wrestler)</entityname.talentbook_mudraptorwrestler>
+  <entityname.talentbook_foolhardy>Mechanic's Talent Book (Foolhardy)</entityname.talentbook_foolhardy>
+  <entityname.talentbook_berserker>Mechanic's Talent Book (Berserker)</entityname.talentbook_berserker>
+  <entityname.talentbook_powerarmor>Mechanic's Talent Book (MECHanic)</entityname.talentbook_powerarmor>
+  <!-- /// Assistant's Talent Books /// -->
+  <entityname.talentbook_bagitup>Assistant's Talent Book (Bag It Up)</entityname.talentbook_bagitup>
+  <entityname.talentbook_playingcatchup>Assistant's Talent Book (Playing Catchup)</entityname.talentbook_playingcatchup>
+  <entityname.talentbook_mailman>Assistant's Talent Book (Mailman)</entityname.talentbook_mailman>
+  <entityname.talentbook_skedaddle>Assistant's Talent Book (Skedaddle)</entityname.talentbook_skedaddle>
+  <entityname.talentbook_crewlayabout>Assistant's Talent Book (Crew Layabout)</entityname.talentbook_crewlayabout>
+  <entityname.talentbook_starterquest>Assistant's Talent Book (Starter Quest)</entityname.talentbook_starterquest>
+  <entityname.talentbook_mule>Assistant's Talent Book (Mule)</entityname.talentbook_mule>
+  <entityname.talentbook_revengesquad>Assistant's Talent Book (Revenge Squad)</entityname.talentbook_revengesquad>
+  <entityname.talentbook_inspiringtunes>Assistant's Talent Book (Inspiring Tunes)</entityname.talentbook_inspiringtunes>
+  <entityname.talentbook_peerlearning>Assistant's Talent Book (Peer Learning)</entityname.talentbook_peerlearning>
+  <entityname.talentbook_indenturedservitude>Assistant's Talent Book (Indentured Servitude)</entityname.talentbook_indenturedservitude>
+  <entityname.talentbook_jengamaster>Assistant's Talent Book (Jenga Master)</entityname.talentbook_jengamaster>
+  <entityname.talentbook_thewaitinglist>Assistant's Talent Book (The Waiting List)</entityname.talentbook_thewaitinglist>
+  <entityname.talentbook_nonthreatening>Assistant's Talent Book (Non-Threatening)</entityname.talentbook_nonthreatening>
+  <entityname.talentbook_tastytarget>Assistant's Talent Book (Tasty Target)</entityname.talentbook_tastytarget>
+  <entityname.talentbook_insurancepolicy>Assistant's Talent Book (Insurance Policy)</entityname.talentbook_insurancepolicy>
+  <entityname.talentbook_anappleaday>Assistant's Talent Book (An Apple A Day)</entityname.talentbook_anappleaday>
+  <entityname.talentbook_thefriendswemade>Assistant's Talent Book (The Friends We Made)</entityname.talentbook_thefriendswemade>
+  <entityname.talentbook_apprenticeship_captain>Assistant's Talent Book (Apprenticeship Captain)</entityname.talentbook_apprenticeship_captain>
+  <entityname.talentbook_apprenticeship_security>Assistant's Talent Book (Apprenticeship Security)</entityname.talentbook_apprenticeship_security>
+  <entityname.talentbook_apprenticeship_doctor>Assistant's Talent Book (Apprenticeship Doctor)</entityname.talentbook_apprenticeship_doctor>
+  <entityname.talentbook_apprenticeship_engineer>Assistant's Talent Book (Apprenticeship Engineer)</entityname.talentbook_apprenticeship_engineer>
+  <entityname.talentbook_apprenticeship_mechanic>Assistant's Talent Book (Apprenticeship Mechanic)</entityname.talentbook_apprenticeship_mechanic>
+  <entityname.talentbook_logisticssystems>Assistant's Talent Book (Logistics System)</entityname.talentbook_logisticssystems>
+  <entityname.talentbook_journeyman>Assistant's Talent Book (Journeyman)</entityname.talentbook_journeyman>
+  <entityname.talentbook_loyalassistant>Assistant's Talent Book (Loyal Assistant)</entityname.talentbook_loyalassistant>
+  <entityname.talentbook_disloyalscum>Assistant's Talent Book (Treacherous Scum)</entityname.talentbook_disloyalscum>
+  <entityname.talentbook_graduationceremony>Assistant's Talent Book (Graduation Ceremony)</entityname.talentbook_graduationceremony>
+  <entityname.talentbook_enrollintoclowncollege>Assistant's Talent Book (Enroll into Clown College)</entityname.talentbook_enrollintoclowncollege>
+  <entityname.talentbook_waterprankster>Assistant's Talent Book (Water Prankster)</entityname.talentbook_waterprankster>
+  <entityname.talentbook_psychoclown>Assistant's Talent Book (Psycho Clown)</entityname.talentbook_psychoclown>
+  <entityname.talentbook_chonkyhonks>Assistant's Talent Book (Chonky Honks)</entityname.talentbook_chonkyhonks>
+  <entityname.talentbook_truepotential>Assistant's Talent Book (True Potential)</entityname.talentbook_truepotential>
+</infotexts>

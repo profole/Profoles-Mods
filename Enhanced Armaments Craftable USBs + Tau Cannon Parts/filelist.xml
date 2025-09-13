@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Enhanced Armaments Craftable USBs + Tau Cannon Parts" modversion="1.0.13" corepackage="False" steamworkshopid="2972176427" gameversion="1.7.7.0">
+  <Item file="%ModDir%/EA USB Patch/XML/Items.xml" />
+</contentpackage>

@@ -1,0 +1,1117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!-- /// Ingredients /// -->
+  <!-- Starch Nut -->
+  <Item identifier="dre_starchnut" category="Misc" Tags="smallitem,plant,plantitem,fooditem,sugary" maxstacksize="32" maxstacksizecharacterinventory="8" canbepicked="true" subcategory="Ingredients" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="2" spawnprobability="0.1" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.08" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Price baseprice="50" sold="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1.3" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" />
+    </Price>
+    <Deconstruct time="5">
+      <Item identifier="ethanol" outcondition="0.5" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.2" sourcerect="0,0,64,64" origin="0.5,0.5" />
+    <Body radius="30" density="5" />
+    <LightComponent lightcolor="208,139,211,150" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+      <LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+    </LightComponent>
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.49" sourcerect="0,0,64,64" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.49" sourcerect="0,0,64,64" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.50" sourcerect="0,0,64,64" offset="-20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="2" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.50" sourcerect="0,0,64,64" offset="-20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="2" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.51" sourcerect="0,0,64,64" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.51" sourcerect="0,0,64,64" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.4" sourcerect="0,0,64,64" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
+    <LevelResource deattachduration="1" randomoffsetfromwall="40">
+      <Commonness commonness="1" cavecommonness="1.2" abysscommonness="0" />
+    </LevelResource>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- Yeast Cone -->
+  <Item identifier="dre_yeastcone" category="Misc" Tags="smallitem,plant,plantitem,fooditem,sugary" maxstacksize="32" maxstacksizecharacterinventory="8" canbepicked="true" subcategory="Ingredients" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="2" spawnprobability="0.1" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.08" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Price baseprice="50" sold="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1.3" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" />
+    </Price>
+    <Deconstruct time="5">
+      <Item identifier="ethanol" outcondition="0.5" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.2" sourcerect="64,0,64,64" origin="0.5,0.5" />
+    <Body radius="30" density="5" />
+    <LightComponent lightcolor="208,139,211,150" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+      <LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+    </LightComponent>
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.49" sourcerect="64,0,64,64" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.49" sourcerect="64,0,64,64" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.50" sourcerect="64,0,64,64" offset="-20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="2" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.50" sourcerect="64,0,64,64" offset="-20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="2" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.51" sourcerect="64,0,64,64" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.51" sourcerect="64,0,64,64" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.4" sourcerect="64,0,64,64" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
+    <LevelResource deattachduration="1" randomoffsetfromwall="40">
+      <Commonness commonness="1" cavecommonness="1.2" abysscommonness="0" />
+    </LevelResource>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- Malt Star -->
+  <Item identifier="dre_maltstar" category="Misc" Tags="smallitem,plant,plantitem,fooditem,sugary" maxstacksize="32" maxstacksizecharacterinventory="8" canbepicked="true" subcategory="Ingredients" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="2" spawnprobability="0.1" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.08" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Price baseprice="50" sold="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1.3" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" />
+    </Price>
+    <Deconstruct time="5">
+      <Item identifier="ethanol" outcondition="0.5" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.2" sourcerect="0,64,64,64" origin="0.5,0.5" />
+    <Body radius="30" density="5" />
+    <LightComponent lightcolor="208,139,211,150" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+      <LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+    </LightComponent>
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.49" sourcerect="0,64,64,64" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.49" sourcerect="0,64,64,64" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.50" sourcerect="0,64,64,64" offset="-20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="2" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.50" sourcerect="0,64,64,64" offset="-20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="2" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.51" sourcerect="0,64,64,64" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.51" sourcerect="0,64,64,64" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.4" sourcerect="0,64,64,64" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
+    <LevelResource deattachduration="1" randomoffsetfromwall="40">
+      <Commonness commonness="1" cavecommonness="1.2" abysscommonness="0" />
+    </LevelResource>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- Barley Bulb -->
+  <Item identifier="dre_barleybulb" category="Misc" Tags="smallitem,plant,plantitem,fooditem,sugary" maxstacksize="32" maxstacksizecharacterinventory="8" canbepicked="true" subcategory="Ingredients" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="2" spawnprobability="0.1" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.08" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Price baseprice="50" sold="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1.3" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" />
+    </Price>
+    <Deconstruct time="5">
+      <Item identifier="ethanol" outcondition="0.5" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.2" sourcerect="64,64,64,64" origin="0.5,0.5" />
+    <Body radius="30" density="5" />
+    <LightComponent lightcolor="208,139,211,150" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+      <LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+    </LightComponent>
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.49" sourcerect="64,64,64,64" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.49" sourcerect="64,64,64,64" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.50" sourcerect="64,64,64,64" offset="-20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="2" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.50" sourcerect="64,64,64,64" offset="-20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="2" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.51" sourcerect="64,64,64,64" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.51" sourcerect="64,64,64,64" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
+    <DecorativeSprite texture="%ModDir%/DRE/Textures/Ingredients.png" depth="0.4" sourcerect="64,64,64,64" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
+    <LevelResource deattachduration="1" randomoffsetfromwall="40">
+      <Commonness commonness="1" cavecommonness="1.2" abysscommonness="0" />
+    </LevelResource>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- /// Beer /// -->
+  <!-- Oily Oaf -->
+  <Item identifier="dre_oilyoaf" category="Misc" maxstacksize="1" subcategory="Drinks" cargocontaineridentifier="he-liquorcrate" Tags="smallitem,chem,medical,bottle" scale="0.25" impactsoundtag="impact_mug">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Fabricate suitablefabricators="refillstation" requiredtime="5" requiresrecipe="false" amount="1">
+      <RequiredItem identifier="dre_oilyoafkeg" UseCondition="True" MinCondition="0.049" />
+      <RequiredItem identifier="dre_emptymug" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="dre_emptymug" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="0,0,128,100" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="0,0,128,100" depth="0.6" origin="0.5,0.5" />
+    <Body width="60" height="50" density="40" />
+    <SuitableTreatment type="thirst" suitability="30" />
+    <SuitableTreatment type="embarrassment" suitability="50" />
+    <Holdable canBeCombined="true" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="26,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-20.0" />
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" disabledeltatime="true" stackable="false">
+        <ParticleEmitter particle="vomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="10" velocitymin="10" velocitymax="20" scalemin="0.2" scalemax="0.4" />
+        <sound file="%ModDir%/DRE/Sounds/Drinking.ogg" type="OnUse" range="500.0" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" duration="30" stackable="false">
+        <Conditional Condition="lte 1" />
+        <Affliction identifier="drunk" amount="2" />
+        <ReduceAffliction type="thirst" amount="1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="dre_emptymug" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false">
+      <StatusEffect type="OnActive" target="This" condition="-40" disabledeltatime="false" offset="0,-15">
+        <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="This" holdpos="-30,15" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true" />
+    </Powered>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptybottle">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Leaf Lover's Special -->
+  <Item identifier="dre_leafloversspecial" category="Misc" maxstacksize="1" subcategory="Drinks" cargocontaineridentifier="he-liquorcrate" Tags="smallitem,chem,medical,bottle" scale="0.25" impactsoundtag="impact_mug">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Fabricate suitablefabricators="refillstation" requiredtime="5" requiresrecipe="false" amount="1">
+      <RequiredItem identifier="dre_leafloversspecialkeg" UseCondition="True" MinCondition="0.049" />
+      <RequiredItem identifier="dre_emptymug" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="dre_emptymug" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="128,0,128,100" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="128,0,128,100" depth="0.6" origin="0.5,0.5" />
+    <Body width="60" height="50" density="40" />
+    <SuitableTreatment type="thirst" suitability="30" />
+    <Holdable canBeCombined="true" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="26,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-20.0" />
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" disabledeltatime="true" stackable="false">
+        <ParticleEmitter particle="vomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="10" velocitymin="10" velocitymax="20" scalemin="0.2" scalemax="0.4" />
+        <sound file="%ModDir%/DRE/Sounds/Drinking.ogg" type="OnUse" range="500.0" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" duration="30" stackable="false">
+        <Conditional Condition="lte 1" />
+        <ReduceAffliction identifier="drunk" amount="20" />
+        <Affliction identifier="thirst" amount="1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="dre_emptymug" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false">
+      <StatusEffect type="OnActive" target="This" condition="-40" disabledeltatime="false" offset="0,-15">
+        <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="This" holdpos="-30,15" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true" />
+    </Powered>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptybottle">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Blackout Stout -->
+  <Item identifier="dre_blackoutstout" category="Misc" maxstacksize="1" subcategory="Drinks" cargocontaineridentifier="he-liquorcrate" Tags="smallitem,chem,medical,bottle" scale="0.25" impactsoundtag="impact_mug">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Fabricate suitablefabricators="refillstation" requiredtime="5" requiresrecipe="false" amount="1">
+      <RequiredItem identifier="dre_blackoutstoutkeg" UseCondition="True" MinCondition="0.049" />
+      <RequiredItem identifier="dre_emptymug" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="dre_emptymug" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="256,0,128,100" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="256,0,128,100" depth="0.6" origin="0.5,0.5" />
+    <Body width="60" height="50" density="40" />
+    <SuitableTreatment type="thirst" suitability="30" />
+    <SuitableTreatment type="embarrassment" suitability="50" />
+    <Holdable canBeCombined="true" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="26,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-20.0" />
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" disabledeltatime="true" stackable="false">
+        <ParticleEmitter particle="vomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="10" velocitymin="10" velocitymax="20" scalemin="0.2" scalemax="0.4" />
+        <sound file="%ModDir%/DRE/Sounds/Drinking.ogg" type="OnUse" range="500.0" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" duration="30" stackable="false">
+        <Conditional Condition="lte 1" />
+        <Affliction identifier="drunk" amount="20" />
+        <ReduceAffliction type="thirst" amount="1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="dre_emptymug" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false">
+      <StatusEffect type="OnActive" target="This" condition="-40" disabledeltatime="false" offset="0,-15">
+        <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="This" holdpos="-30,15" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true" />
+    </Powered>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptybottle">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Red Rock Blaster -->
+  <Item identifier="dre_redrockblaster" category="Misc" maxstacksize="1" subcategory="Drinks" cargocontaineridentifier="he-liquorcrate" Tags="smallitem,chem,medical,bottle" scale="0.25" impactsoundtag="impact_mug">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Fabricate suitablefabricators="refillstation" requiredtime="5" requiresrecipe="false" amount="1">
+      <RequiredItem identifier="dre_redrockblasterkeg" UseCondition="True" MinCondition="0.049" />
+      <RequiredItem identifier="dre_emptymug" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="dre_emptymug" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="384,0,128,100" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="384,0,128,100" depth="0.6" origin="0.5,0.5" />
+    <Body width="60" height="50" density="40" />
+    <SuitableTreatment type="thirst" suitability="30" />
+    <SuitableTreatment type="embarrassment" suitability="50" />
+    <Holdable canBeCombined="true" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="26,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-20.0" />
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" disabledeltatime="true" stackable="false">
+        <ParticleEmitter particle="vomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="10" velocitymin="10" velocitymax="20" scalemin="0.2" scalemax="0.4" />
+        <sound file="%ModDir%/DRE/Sounds/Drinking.ogg" type="OnUse" range="500.0" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" duration="30" stackable="false">
+        <Conditional Condition="lte 1" />
+        <Affliction identifier="drunk" amount="1.5" />
+        <ReduceAffliction type="thirst" amount="1" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" stackable="false" duration="1">
+        <Conditional Condition="lte 1" />
+        <Affliction identifier="dre_redrockblasterbuff" amount="900" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="dre_emptymug" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false">
+      <StatusEffect type="OnActive" target="This" condition="-40" disabledeltatime="false" offset="0,-15">
+        <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="This" holdpos="-30,15" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true" />
+    </Powered>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptybottle">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Skull Crusher Ale -->
+  <Item identifier="dre_skullcrusherale" category="Misc" maxstacksize="1" subcategory="Drinks" cargocontaineridentifier="he-liquorcrate" Tags="smallitem,chem,medical,bottle" scale="0.25" impactsoundtag="impact_mug">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Fabricate suitablefabricators="refillstation" requiredtime="5" requiresrecipe="false" amount="1">
+      <RequiredItem identifier="dre_skullcrusheralekeg" UseCondition="True" MinCondition="0.049" />
+      <RequiredItem identifier="dre_emptymug" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="dre_emptymug" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="512,0,128,100" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="512,0,128,100" depth="0.6" origin="0.5,0.5" />
+    <Body width="60" height="50" density="40" />
+    <SuitableTreatment type="thirst" suitability="30" />
+    <SuitableTreatment type="embarrassment" suitability="50" />
+    <Holdable canBeCombined="true" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="26,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-20.0" />
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" disabledeltatime="true" stackable="false">
+        <ParticleEmitter particle="vomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="10" velocitymin="10" velocitymax="20" scalemin="0.2" scalemax="0.4" />
+        <sound file="%ModDir%/DRE/Sounds/Drinking.ogg" type="OnUse" range="500.0" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" duration="30" stackable="false">
+        <Conditional Condition="lte 1" />
+        <Affliction identifier="drunk" amount="1.5" />
+        <ReduceAffliction type="thirst" amount="1" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" stackable="false" duration="1">
+        <Conditional Condition="lte 1" />
+        <Affliction identifier="dre_skullcrusheralebuff" amount="900" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="dre_emptymug" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false">
+      <StatusEffect type="OnActive" target="This" condition="-40" disabledeltatime="false" offset="0,-15">
+        <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="This" holdpos="-30,15" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true" />
+    </Powered>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptybottle">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Smart Stout -->
+  <Item identifier="dre_smartstout" category="Misc" maxstacksize="1" subcategory="Drinks" cargocontaineridentifier="he-liquorcrate" Tags="smallitem,chem,medical,bottle" scale="0.25" impactsoundtag="impact_mug">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Fabricate suitablefabricators="refillstation" requiredtime="5" requiresrecipe="false" amount="1">
+      <RequiredItem identifier="dre_smartstoutkeg" UseCondition="True" MinCondition="0.049" />
+      <RequiredItem identifier="dre_emptymug" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="dre_emptymug" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="0,128,128,100" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="0,128,128,100" depth="0.6" origin="0.5,0.5" />
+    <Body width="60" height="50" density="40" />
+    <SuitableTreatment type="thirst" suitability="30" />
+    <SuitableTreatment type="embarrassment" suitability="50" />
+    <Holdable canBeCombined="true" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="26,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-20.0" />
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" disabledeltatime="true" stackable="false">
+        <ParticleEmitter particle="vomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="10" velocitymin="10" velocitymax="20" scalemin="0.2" scalemax="0.4" />
+        <sound file="%ModDir%/DRE/Sounds/Drinking.ogg" type="OnUse" range="500.0" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" duration="30" stackable="false">
+        <Conditional Condition="lte 1" />
+        <Affliction identifier="drunk" amount="1.5" />
+        <ReduceAffliction type="thirst" amount="1" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" stackable="false" duration="1">
+        <Conditional Condition="lte 1" />
+        <Affliction identifier="dre_smartstoutbuff" amount="900" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="dre_emptymug" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false">
+      <StatusEffect type="OnActive" target="This" condition="-40" disabledeltatime="false" offset="0,-15">
+        <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="This" holdpos="-30,15" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true" />
+    </Powered>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptybottle">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Burning Love -->
+  <Item identifier="dre_burninglove" category="Misc" maxstacksize="1" subcategory="Drinks" cargocontaineridentifier="he-liquorcrate" Tags="smallitem,chem,medical,bottle" scale="0.25" impactsoundtag="impact_mug">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Fabricate suitablefabricators="refillstation" requiredtime="5" requiresrecipe="false" amount="1">
+      <RequiredItem identifier="dre_burninglovekeg" UseCondition="True" MinCondition="0.049" />
+      <RequiredItem identifier="dre_emptymug" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="dre_emptymug" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="128,128,128,100" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="128,128,128,100" depth="0.6" origin="0.5,0.5" />
+    <Body width="60" height="50" density="40" />
+    <SuitableTreatment type="thirst" suitability="30" />
+    <SuitableTreatment type="embarrassment" suitability="50" />
+    <Holdable canBeCombined="true" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="26,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-20.0" />
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" disabledeltatime="true" stackable="false">
+        <ParticleEmitter particle="vomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="10" velocitymin="10" velocitymax="20" scalemin="0.2" scalemax="0.4" />
+        <sound file="%ModDir%/DRE/Sounds/Drinking.ogg" type="OnUse" range="500.0" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" duration="30" stackable="false">
+        <Conditional Condition="lte 1" />
+        <Affliction identifier="drunk" amount="1.5" />
+        <Affliction identifier="burn" amount="2" />
+        <ReduceAffliction type="thirst" amount="1" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" stackable="false" duration="1">
+        <Conditional Condition="lte 1" />
+        <Affliction identifier="dre_burninglovebuff" amount="60" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="dre_emptymug" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false">
+      <StatusEffect type="OnActive" target="This" condition="-40" disabledeltatime="false" offset="0,-15">
+        <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="This" holdpos="-30,15" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true" />
+    </Powered>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptybottle">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Blackreach Blonde -->
+  <Item identifier="dre_blackreachblonde" category="Misc" maxstacksize="1" subcategory="Drinks" cargocontaineridentifier="he-liquorcrate" Tags="smallitem,chem,medical,bottle" scale="0.25" impactsoundtag="impact_mug">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Fabricate suitablefabricators="refillstation" requiredtime="5" requiresrecipe="false" amount="1">
+      <RequiredItem identifier="dre_blackreachblondekeg" UseCondition="True" MinCondition="0.049" />
+      <RequiredItem identifier="dre_emptymug" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="dre_emptymug" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="256,128,128,100" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="256,128,128,100" depth="0.6" origin="0.5,0.5" />
+    <Body width="60" height="50" density="40" />
+    <SuitableTreatment type="thirst" suitability="30" />
+    <SuitableTreatment type="embarrassment" suitability="50" />
+    <Holdable canBeCombined="true" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="26,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-20.0" />
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" disabledeltatime="true" stackable="false">
+        <ParticleEmitter particle="vomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="10" velocitymin="10" velocitymax="20" scalemin="0.2" scalemax="0.4" />
+        <sound file="%ModDir%/DRE/Sounds/Drinking.ogg" type="OnUse" range="500.0" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget,Character" duration="30" stackable="false">
+        <Conditional Condition="lte 1" />
+        <Affliction identifier="drunk" amount="1.5" />
+        <ReduceAffliction type="thirst" amount="1" />
+        <Sound file="%ModDir%/DRE/Sounds/BeerMusic1.ogg" range="500.0" selectionmode="Random" />
+        <Sound file="%ModDir%/DRE/Sounds/BeerMusic2.ogg" range="500.0" selectionmode="Random" />
+        <Sound file="%ModDir%/DRE/Sounds/BeerMusic3.ogg" range="500.0" selectionmode="Random" />
+        <Sound file="%ModDir%/DRE/Sounds/BeerMusic4.ogg" range="500.0" selectionmode="Random" />
+        <Sound file="%ModDir%/DRE/Sounds/BeerMusic5.ogg" range="500.0" selectionmode="Random" />
+        <Sound file="%ModDir%/DRE/Sounds/BeerMusic6.ogg" range="500.0" selectionmode="Random" />
+        <Sound file="%ModDir%/DRE/Sounds/BeerMusic7.ogg" range="500.0" selectionmode="Random" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" stackable="false" duration="1">
+        <Conditional Condition="lte 1" />
+        <Affliction identifier="dre_blackreachblondebuff" amount="60" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="dre_emptymug" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false">
+      <StatusEffect type="OnActive" target="This" condition="-40" disabledeltatime="false" offset="0,-15">
+        <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="This" holdpos="-30,15" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true" />
+    </Powered>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptybottle">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Flintlocke's Delight -->
+  <Item identifier="dre_flintlockesdelight" category="Misc" maxstacksize="1" subcategory="Drinks" cargocontaineridentifier="he-liquorcrate" Tags="smallitem,chem,medical,bottle" scale="0.25" impactsoundtag="impact_mug">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Fabricate suitablefabricators="refillstation" requiredtime="5" requiresrecipe="false" amount="1">
+      <RequiredItem identifier="dre_flintlockesdelightkeg" UseCondition="True" MinCondition="0.049" />
+      <RequiredItem identifier="dre_emptymug" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="dre_emptymug" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="384,128,128,100" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="384,128,128,100" depth="0.6" origin="0.5,0.5" />
+    <Body width="60" height="50" density="40" />
+    <SuitableTreatment type="thirst" suitability="30" />
+    <SuitableTreatment type="embarrassment" suitability="50" />
+    <Holdable canBeCombined="true" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="26,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-20.0" />
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" disabledeltatime="true" stackable="false">
+        <ParticleEmitter particle="vomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="10" velocitymin="10" velocitymax="20" scalemin="0.2" scalemax="0.4" />
+        <sound file="%ModDir%/DRE/Sounds/Drinking.ogg" type="OnUse" range="500.0" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" duration="30" stackable="false">
+        <Conditional Condition="lte 1" />
+        <Affliction identifier="drunk" amount="1.5" />
+        <ReduceAffliction type="thirst" amount="1" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" stackable="false" duration="1">
+        <Conditional Condition="lte 1" />
+        <Affliction identifier="dre_flintlockesdelightbuff" amount="30" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="dre_emptymug" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false">
+      <StatusEffect type="OnActive" target="This" condition="-40" disabledeltatime="false" offset="0,-15">
+        <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="This" holdpos="-30,15" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true" />
+    </Powered>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptybottle">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- /// Kegs /// -->
+  <!-- Keg of Oily Oaf -->
+  <Item identifier="dre_oilyoafkeg" category="Misc" subcategory="Kegs" maxstacksize="1" cargocontaineridentifier="metalcrate" Tags="keg" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_metal_heavy" isshootable="true" requireaimtouse="true" canflipx="false">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Price baseprice="150" sold="false">
+      <Price storeidentifier="merchantclown" multiplier="2.0" minavailable="1">
+        <Reputation faction="clowns" min="30" />
+      </Price>
+      <Price storeidentifier="merchantoutpost" multiplier="1.1" />
+      <Price storeidentifier="merchantcity" multiplier="1.5" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" sold="false" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" sold="false" />
+    </Price>
+    <Sprite texture="%ModDir%/DRE/Textures/OilyOafKeg.png" sourcerect="0,0,91,138" depth="0.699" origin="0.5,0.5" canflipx="false" />
+    <Body width="91" height="136" density="10.1" />
+    <Fabricate suitablefabricators="brewkettle" requiredtime="300" requiresrecipe="false" amount="1">
+      <RequiredSkill identifier="cooking" level="25" />
+      <RequiredItem tag="waterkeg" amount="1" />
+      <RequiredItem identifier="ethanol" amount="6" />
+    </Fabricate>
+    <Deconstruct time="2" requireddeconstructor="deconstructor">
+      <Item identifier="aluminium" amount="3" outcondition="1.0" />
+    </Deconstruct>
+    <Holdable canBeCombined="true" removeOnCombined="false" selectkey="Select" canbepicked="true" pickkey="Select" slots="RightHand+LeftHand" holdpos="40,-40" handle1="0,53" handle2="0,53" holdangle="3" msg="ItemMsgPickUpSelect" PickingTime="0" aimpos="65,-10" attachable="true" aimable="true">
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="he-kegempty" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" condition="-5" disabledeltatime="false" offset="0,-36">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+        <Sound file="%ModDir:Hungry Europans%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" holdpos="-40,0" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false" />
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptykeg">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Keg of Leaf Lover's Special -->
+  <Item identifier="dre_leafloversspecialkeg" category="Misc" subcategory="Kegs" maxstacksize="1" cargocontaineridentifier="metalcrate" Tags="keg" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_metal_heavy" isshootable="true" requireaimtouse="true" canflipx="false">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Price baseprice="75" sold="false">
+      <Price storeidentifier="merchantclown" multiplier="2.0" minavailable="1">
+        <Reputation faction="clowns" min="30" />
+      </Price>
+      <Price storeidentifier="merchantoutpost" multiplier="1.1" />
+      <Price storeidentifier="merchantcity" multiplier="1.5" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" sold="false" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" sold="false" />
+    </Price>
+    <Sprite texture="%ModDir%/DRE/Textures/LeafLoversSpecialKeg.png" sourcerect="0,0,91,138" depth="0.699" origin="0.5,0.5" canflipx="false" />
+    <Body width="91" height="136" density="10.1" />
+    <Fabricate suitablefabricators="brewkettle" requiredtime="300" requiresrecipe="false" amount="1">
+      <RequiredSkill identifier="cooking" level="25" />
+      <RequiredItem tag="waterkeg" amount="1" />
+      <RequiredItem identifier="fertilizer" amount="1" />
+      <RequiredItem tag="seed" amount="6" />
+    </Fabricate>
+    <Deconstruct time="2" requireddeconstructor="deconstructor">
+      <Item identifier="aluminium" amount="3" outcondition="1.0" />
+    </Deconstruct>
+    <Holdable canBeCombined="true" removeOnCombined="false" selectkey="Select" canbepicked="true" pickkey="Select" slots="RightHand+LeftHand" holdpos="40,-40" handle1="0,53" handle2="0,53" holdangle="3" msg="ItemMsgPickUpSelect" PickingTime="0" aimpos="65,-10" attachable="true" aimable="true">
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="he-kegempty" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" condition="-5" disabledeltatime="false" offset="0,-36">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+        <Sound file="%ModDir:Hungry Europans%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" holdpos="-40,0" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false" />
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptykeg">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Keg of Blackout Stout -->
+  <Item identifier="dre_blackoutstoutkeg" category="Misc" subcategory="Kegs" maxstacksize="1" cargocontaineridentifier="metalcrate" Tags="keg" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_metal_heavy" isshootable="true" requireaimtouse="true" canflipx="false">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Price baseprice="1500" sold="false">
+      <Price storeidentifier="merchantclown" multiplier="2.0" minavailable="1">
+        <Reputation faction="clowns" min="30" />
+      </Price>
+      <Price storeidentifier="merchantoutpost" multiplier="1.1" />
+      <Price storeidentifier="merchantcity" multiplier="1.5" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" sold="false" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" sold="false" />
+    </Price>
+    <Sprite texture="%ModDir%/DRE/Textures/BlackoutStoutKeg.png" sourcerect="0,0,91,138" depth="0.699" origin="0.5,0.5" canflipx="false" />
+    <Body width="91" height="136" density="10.1" />
+    <Fabricate suitablefabricators="brewkettle" requiredtime="300" requiresrecipe="true" amount="1">
+      <RequiredSkill identifier="cooking" level="25" />
+      <RequiredItem tag="waterkeg" amount="1" />
+      <RequiredItem identifier="ethanol" amount="16" />
+      <RequiredItem identifier="dre_starchnut" amount="3" />
+    </Fabricate>
+    <Deconstruct time="2" requireddeconstructor="deconstructor">
+      <Item identifier="aluminium" amount="3" outcondition="1.0" />
+    </Deconstruct>
+    <Holdable canBeCombined="true" removeOnCombined="false" selectkey="Select" canbepicked="true" pickkey="Select" slots="RightHand+LeftHand" holdpos="40,-40" handle1="0,53" handle2="0,53" holdangle="3" msg="ItemMsgPickUpSelect" PickingTime="0" aimpos="65,-10" attachable="true" aimable="true">
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="he-kegempty" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" condition="-5" disabledeltatime="false" offset="0,-36">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+        <Sound file="%ModDir:Hungry Europans%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" holdpos="-40,0" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false" />
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptykeg">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Keg of Red Rock Blaster -->
+  <Item identifier="dre_redrockblasterkeg" category="Misc" subcategory="Kegs" maxstacksize="1" cargocontaineridentifier="metalcrate" Tags="keg" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_metal_heavy" isshootable="true" requireaimtouse="true" canflipx="false">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Price baseprice="3000" sold="false">
+      <Price storeidentifier="merchantclown" multiplier="2.0" minavailable="1">
+        <Reputation faction="clowns" min="30" />
+      </Price>
+      <Price storeidentifier="merchantoutpost" multiplier="1.1" />
+      <Price storeidentifier="merchantcity" multiplier="1.5" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" sold="false" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" sold="false" />
+    </Price>
+    <Sprite texture="%ModDir%/DRE/Textures/RedRockBlasterKeg.png" sourcerect="0,0,91,138" depth="0.699" origin="0.5,0.5" canflipx="false" />
+    <Body width="91" height="136" density="10.1" />
+    <Fabricate suitablefabricators="brewkettle" requiredtime="300" requiresrecipe="true" amount="1">
+      <RequiredSkill identifier="cooking" level="25" />
+      <RequiredItem tag="waterkeg" amount="1" />
+      <RequiredItem identifier="ethanol" amount="4" />
+      <RequiredItem identifier="dre_barleybulb" amount="1" />
+    </Fabricate>
+    <Deconstruct time="2" requireddeconstructor="deconstructor">
+      <Item identifier="aluminium" amount="3" outcondition="1.0" />
+    </Deconstruct>
+    <Holdable canBeCombined="true" removeOnCombined="false" selectkey="Select" canbepicked="true" pickkey="Select" slots="RightHand+LeftHand" holdpos="40,-40" handle1="0,53" handle2="0,53" holdangle="3" msg="ItemMsgPickUpSelect" PickingTime="0" aimpos="65,-10" attachable="true" aimable="true">
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="he-kegempty" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" condition="-5" disabledeltatime="false" offset="0,-36">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+        <Sound file="%ModDir:Hungry Europans%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" holdpos="-40,0" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false" />
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptykeg">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Keg of Skull Crusher Ale -->
+  <Item identifier="dre_skullcrusheralekeg" category="Misc" subcategory="Kegs" maxstacksize="1" cargocontaineridentifier="metalcrate" Tags="keg" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_metal_heavy" isshootable="true" requireaimtouse="true" canflipx="false">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Price baseprice="3500" sold="false">
+      <Price storeidentifier="merchantclown" multiplier="2.0" minavailable="1">
+        <Reputation faction="clowns" min="30" />
+      </Price>
+      <Price storeidentifier="merchantoutpost" multiplier="1.1" />
+      <Price storeidentifier="merchantcity" multiplier="1.5" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" sold="false" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" sold="false" />
+    </Price>
+    <Sprite texture="%ModDir%/DRE/Textures/SkullCrusherAleKeg.png" sourcerect="0,0,91,138" depth="0.699" origin="0.5,0.5" canflipx="false" />
+    <Body width="91" height="136" density="10.1" />
+    <Fabricate suitablefabricators="brewkettle" requiredtime="300" requiresrecipe="true" amount="1">
+      <RequiredSkill identifier="cooking" level="25" />
+      <RequiredItem tag="waterkeg" amount="1" />
+      <RequiredItem identifier="ethanol" amount="4" />
+      <RequiredItem identifier="dre_barleybulb" amount="2" />
+    </Fabricate>
+    <Deconstruct time="2" requireddeconstructor="deconstructor">
+      <Item identifier="aluminium" amount="3" outcondition="1.0" />
+    </Deconstruct>
+    <Holdable canBeCombined="true" removeOnCombined="false" selectkey="Select" canbepicked="true" pickkey="Select" slots="RightHand+LeftHand" holdpos="40,-40" handle1="0,53" handle2="0,53" holdangle="3" msg="ItemMsgPickUpSelect" PickingTime="0" aimpos="65,-10" attachable="true" aimable="true">
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="he-kegempty" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" condition="-5" disabledeltatime="false" offset="0,-36">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+        <Sound file="%ModDir:Hungry Europans%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" holdpos="-40,0" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false" />
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptykeg">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Keg of Smart Stout-->
+  <Item identifier="dre_smartstoutkeg" category="Misc" subcategory="Kegs" maxstacksize="1" cargocontaineridentifier="metalcrate" Tags="keg" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_metal_heavy" isshootable="true" requireaimtouse="true" canflipx="false">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Price baseprice="6000" sold="false">
+      <Price storeidentifier="merchantclown" multiplier="2.0" minavailable="1">
+        <Reputation faction="clowns" min="30" />
+      </Price>
+      <Price storeidentifier="merchantoutpost" multiplier="1.1" />
+      <Price storeidentifier="merchantcity" multiplier="1.5" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" sold="false" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" sold="false" />
+    </Price>
+    <Sprite texture="%ModDir%/DRE/Textures/SmartStoutKeg.png" sourcerect="0,0,91,138" depth="0.699" origin="0.5,0.5" canflipx="false" />
+    <Body width="91" height="136" density="10.1" />
+    <Fabricate suitablefabricators="brewkettle" requiredtime="300" requiresrecipe="true" amount="1">
+      <RequiredSkill identifier="cooking" level="25" />
+      <RequiredItem tag="waterkeg" amount="1" />
+      <RequiredItem identifier="ethanol" amount="4" />
+      <RequiredItem identifier="dre_maltstar" amount="4" />
+      <RequiredItem identifier="dre_starchnut" amount="2" />
+    </Fabricate>
+    <Deconstruct time="2" requireddeconstructor="deconstructor">
+      <Item identifier="aluminium" amount="3" outcondition="1.0" />
+    </Deconstruct>
+    <Holdable canBeCombined="true" removeOnCombined="false" selectkey="Select" canbepicked="true" pickkey="Select" slots="RightHand+LeftHand" holdpos="40,-40" handle1="0,53" handle2="0,53" holdangle="3" msg="ItemMsgPickUpSelect" PickingTime="0" aimpos="65,-10" attachable="true" aimable="true">
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="he-kegempty" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" condition="-5" disabledeltatime="false" offset="0,-36">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+        <Sound file="%ModDir:Hungry Europans%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" holdpos="-40,0" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false" />
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptykeg">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Keg of Burning Love -->
+  <Item identifier="dre_burninglovekeg" category="Misc" subcategory="Kegs" maxstacksize="1" cargocontaineridentifier="metalcrate" Tags="keg" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_metal_heavy" isshootable="true" requireaimtouse="true" canflipx="false">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Price baseprice="1500" sold="false">
+      <Price storeidentifier="merchantclown" multiplier="2.0" minavailable="1">
+        <Reputation faction="clowns" min="30" />
+      </Price>
+      <Price storeidentifier="merchantoutpost" multiplier="1.1" />
+      <Price storeidentifier="merchantcity" multiplier="1.5" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" sold="false" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" sold="false" />
+    </Price>
+    <Sprite texture="%ModDir%/DRE/Textures/BurningLoveKeg.png" sourcerect="0,0,91,138" depth="0.699" origin="0.5,0.5" canflipx="false" />
+    <Body width="91" height="136" density="10.1" />
+    <Fabricate suitablefabricators="brewkettle" requiredtime="300" requiresrecipe="true" amount="1">
+      <RequiredSkill identifier="cooking" level="25" />
+      <RequiredItem tag="waterkeg" amount="1" />
+      <RequiredItem identifier="ethanol" amount="4" />
+      <RequiredItem identifier="dre_maltstar" amount="6" />
+    </Fabricate>
+    <Deconstruct time="2" requireddeconstructor="deconstructor">
+      <Item identifier="aluminium" amount="3" outcondition="1.0" />
+    </Deconstruct>
+    <Holdable canBeCombined="true" removeOnCombined="false" selectkey="Select" canbepicked="true" pickkey="Select" slots="RightHand+LeftHand" holdpos="40,-40" handle1="0,53" handle2="0,53" holdangle="3" msg="ItemMsgPickUpSelect" PickingTime="0" aimpos="65,-10" attachable="true" aimable="true">
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="he-kegempty" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" condition="-5" disabledeltatime="false" offset="0,-36">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+        <Sound file="%ModDir:Hungry Europans%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" holdpos="-40,0" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false" />
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptykeg">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Keg of Blackreach Blonde -->
+  <Item identifier="dre_blackreachblondekeg" category="Misc" subcategory="Kegs" maxstacksize="1" cargocontaineridentifier="metalcrate" Tags="keg" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_metal_heavy" isshootable="true" requireaimtouse="true" canflipx="false">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Price baseprice="1800" sold="false">
+      <Price storeidentifier="merchantclown" multiplier="2.0" minavailable="1">
+        <Reputation faction="clowns" min="30" />
+      </Price>
+      <Price storeidentifier="merchantoutpost" multiplier="1.1" />
+      <Price storeidentifier="merchantcity" multiplier="1.5" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" sold="false" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" sold="false" />
+    </Price>
+    <Sprite texture="%ModDir%/DRE/Textures/BlackreachBlondeKeg.png" sourcerect="0,0,91,138" depth="0.699" origin="0.5,0.5" canflipx="false" />
+    <Body width="91" height="136" density="10.1" />
+    <Fabricate suitablefabricators="brewkettle" requiredtime="300" requiresrecipe="true" amount="1">
+      <RequiredSkill identifier="cooking" level="25" />
+      <RequiredItem tag="waterkeg" amount="1" />
+      <RequiredItem identifier="ethanol" amount="4" />
+      <RequiredItem identifier="dre_yeastcone" amount="3" />
+      <RequiredItem identifier="dre_maltstar" amount="3" />
+    </Fabricate>
+    <Deconstruct time="2" requireddeconstructor="deconstructor">
+      <Item identifier="aluminium" amount="3" outcondition="1.0" />
+    </Deconstruct>
+    <Holdable canBeCombined="true" removeOnCombined="false" selectkey="Select" canbepicked="true" pickkey="Select" slots="RightHand+LeftHand" holdpos="40,-40" handle1="0,53" handle2="0,53" holdangle="3" msg="ItemMsgPickUpSelect" PickingTime="0" aimpos="65,-10" attachable="true" aimable="true">
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="he-kegempty" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" condition="-5" disabledeltatime="false" offset="0,-36">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+        <Sound file="%ModDir:Hungry Europans%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" holdpos="-40,0" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false" />
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptykeg">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- Keg of Flintlocke's Delight -->
+  <Item identifier="dre_flintlockesdelightkeg" category="Misc" subcategory="Kegs" maxstacksize="1" cargocontaineridentifier="metalcrate" Tags="keg" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_metal_heavy" isshootable="true" requireaimtouse="true" canflipx="false">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Price baseprice="1800" sold="false">
+      <Price storeidentifier="merchantclown" multiplier="2.0" minavailable="1">
+        <Reputation faction="clowns" min="30" />
+      </Price>
+      <Price storeidentifier="merchantoutpost" multiplier="1.1" />
+      <Price storeidentifier="merchantcity" multiplier="1.5" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" sold="false" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" sold="false" />
+    </Price>
+    <Sprite texture="%ModDir%/DRE/Textures/FlintlockesDelightKeg.png" sourcerect="0,0,91,138" depth="0.699" origin="0.5,0.5" canflipx="false" />
+    <Body width="91" height="136" density="10.1" />
+    <Fabricate suitablefabricators="brewkettle" requiredtime="300" requiresrecipe="true" amount="1">
+      <RequiredSkill identifier="cooking" level="25" />
+      <RequiredItem tag="waterkeg" amount="1" />
+      <RequiredItem identifier="ethanol" amount="4" />
+      <RequiredItem identifier="dre_yeastcone" amount="3" />
+      <RequiredItem identifier="dre_starchnut" amount="2" />
+    </Fabricate>
+    <Deconstruct time="2" requireddeconstructor="deconstructor">
+      <Item identifier="aluminium" amount="3" outcondition="1.0" />
+    </Deconstruct>
+    <Holdable canBeCombined="true" removeOnCombined="false" selectkey="Select" canbepicked="true" pickkey="Select" slots="RightHand+LeftHand" holdpos="40,-40" handle1="0,53" handle2="0,53" holdangle="3" msg="ItemMsgPickUpSelect" PickingTime="0" aimpos="65,-10" attachable="true" aimable="true">
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+        <SpawnItem identifier="he-kegempty" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" condition="-5" disabledeltatime="false" offset="0,-36">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+        <Sound file="%ModDir:Hungry Europans%/Content/Sounds/Items/Drinks/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+        <ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="50" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" holdpos="-40,0" holdangle="180" aimpos="0,0" aimangle="180" setvalue="true" disabledeltatime="true">
+        <Conditional IsActive="true" targetitemcomponent="Powered" />
+      </StatusEffect>
+    </Holdable>
+    <Powered currpowerconsumption="0" IsOn="false" />
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptykeg">
+        <StatusEffect type="OnUse" target="This" IsActive="true" targetitemcomponent="Powered" setvalue="true">
+          <Conditional IsActive="false" targetitemcomponent="Powered" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <!-- /// Other /// -->
+  <!-- Empty Mug -->
+  <Item identifier="dre_emptymug" category="Misc" maxstacksize="1" subcategory="Ingredients" cargocontaineridentifier="metalcrate" Tags="smallitem,ingredient,emptybottle" scale="0.25" impactsoundtag="impact_mug">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true" />
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="5">
+      <RequiredItem identifier="aluminium" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="512,128,128,100" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="512,128,128,100" depth="0.6" origin="0.5,0.5" />
+    <ContainedSprite allowedcontainertags="table" texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="512,128,128,100" depth="0.525" origin="0.5,0.62" />
+    <ContainedSprite allowedcontainertags="refillstation" texture="%ModDir%/DRE/Textures/BeerMugs.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+    <Body width="60" height="50" density="30" />
+    <Throwable canBeCombined="true" removeOnCombined="false" slots="Any,RightHand,LeftHand" throwforce="2.5" aimpos="26,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect" />
+  </Item>
+</Items>

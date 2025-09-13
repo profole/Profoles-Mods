@@ -1,0 +1,620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Items>
+    <!-- /// Vanilla Overrides /// -->
+	<!-- Backpack - Exchange backpack and light backpack from the original mod -->
+    <Item identifier="backpack" category="Equipment" tags="mediumitem,mobilecontainer,largemobilecontainer,tool" showcontentsintooltip="true" Scale="0.28" fireproof="true" description="" impactsoundtag="impact_soft">
+      <Deconstruct time="10">
+        <Item identifier="backpack1" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true">
+        <RequiredItem identifier="backpack1" />
+        <RequiredItem identifier="organicfiber" amount="6" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Backpack.png" sourcerect="185,8,261,273" />
+      <Sprite texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Backpack.png" sourcerect="185,8,261,273" depth="0.6" origin="0.5,0.9" />
+      <Body width="100" height="60" density="30" />
+      <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+        <StatusEffect type="OnWearing" target="Character" PropulsionSpeedMultiplier="0.65" setvalue="true" disabledeltatime="true" />
+        <sprite name="Backpack" CanBeHiddenByOtherWearables="false" CanBeHiddenByItem="deepdivinglarge" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Backpack.png" origin="1,0.5" sourcerect="1,1,101,137" depth="8" limb="Torso" depthlimb="Waist" inherittexturescale="true" />
+        <StatValue stattype="MovementSpeed" value="-0.35" />
+      </Wearable>
+      <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="0,0" handle1="-10,-20" handle2="10,-20" holdangle="45" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false">
+        <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.65" PropulsionSpeedMultiplier="0.65" setvalue="true" disabledeltatime="true" />
+      </Holdable>
+      <ItemContainer capacity="16" maxstacksize="32" depth="0.5">
+        <Containable items="smallitem" excludeditems="mobilecontainer" />
+      </ItemContainer>
+    </Item>
+	<!-- /// Backpacks /// -->
+	<!-- Light Backpack -->
+    <Item identifier="backpack1" category="Equipment" tags="mediumitem,mobilecontainer,largemobilecontainer,tool" fireproof="true" scale="0.28" impactsoundtag="impact_soft" description="">
+      <Deconstruct time="20">
+        <Item identifier="ballisticfiber" amount="2" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="20">
+        <RequiredSkill identifier="mechanical" level="35" />
+        <RequiredItem identifier="ballisticfiber" amount="4" />
+      </Fabricate>
+      <InventoryIcon texture="Content/Items/Tools/tools.png" sourcerect="3,259,68,110" origin="0.5,0.5" />
+      <Sprite texture="Content/Items/Tools/tools.png" sourcerect="3,259,68,110" depth="0.6" />
+      <Body width="60" height="100" density="15" />
+      <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+        <sprite name="Backpack on character" texture="Content/Items/Tools/tools.png" limb="Torso" depth="0.8" hidelimb="false" canbehiddenbyotherwearables="false" inherittexturescale="true" origin="1.1,0.5" sourcerect="3,259,68,110" />
+        <StatusEffect type="OnWearing" target="Character" PropulsionSpeedMultiplier="0.7" setvalue="true" disabledeltatime="true" />
+        <StatValue stattype="MovementSpeed" value="-0.3" />
+      </Wearable>
+      <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="-5,50" handle2="10,50" holdangle="0" canbeselected="false" canbepicked="true" pickkey="Use" msg="ItemMsgPickUpUse">
+        <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.7" PropulsionSpeedMultiplier="0.7" setvalue="true" disabledeltatime="true" />
+      </Holdable>
+      <ItemContainer capacity="12" maxstacksize="32" depth="0.5">
+        <Containable items="smallitem" excludeditems="mobilecontainer" />
+      </ItemContainer>
+    </Item>
+	<!-- Medical Backpack -->
+    <Item identifier="medicalbackpack" category="Equipment" tags="mediumitem,mobilecontainer,largemobilecontainer,tool" fireproof="true" cargocontaineridentifier="metalcrate" scale="0.28" impactsoundtag="impact_soft" description="">
+      <Deconstruct time="20">
+        <Item identifier="backpack1" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="20">
+        <RequiredSkill identifier="mechanical" level="35" />
+        <RequiredItem identifier="backpack1" />
+        <RequiredItem identifier="ballisticfiber" amount="2" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medical Backpack.png" sourcerect="185,8,261,273" />
+      <Sprite texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medical Backpack.png" sourcerect="185,8,261,273" depth="0.6" origin="0.5,0.9" />
+      <Body width="100" height="60" density="30" />
+      <Wearable slots="Bag" msg="ItemMsgPickUpSelect">
+        <sprite name="Backpack on character" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medical Backpack.png" canbehiddenbyotherwearables="false" limb="Torso" depth="0.8" hidelimb="false" inherittexturescale="true" origin="1,0.5" sourcerect="6,14,73,124" />
+        <ItemContainer capacity="0" maxstacksize="0" hideitems="true" slotsperrow="3" containedstateindicatorslot="1">
+          <Containable items="none" />
+          <SlotIcon slotindex="0" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medical.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="1" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medical.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="2" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medical.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="3" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medical.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="4" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medical.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="5" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medical.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="6" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medical.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="7" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medical.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="8" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medical.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="9" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medical.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="10" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medical.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="11" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medical.png" origin="0.5,0.5" />
+          <SubContainer capacity="12" maxstacksize="32">
+            <Containable items="chem,medical,syringe,poison,surgerytool,surgery,organ" excludeditems="mobilecontainer" />
+          </SubContainer>
+          <SubContainer capacity="3" maxstacksize="32">
+            <Containable items="smallitem" excludeditems="mobilecontainer" />
+          </SubContainer>
+        </ItemContainer>
+        <SkillModifier skillidentifier="medical" skillvalue="10" />
+        <StatusEffect type="OnWearing" target="Character" PropulsionSpeedMultiplier="0.7" setvalue="true" disabledeltatime="true" />
+        <StatValue stattype="MovementSpeed" value="-0.3" />
+      </Wearable>
+      <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="0,0" handle1="-10,-20" handle2="10,-20" holdangle="45" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use">
+        <Upgrade gameversion="0.1401.0.0" msg="ItemMsgPickUpUse" />
+      </Holdable>
+    </Item>
+	<!-- Heavy Backpack -->
+    <Item identifier="heavybackpack" category="Equipment" tags="mediumitem,mobilecontainer,largemobilecontainer,tool" fireproof="true" scale="0.25" impactsoundtag="impact_metal_heavy" description="">
+      <Deconstruct time="20">
+        <Item identifier="steel" />
+        <Item identifier="ballisticfiber" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="20">
+        <RequiredSkill identifier="mechanical" level="65" />
+        <RequiredItem identifier="backpack1" />
+        <RequiredItem identifier="steel" amount="3" />
+        <RequiredItem identifier="ballisticfiber" amount="4" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy Backpack.png" sourcerect="170,6,269,476" />
+      <Sprite texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy Backpack.png" sourcerect="170,6,269,476" depth="0.6" origin="0.5,0.9" />
+      <Body width="100" height="60" density="30" />
+      <Wearable slots="Bag" msg="ItemMsgPickUpSelect">
+        <sprite name="Heavy Backpack on character" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy Backpack.png" canbehiddenbyotherwearables="false" limb="Torso" depth="0.8" hidelimb="false" inherittexturescale="true" origin="1,0.5" sourcerect="2,2,90,173" />
+        <ItemContainer capacity="0" maxstacksize="0" hideitems="true" slotsperrow="3" containedstateindicatorslot="1">
+          <Containable items="none" />
+          <SlotIcon slotindex="0" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="1" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="2" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="3" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="4" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="5" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="6" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="7" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.5" />
+          <SlotIcon slotindex="8" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.5" />
+          <SubContainer capacity="9" maxstacksize="8">
+            <Containable items="smallitem,mediumitem,ammobox,depthchargeammo,railgunammo,deepdiving" excludeditems="largemobilecontainer" />
+          </SubContainer>
+        </ItemContainer>
+        <StatusEffect type="OnWearing" target="Character" PropulsionSpeedMultiplier="0.45" setvalue="true" disabledeltatime="true" />
+        <StatValue stattype="MovementSpeed" value="-0.55" />
+      </Wearable>
+      <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="0,0" handle1="-10,-20" handle2="10,-20" holdangle="45" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use">
+        <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.45" PropulsionSpeedMultiplier="0.45" setvalue="true" disabledeltatime="true" />
+      </Holdable>
+    </Item>
+	<!-- Power-Backpack -->
+    <Item identifier="power-backpack" category="Equipment" tags="smallitem,mediumitem,mobilecontainer,largemobilecontainer,tool" scale="0.4" fireproof="true" description="" impactsoundtag="impact_metal_heavy">
+      <Deconstruct time="20">
+        <Item identifier="lightcomponent" />
+        <Item identifier="fpgacircuit" amount="2" />
+        <Item identifier="fulguriumbatterycell" amount="3" />
+        <Item identifier="steel" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="20">
+        <RequiredSkill identifier="mechanical" level="75" />
+        <RequiredItem identifier="lightcomponent" />
+        <RequiredItem identifier="fpgacircuit" amount="2" />
+        <RequiredItem identifier="fulguriumbatterycell" amount="3" />
+        <RequiredItem identifier="steel" amount="6" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Power-Backpack.png" sourcerect="95,9,129,216" />
+      <Sprite texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Power-Backpack.png" sourcerect="95,9,129,216" depth="0.7" origin="0.5,0.8" />
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.12,0.08" anchor="TopRight" absoluteoffset="20,128" style="ItemUI" />
+        <TickBox text="Toggle Backpack Lights" IsOn="true">
+          <StatusEffect type="OnUse" target="This" IsOn="true" />
+          <StatusEffect type="OnSecondaryUse" target="This" IsOn="false" />
+        </TickBox>
+      </CustomInterface>
+      <Body radius="45" width="34" density="15" />
+      <Wearable slots="Bag" msg="ItemMsgEquipSelect">
+        <sprite texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Power-Backpack.png" canbehiddenbyotherwearables="false" limb="Torso" inheritlimbdepth="true" hidelimb="false" inheritorigin="false" inherittexturescale="true" sourcerect="0,0,61,137" origin="1.1,0.5">
+          <LightComponent range="1500.0" lightcolor="255,255,150,255" powerconsumption="10" IsOn="true">
+            <StatusEffect type="OnWearing" target="This,Character" Voltage="1.0" setvalue="true" comparison="Or">
+              <Conditional IsDead="false" />
+            </StatusEffect>
+            <LightTexture texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Power-Backpack light.png" origin="0.52, 0.48" size="0.5,0.5" />
+          </LightComponent>
+        </sprite>
+        <StatusEffect type="OnWearing" target="Contained" targetslot="0" Condition="0.1">
+          <RequiredItem items="loadable" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained" targetslot="1" Condition="0.1">
+          <RequiredItem items="loadable" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained" targetslot="2" Condition="0.1">
+          <RequiredItem items="loadable" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Character" PropulsionSpeedMultiplier="0.60" setvalue="true" disabledeltatime="true" />
+        <StatValue stattype="MovementSpeed" value="-0.4" />
+      </Wearable>
+      <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="0,0" handle1="-10,-20" handle2="10,-20" holdangle="45" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use">
+        <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.6" PropulsionSpeedMultiplier="0.6" setvalue="true" disabledeltatime="true" />
+      </Holdable>
+      <ItemContainer capacity="3" maxstacksize="1" slotsperrow="3" hideitems="true" containedstateindicatorslot="2">
+        <Containable items="loadable" />
+        <SlotIcon slotindex="0" texture="Content/UI/WeaponUI.png" sourcerect="64,961,32,22" origin="0.5,0.45" />
+        <SlotIcon slotindex="1" texture="Content/UI/WeaponUI.png" sourcerect="64,961,32,22" origin="0.5,0.45" />
+        <SlotIcon slotindex="2" texture="Content/UI/WeaponUI.png" sourcerect="64,961,32,22" origin="0.5,0.45" />
+        <SubContainer capacity="6" maxstacksize="32">
+          <Containable items="smallitem" excludeditems="mobilecontainer" />
+        </SubContainer>
+      </ItemContainer>
+    </Item>
+	<!-- Techno-Backpack -->
+    <Item identifier="techno-backpack" category="Equipment" tags="mediumitem,mobilecontainer,largemobilecontainer,tool" fireproof="true" cargocontaineridentifier="metalcrate" scale="0.55" impactsoundtag="impact_metal_heavy" description="">
+      <Deconstruct time="20">
+        <RequiredSkill identifier="mechanical" level="75" />
+        <Item identifier="thermalgoggles" />
+        <Item identifier="handheldstatusmonitor" />
+        <Item identifier="handhelditemfinder" />
+        <Item identifier="handheldelectricalmonitor" />
+        <Item identifier="steel" amount="6" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="20">
+        <RequiredSkill identifier="mechanical" level="75" />
+        <RequiredItem identifier="thermalgoggles" />
+        <RequiredItem identifier="handheldstatusmonitor" />
+        <RequiredItem identifier="handhelditemfinder" />
+        <RequiredItem identifier="handheldelectricalmonitor" />
+        <RequiredItem identifier="steel" amount="6" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Techno-Backpack.png" sourcerect="10,22,218,157" />
+      <Sprite texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Techno-Backpack.png" sourcerect="10,22,218,157" depth="0.6" origin="0.5,0.9" />
+      <Body width="100" height="60" density="30" />
+      <Wearable slots="Bag" msg="ItemMsgPickUpSelect">
+        <sprite name="Backpack on character" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Techno-Backpack.png" canbehiddenbyotherwearables="false" limb="Torso" depth="0.8" hidelimb="false" inherittexturescale="true" origin="0.55,0.55" sourcerect="10,22,218,157" />
+        <ItemContainer capacity="9" hideitems="true">
+          <Containable items="smallitem" excludeditems="mobilecontainer" />
+        </ItemContainer>
+        <Sonar range="6000.0" powerconsumption="0" drawhudwhenequipped="true" detectsubmarinewalls="false" displaybordersize="-0.1" characterusable="false" hasmineralscanner="true" allowuioverlap="true">
+          <sound file="%ModDir%/BackpacksNoEncumbUpdated/Sounds/Sonar Ping - Navigation.ogg" type="OnUse" range="500.0" />
+          <GuiFrame relativesize="0.28,0.28" anchor="CenterLeft" relativeoffset="0.000,0.1" />
+          <PingCircle texture="Content/Items/Command/pingCircle.png" origin="0.5,0.5" />
+          <DirectionalPingCircle texture="Content/Items/Command/directionalPingCircle.png" origin="0.0,0.5" />
+          <ScreenOverlay texture="Content/Items/Command/sonarOverlay.png" origin="0.5,0.5" />
+          <ScreenBackground texture="Content/Items/Command/sonarBackground.png" origin="0.5,0.5" />
+          <DirectionalPingBackground texture="Content/Items/Command/directionalPingBackground.png" origin="0.5,0.5" />
+          <DirectionalPingButton index="0" texture="Content/Items/Command/directionalPingButton.png" sourcerect="0,0,91,266" origin="-4.5275,0.5" />
+          <DirectionalPingButton index="1" texture="Content/Items/Command/directionalPingButton.png" sourcerect="133,0,91,266" origin="-4.5275,0.5" />
+          <DirectionalPingButton index="2" texture="Content/Items/Command/directionalPingButton.png" sourcerect="266,0,91,266" origin="-4.5275,0.5" />
+          <Blip texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/sonarBlip.png" origin="0.5,0.5" />
+          <LineSprite texture="Content/Items/Command/NavUI.png" sourcerect="181,141,109,4" origin="0,0.5" />
+          <icon identifier="outpost" texture="Content/UI/MainIconsAtlas.png" sourcerect="352,398,16,8" origin="0.5,0.5" />
+          <icon identifier="submarine" texture="Content/UI/MainIconsAtlas.png" sourcerect="353,407,14,6" origin="0.5,0.5" />
+          <icon identifier="shuttle" texture="Content/UI/MainIconsAtlas.png" sourcerect="336,407,8,6" origin="0.5,0.5" />
+          <icon identifier="artifact" texture="Content/UI/MainIconsAtlas.png" sourcerect="336,414,8,8" origin="0.5,0.5" />
+          <icon identifier="mineral" texture="Content/UI/MainIconsAtlas.png" sourcerect="336,434,7,12" origin="0.5,0.5" />
+          <icon identifier="" texture="Content/UI/MainIconsAtlas.png" sourcerect="346,416,4,4" origin="0.5,0.5" />
+        </Sonar>
+        <StatusHUD drawhudwhenequipped="true" overlaycolor="255,0,0,100" range="3000" thermalgoggles="true" showdeadcharacters="false" showtexts="false" />
+        <StatusEffect type="OnWearing" target="Character" PropulsionSpeedMultiplier="0.60" setvalue="true" disabledeltatime="true" />
+        <StatValue stattype="MovementSpeed" value="-0.4" />
+      </Wearable>
+      <MiniMap enableitemfinder="true" enablehullcondition="true" enableelectricalview="true" drawhudwhenequipped="true" displaybordersize="0.0" characterusable="false" allowuioverlap="true">
+        <GuiFrame relativesize="0.2,0.2" anchor="TopCenter" relativeoffset="0.0,0.0" style="ItemUI" />
+      </MiniMap>
+    </Item>
+	<!-- Oxy-Gen. Backpack -->
+    <Item identifier="oxy-genbackpack" category="Equipment" tags="mediumitem,mobilecontainer,largemobilecontainer,tool" scale="0.4" waterproof="true" description="" impactsoundtag="impact_metal_heavy">
+      <Deconstruct time="20">
+        <Item identifier="steel" />
+        <Item identifier="steel" />
+        <Item identifier="rubber" />
+        <Item identifier="fpgacircuit" />
+        <Item identifier="batterycell" />
+        <Item identifier="oxygentank" />
+        <Item identifier="oxygentank" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="20">
+        <RequiredSkill identifier="mechanical" level="75" />
+        <RequiredItem identifier="rubber" amount="2" />
+        <RequiredItem identifier="oxygentank" amount="3" />
+        <RequiredItem identifier="fulguriumbatterycell" />
+        <RequiredItem identifier="steel" amount="4" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Oxy-Gen. Backpack.png" sourcerect="95,9,129,216" />
+      <Sprite texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Oxy-Gen. Backpack.png" sourcerect="95,9,129,216" depth="0.7" origin="0.5,0.8" />
+      <Body radius="45" width="34" density="15" />
+      <Wearable slots="Bag" msg="ItemMsgEquipSelect">
+        <sprite name="rebreather" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Oxy-Gen. Backpack.png" canbehiddenbyotherwearables="false" limb="Head" depth="0.9" inheritscale="true" ignorelimbscale="true" scale="0.65" hidelimb="false" hidewearablesoftype="moustache,beard" hideotherwearables="false" sourcerect="222,5,77,85" origin="0.4,0.51" />
+        <sprite name="Backpack" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Oxy-Gen. Backpack.png" canbehiddenbyotherwearables="false" limb="Torso" inheritlimbdepth="true" hidelimb="false" inheritorigin="false" inherittexturescale="true" sourcerect="0,0,61,137" origin="1.1,0.5" />
+        <StatusEffect type="OnWearing" target="Contained" targetslot="0" Condition="0.4">
+          <RequiredItem items="oxygensource" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained" targetslot="1" Condition="0.4">
+          <RequiredItem items="oxygensource" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained" targetslot="2" Condition="0.4">
+          <RequiredItem items="oxygensource" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Character" OxygenAvailable="1000.0" comparison="Or" />
+        <StatusEffect type="OnWearing" target="Character" PropulsionSpeedMultiplier="0.60" setvalue="true" disabledeltatime="true" />
+        <StatValue stattype="MovementSpeed" value="-0.4" />
+      </Wearable>
+      <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="0,0" handle1="-10,-20" handle2="10,-20" holdangle="45" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use">
+        <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.6" PropulsionSpeedMultiplier="0.6" setvalue="true" disabledeltatime="true" />
+      </Holdable>
+      <ItemContainer capacity="3" maxstacksize="1" slotsperrow="3" hideitems="true" containedstateindicatorslot="2">
+        <Containable items="oxygentank" excludeditems="backpack,toolbox,cargoscooter" />
+        <SlotIcon slotindex="0" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="789,786,90,85" origin="0.5,0.45" />
+        <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="789,786,90,85" origin="0.5,0.45" />
+        <SlotIcon slotindex="2" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="789,786,90,85" origin="0.5,0.45" />
+        <SubContainer capacity="6" maxstacksize="32">
+          <Containable items="smallitem" excludeditems="mobilecontainer" />
+        </SubContainer>
+      </ItemContainer>
+    </Item>
+	<!-- Shield-Backpack -->
+    <Item identifier="shieldbackpack" category="Equipment" tags="mediumitem,mobilecontainer,largemobilecontainer,tool" scale="0.51" fireproof="true" description="" impactsoundtag="impact_metal_heavy">
+      <Deconstruct time="20">
+        <Item identifier="power-backpack" />
+        <Item identifier="batterycell" amount="3" />
+        <Item identifier="fulguriumbatterycell" amount="1" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="20">
+        <RequiredSkill identifier="mechanical" level="75" />
+        <RequiredItem identifier="power-backpack" />
+        <RequiredItem identifier="batterycell" amount="6" />
+        <RequiredItem identifier="fulguriumbatterycell" amount="2" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Shield Backpack.png" sourcerect="3,2,43,179" />
+      <Sprite texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Shield Backpack.png" sourcerect="3,2,43,179" depth="0.7" origin="0.5,0.7" />
+      <Body radius="45" width="34" density="15" />
+      <Wearable slots="Bag" msg="ItemMsgEquipSelect">
+        <sprite texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Shield Backpack.png" canbehiddenbyotherwearables="false" limb="Torso" inheritlimbdepth="true" hidelimb="false" inheritorigin="false" inherittexturescale="true" sourcerect="3,2,43,179" origin="1.55,0.65">
+          <LightComponent range="150.0" lightcolor="0,255,0,25" flicker="2" castshadows="true" powerconsumption="10" IsOn="true">
+            <StatusEffect type="OnWearing" target="This,Character" setvalue="true" Voltage="1.0" PressureProtection="20000.0">
+              <RequiredItem item="batterycell" type="Contained" condition="gt 0" />
+              <Conditional IsDead="false" />
+              <Affliction identifier="shielded" strength="1" />
+              <Sound file="%ModDir%/BackpacksNoEncumbUpdated/Sounds/Shield Backpack.ogg" range="30" volume="0.2" />
+            </StatusEffect>
+            <StatusEffect type="OnWearing" target="This,Character" setvalue="true" Voltage="1.0" PressureProtection="20000.0">
+              <RequiredItem item="fulguriumbatterycell" type="Contained" condition="gt 0" />
+              <Conditional IsDead="false" />
+              <Affliction identifier="supershielded" strength="1" />
+              <Sound file="%ModDir%/BackpacksNoEncumbUpdated/Sounds/Shield Backpack.ogg" range="30" volume="0.2" />
+            </StatusEffect>
+            <StatusEffect type="OnWearing" target="This,Character" setvalue="true" Voltage="1.0" PressureProtection="20000.0">
+              <RequiredItem item="alienpowercell" type="Contained" condition="gt 0" />
+              <Conditional IsDead="false" />
+              <Affliction identifier="overshielded" strength="1" />
+              <Sound file="%ModDir%/BackpacksNoEncumbUpdated/Sounds/Shield Backpack.ogg" range="30" volume="0.2" />
+            </StatusEffect>
+            <LightTexture texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Shield Backpack shield light.png" origin="0.48, 0.65" size="0.55,0.75" />
+          </LightComponent>
+        </sprite>
+        <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+        <StatusEffect type="Always" target="Contained" condition="-0.4">
+          <RequiredItem item="batterycell" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="Always" target="Contained" condition="-0.3">
+          <RequiredItem item="fulguriumbatterycell" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="Always" target="Contained" condition="-0.2">
+          <RequiredItem item="alienpowercell" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="Always" target="Character,AllLimbs">
+          <RequiredItem item="alienpowercell" type="Contained" condition="gt 0" />
+          <ReduceAffliction type="damage" amount="0.05" />
+          <ReduceAffliction type="gunshotwound" amount="0.05" />
+          <ReduceAffliction type="internaldamage" amount="0.05" />
+          <ReduceAffliction type="blunttrauma" amount="0.05" />
+          <ReduceAffliction type="lacerations" amount="0.05" />
+          <ReduceAffliction type="bitewounds" amount="0.05" />
+          <ReduceAffliction type="explosiondamage" amount="0.05" />
+          <ReduceAffliction type="bleeding" amount="0.05" />
+          <ReduceAffliction type="burn" amount="0.05" />
+          <ReduceAffliction type="acidburn" amount="0.05" />
+          <ReduceAffliction type="stun" amount="0.05" />
+          <ReduceAffliction type="concussion" amount="0.05" />
+          <ReduceAffliction type="radiationsickness" amount="0.05" />
+          <ReduceAffliction type="incrementalstun" amount="0.05" />
+          <ReduceAffliction type="progressivestun" amount="0.05" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Character" PropulsionSpeedMultiplier="0.60" setvalue="true" disabledeltatime="true" />
+        <StatValue stattype="MovementSpeed" value="-0.4" />
+      </Wearable>
+      <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="0,0" handle1="-10,-20" handle2="10,-20" holdangle="45" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use">
+        <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.6" PropulsionSpeedMultiplier="0.6" setvalue="true" disabledeltatime="true" />
+      </Holdable>
+      <ItemContainer capacity="1" maxstacksize="1" hideitems="true">
+        <Containable items="batterycell,alienpowercell,fulguriumbatterycell" excludeditems="backpack" />
+        <SlotIcon slotindex="0" texture="Content/UI/WeaponUI.png" sourcerect="64,961,32,22" origin="0.5,0.45" />
+      </ItemContainer>
+    </Item>
+	<!-- /// Containers /// -->
+	<!-- Heavy Crate -->
+    <Item identifier="heavycrate" tags="crate" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy" waterproof="true" description="">
+      <Deconstruct time="20">
+        <Item identifier="steel" amount="2" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="30">
+        <RequiredSkill identifier="mechanical" level="35" />
+        <RequiredItem identifier="steel" amount="3" />
+      </Fabricate>
+      <Sprite texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy Crate.png" depth="0.54" sourcerect="165,103,304,86" origin="0.5,0.5" />
+      <ContainedSprite name="Heavy Crate on shelf" allowedcontainertags="cargocontainer" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy Crate.png" sourcerect="164,5,152,87" depth="0.55" origin="0.5,0.5" />
+      <Body width="145" height="85" density="50" />
+      <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-20,14" handle2="20,14" aimable="false" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.50" setvalue="true" />
+      </Holdable>
+      <ItemContainer capacity="10" slotsperrow="2" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+        <Containable items="smallitem,mediumitem,ammobox,depthchargeammo,railgunammo,deepdiving" excludeditems="largemobilecontainer" />
+        <SlotIcon slotindex="0" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.45" />
+        <SlotIcon slotindex="1" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.45" />
+        <SlotIcon slotindex="2" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.45" />
+        <SlotIcon slotindex="3" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.45" />
+        <SlotIcon slotindex="4" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.45" />
+        <SlotIcon slotindex="5" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.45" />
+        <SlotIcon slotindex="6" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.45" />
+        <SlotIcon slotindex="7" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.45" />
+        <SlotIcon slotindex="8" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.45" />
+        <SlotIcon slotindex="9" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Heavy.png" origin="0.5,0.45" />
+      </ItemContainer>
+    </Item>
+	<!-- Ammunition Case -->
+    <Item identifier="ammopack" category="Equipment" tags="smallitem,mobilecontainer" showcontentsintooltip="true" waterproof="true" scale="0.12" fireproof="true" impactsoundtag="impact_metal_Light" description="">
+      <Deconstruct time="20">
+        <Item identifier="rubber" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="20">
+        <RequiredSkill identifier="mechanical" level="35" />
+        <RequiredItem identifier="plastic" />
+        <RequiredItem identifier="rubber" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Ammopack.png" sourcerect="33,38,461,423" origin="0.5,0.6" />
+      <Sprite texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Ammopack.png" sourcerect="33,38,461,423" depth="0.55" origin="0.5,1" />
+      <Body width="45" height="31" density="20" />
+      <Holdable slots="RightHand,LeftHand,Any" holdpos="10,-90" handle1="-5,360" aimable="false" msg="ItemMsgPickUpSelect" />
+      <ItemContainer capacity="6" keepopenwhenequipped="true" movableframe="true">
+        <Containable items="harpoonammo,revolverammo,pistolammoitem,smgammo,grenade,shotgunammo,stungunammo,rifleammo,hmgammo,assaultrifleammo" excludeditems="mobilecontainer" />
+        <SlotIcon slotindex="0" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Ammopack.png" sourcerect="190,209,145,147" origin="0.5,0.45" />
+        <SlotIcon slotindex="1" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Ammopack.png" sourcerect="190,209,145,147" origin="0.5,0.45" />
+        <SlotIcon slotindex="2" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Ammopack.png" sourcerect="190,209,145,147" origin="0.5,0.45" />
+        <SlotIcon slotindex="3" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Ammopack.png" sourcerect="190,209,145,147" origin="0.5,0.45" />
+        <SlotIcon slotindex="4" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Ammopack.png" sourcerect="190,209,145,147" origin="0.5,0.45" />
+        <SlotIcon slotindex="5" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Ammopack.png" sourcerect="190,209,145,147" origin="0.5,0.45" />
+      </ItemContainer>
+      <aitarget sightrange="1000" soundrange="1000" fadeouttime="2" />
+    </Item>
+	<!-- Medical Case -->
+    <Item identifier="medipack" category="Equipment" tags="smallitem,mobilecontainer,medical" showcontentsintooltip="true" waterproof="true" scale="0.12" fireproof="true" impactsoundtag="impact_metal_ligt" description="">
+      <Deconstruct time="20">
+        <Item identifier="plastic" />
+        <Item identifier="rubber" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator,medicalfabricator" requiredtime="20">
+        <RequiredSkill identifier="mechanical" level="35" />
+        <Item identifier="plastic" />
+        <Item identifier="rubber" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medipack.png" sourcerect="33,38,461,423" origin="0.5,0.6" />
+      <Sprite texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Medipack.png" sourcerect="33,38,461,423" depth="0.55" origin="0.5,1" />
+      <Body width="45" height="31" density="20" />
+      <Holdable slots="RightHand,LeftHand,Any" holdpos="10,-90" handle1="-5,360" aimable="false" msg="ItemMsgPickUpSelect" />
+      <ItemContainer capacity="6" keepopenwhenequipped="true" movableframe="true">
+        <Containable items="chem,medical,syringe,huskeggs,organicfiber,paralyxis,plant" excludeditems="mobilecontainer" />
+        <SlotIcon slotindex="0" texture="Content/UI/ContainerIndicators.png" sourcerect="2,155,120,29" origin="0.5,0.5" />
+        <SlotIcon slotindex="1" texture="Content/UI/ContainerIndicators.png" sourcerect="2,155,120,29" origin="0.5,0.5" />
+        <SlotIcon slotindex="2" texture="Content/UI/ContainerIndicators.png" sourcerect="2,155,120,29" origin="0.5,0.5" />
+        <SlotIcon slotindex="3" texture="Content/UI/ContainerIndicators.png" sourcerect="2,155,120,29" origin="0.5,0.5" />
+        <SlotIcon slotindex="4" texture="Content/UI/ContainerIndicators.png" sourcerect="2,155,120,29" origin="0.5,0.5" />
+        <SlotIcon slotindex="5" texture="Content/UI/ContainerIndicators.png" sourcerect="2,155,120,29" origin="0.5,0.5" />
+      </ItemContainer>
+      <aitarget sightrange="1000" soundrange="1000" fadeouttime="2" />
+    </Item>
+	<!-- Deep Diving Operations Suit -->
+    <Item identifier="ddossuit" category="Diving,Equipment" tags="diving,deepdiving,provocative,divingsuit" scale="0.48" fireproof="true" waterproof="true" description="" allowdroppingonswapwith="diving" impactsoundtag="impact_metal_heavy">
+      <Deconstruct time="20">
+        <Item identifier="combatdivingsuit" />
+        <Item identifier="abyssdivingsuit" />
+        <Item identifier="cargoscooter" />
+        <Item identifier="fulguriumbatterycell" />
+        <Item identifier="titaniumaluminiumalloy" amount="3" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="2">
+        <RequiredSkill identifier="mechanical" level="95" />
+        <RequiredItem identifier="combatdivingsuit" />
+        <RequiredItem identifier="abyssdivingsuit" />
+        <RequiredItem identifier="cargoscooter" />
+        <RequiredItem identifier="fulguriumbatterycell" amount="3" />
+        <RequiredItem identifier="titaniumaluminiumalloy" amount="8" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" sourcerect="539,46,150,149" origin="0.5,0.5" />
+      <Sprite name="Diving Suit Item" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" sourcerect="100,457,202,340" depth="0.55" origin="0.5,0.85" />
+      <ContainedSprite name="Diving Suit Behind Window" allowedcontainertags="divingsuitcontainerwindow" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" sourcerect="914,8,77,207" depth="0.55" origin="-0.12,-0.14" />
+      <ContainedSprite name="Diving Suit In Horizontal Locker" allowedcontainertags="divingsuitcontainerhorizontal" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" inheritscale="true" sourcerect="716,336,271,69" depth="0.55" origin="0.56,0.6" />
+      <Body radius="45" width="100" density="30" />
+      <Wearable slots="OuterClothes+Bag+InnerClothes+Head" msg="ItemMsgEquipSelect" displaycontainedstatus="true" canbeselected="false" canbepicked="true" pickkey="Select">
+        <sprite name="Diving Mask Wearable" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" limb="Head" inheritlimbdepth="true" inheritscale="false" ignorelimbscale="true" scale="0.5" hidelimb="false" hideotherwearables="true" sourcerect="711,0,64,70" origin="0.5,0.5">
+          <LightComponent range="200.0" lightcolor="250,224,165,255" powerconsumption="10" IsOn="true" allowingameediting="false">
+            <StatusEffect type="OnWearing" target="This,Character" Voltage="1.0" setvalue="true">
+              <Conditional IsDead="false" />
+            </StatusEffect>
+            <LightTexture texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit - Lights.png" origin="0.025, 0.5" size="1.0,1.0" />
+          </LightComponent>
+        </sprite>
+        <sprite name="Regular Diving Suit Torso" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" limb="Torso" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" inheritsourcerect="false" sourcerect="539,46,150,149" origin="0.75,0.55" />
+        <sprite name="Regular Diving Suit Right Hand" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" limb="RightHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+        <sprite name="Regular Diving Suit Left Hand" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+        <sprite name="Regular Diving Suit Right Lower Arm" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" limb="RightArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+        <sprite name="Regular Diving Suit Left Lower Arm" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+        <sprite name="Regular Diving Suit Right Upper Arm" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+        <sprite name="Regular Diving Suit Left Upper Arm" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+        <sprite name="Regular Diving Suit Waist" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" limb="Waist" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+        <sprite name="Regular Diving Suit Right Thigh" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+        <sprite name="Regular Diving Suit Left Thigh" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+        <sprite name="Regular Diving Suit Right Leg" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+        <sprite name="Regular Diving Suit Left Leg" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+        <sprite name="Regular Diving Suit Left Shoe" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" limb="LeftFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+        <sprite name="Regular Diving Suit Right Shoe" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Deep Diving Operation Suit.png" limb="RightFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+        <StatusEffect type="OnWearing" target="Character" setvalue="true" disabledeltatime="true" />
+        <StatusEffect type="OnWearing" target="Character" setvalue="true" PressureProtection="20000.0" disabledeltatime="true" />
+        <StatusEffect type="OnWearing" target="Character" HideFace="false" ObstructVision="true" LowPassMultiplier="0.1" setvalue="true" disabledeltatime="true">
+          <Sound file="%ModDir%/BackpacksNoEncumbUpdated/Sounds/Deep Diving Operation Suit.ogg" range="0" volume="0.5" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Character" setvalue="true" disabledeltatime="true">
+          <Sound file="%ModDir%/BackpacksNoEncumbUpdated/Sounds/System Check.ogg" range="0" delay="0.1" loop="false" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnContained" target="Contained" Condition="1.0" targetslot="0">
+          <Conditional Voltage="gt 0.01" targetcontainer="true" targetgrandparent="true" targetitemcomponent="Powered" />
+          <RequiredItem items="oxygentank" type="Contained" excludebroken="false" targetslot="0" />
+        </StatusEffect>
+        <StatusEffect type="OnContained" target="Contained" Condition="1.0" targetslot="2">
+          <Conditional Voltage="gt 0.01" targetcontainer="true" targetgrandparent="true" targetitemcomponent="Powered" />
+          <RequiredItem items="mobilebattery" type="Contained" excludebroken="false" targetslot="2" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained,Character" UseHullOxygen="false" OxygenAvailable="1000.0" Condition="-0.3" comparison="And" targetslot="0">
+          <Conditional IsDead="false" />
+          <Conditional HullOxygenPercentage="lt 50" />
+          <Conditional InWater="false" />
+          <RequiredItem items="oxygentank" type="Contained" targetslot="0" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained,Character" UseHullOxygen="false" OxygenAvailable="1000.0" Condition="-0.3" comparison="And" targetslot="0">
+          <Conditional InWater="true" />
+          <RequiredItem items="oxygentank" type="Contained" targetslot="0" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained,Character" UseHullOxygen="false" Oxygen="-20.0" Condition="-0.5" targetslot="0">
+          <Conditional IsDead="false" />
+          <RequiredItem items="weldingfueltank" type="Contained" targetslot="0" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained,Character" UseHullOxygen="false" Oxygen="-20.0" Condition="-0.5" targetslot="0">
+          <Conditional IsDead="false" />
+          <RequiredItem items="incendiumfueltank" type="Contained" targetslot="0" />
+          <Affliction identifier="burn" amount="0.1" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained,Character" UseHullOxygen="false" OxygenAvailable="1500.0" Condition="-0.1" comparison="And" targetslot="0">
+          <Conditional IsDead="false" />
+          <Conditional HullOxygenPercentage="lt 50" />
+          <Conditional InWater="false" />
+          <RequiredItem items="oxygenitetank" type="Contained" targetslot="0" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained,Character" UseHullOxygen="false" OxygenAvailable="1500.0" Condition="-0.1" comparison="And" targetslot="0">
+          <Conditional InWater="true" />
+          <RequiredItem items="oxygenitetank" type="Contained" targetslot="0" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained,Character" setvalue="true" comparison="And" targetslot="0">
+          <Conditional IsDead="false" />
+          <Conditional HullOxygenPercentage="lt 50" />
+          <Conditional InWater="false" />
+          <RequiredItem items="oxygenitetank" type="Contained" targetslot="0" />
+        </StatusEffect>
+        <StatusEffect type="Always" target="Character" SpeedMultiplier="1.8" targetslot="2" disabledeltatime="true" setvalue="true">
+          <RequiredItem items="mobilebattery" type="Contained" condition="gt 0" targetslot="2" />
+          <Conditional InWater="true" condition="gt 0" />
+          <ParticleEmitter particle="bubbles" copyentityangle="true" anglemin="-5" anglemax="5" particleamount="1" velocitymin="-10" velocitymax="-100" scalemin="0.5" scalemax="1" />
+          <Sound file="%ModDir%/BackpacksNoEncumbUpdated/Sounds/Deep Diving Operation Suit - Powered.ogg" range="50" volume="1.0" />
+        </StatusEffect>
+        <StatusEffect type="Always" target="Contained" targetslot="2" Condition="-0.25">
+          <RequiredItem items="batterycell" type="Contained" />
+          <Conditional InWater="true" />
+        </StatusEffect>
+        <StatusEffect type="Always" target="Contained" targetslot="2" Condition="-0.125">
+          <RequiredItem items="fulguriumbatterycell" type="Contained" />
+          <Conditional InWater="true" />
+        </StatusEffect>
+        <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,gunshotwound,bitewounds,lacerations,bleeding" damagemultiplier="0.20" damagesound="LimbArmor" deflectprojectiles="true" />
+        <damagemodifier armorsector="0.0,360.0" afflictiontypes="burn" damagemultiplier="0.20" damagesound="" deflectprojectiles="true" />
+        <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="radiationsickness" damagemultiplier="0" damagesound="LimbArmor" />
+        <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="huskinfection" damagemultiplier="0" probabilitymultiplier="0.5" damagesound="LimbArmor" />
+        <StatValue stattype="WalkingSpeed" value="-0.16" />
+      </Wearable>
+      <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="0,-50" handle1="-10,-20" handle2="10,-20" holdangle="45" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use">
+        <Upgrade gameversion="0.1401.0.0" msg="ItemMsgPickUpUse" />
+      </Holdable>
+      <ItemContainer capacity="0" maxstacksize="0" hideitems="true" containedstateindicatorstyle="tank" containedstateindicatorslot="0">
+        <Containable items="none" />
+        <SlotIcon slotindex="0" texture="Content/UI/ContainerIndicators.png" sourcerect="1,93,120,29" origin="0.5,0.45" />
+        <SlotIcon slotindex="1" texture="%ModDir%/BackpacksNoEncumbUpdated/Textures/Toolbox icon.png" sourcerect="2,2,50,30" origin="0.5,0.5" />
+        <SlotIcon slotindex="2" texture="Content/UI/WeaponUI.png" sourcerect="64,961,32,22" origin="0.5,0.45" />
+        <SubContainer capacity="1" maxstacksize="1">
+          <Containable items="oxygensource" />
+        </SubContainer>
+        <SubContainer capacity="1" maxstacksize="1">
+          <Containable items="mobilecontainer" excludeditems="largemobilecontainer" />
+        </SubContainer>
+        <SubContainer capacity="1" maxstacksize="1">
+          <Containable items="mobilebattery" />
+        </SubContainer>
+        <SubContainer capacity="9" maxstacksize="32">
+          <Containable items="smallitem" excludeditems="mobilecontainer" />
+        </SubContainer>
+        <StatusEffect type="OnWearing" target="Contained">
+          <RequiredItem items="oxygensource" type="Contained" targetslot="0" />
+          <Conditional condition="75.0" targetslot="0" />
+          <Sound file="%ModDir%/BackpacksNoEncumbUpdated/Sounds/Oxygen at 75%.ogg" range="0" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained">
+          <RequiredItem items="oxygensource" type="Contained" targetslot="0" />
+          <Conditional condition="50.0" targetslot="0" />
+          <Sound file="%ModDir%/BackpacksNoEncumbUpdated/Sounds/Oxygen at 50%.ogg" range="0" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained">
+          <RequiredItem items="oxygensource" type="Contained" targetslot="0" />
+          <Conditional condition="25.0" targetslot="0" />
+          <Sound file="%ModDir%/BackpacksNoEncumbUpdated/Sounds/Oxygen at 25%.ogg" range="0" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="Contained">
+          <RequiredItem items="oxygensource" type="Contained" targetslot="0" />
+          <Conditional condition="5.0" targetslot="0" />
+          <Sound file="%ModDir%/BackpacksNoEncumbUpdated/Sounds/Oxygen Critical.ogg" range="0" volume="5.0" />
+        </StatusEffect>
+      </ItemContainer>
+      <aitarget maxsightrange="1500" />
+    </Item>
+  </Items>
+</Override>

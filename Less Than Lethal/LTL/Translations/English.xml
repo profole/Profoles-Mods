@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+  <!-- /// Ammunition  /// -->
+  <!-- LTL SMG Magazine -->
+  <entityname.ltlsmgmagazine>LTL SMG Magazine</entityname.ltlsmgmagazine>
+  <entitydescription.ltlsmgmagazine>A .45 caliber SMG magazine crudely marked with paint to indicate it's less lethal than regular ammunition. Designed to suppress unruly crew members without causing lethal injuries, just less lethal ones.</entitydescription.ltlsmgmagazine>
+  <!-- LTL Rifle Round -->
+  <entityname.ltlriflebullet>LTL Rifle Round</entityname.ltlriflebullet>
+  <entitydescription.ltlriflebullet>A .30 caliber rifle round crudely marked with paint to indicate it's less lethal than regular ammunition. Designed to suppress unruly crew members without causing lethal injuries, just less lethal ones.</entitydescription.ltlriflebullet>
+  <!-- LTL Assault Rifle Magazine -->
+  <entityname.ltlassaultriflemagazine>LTL Assault Rifle Magazine</entityname.ltlassaultriflemagazine>
+  <entitydescription.ltlassaultriflemagazine>A 6.8mm assault rifle magazine crudely marked with paint to indicate it's less lethal than regular ammunition. Designed to suppress unruly crew members without causing lethal injuries, just less lethal ones.</entitydescription.ltlassaultriflemagazine>
+  <!-- LTL Revolver Round -->
+  <entityname.ltlrevolverround>LTL Revolver Round</entityname.ltlrevolverround>
+  <entitydescription.ltlrevolverround>A .38 caliber revolver round crudely marked with paint to indicate it's less lethal than regular ammunition. Designed to suppress unruly crew members without causing lethal injuries, just less lethal ones.</entitydescription.ltlrevolverround>
+</infotexts>

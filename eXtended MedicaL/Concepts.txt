@@ -1,0 +1,66 @@
+Internal Damage - Opiates
+Blunt Force Trauma - Opiates
+Lacerations - Bandages, higher Levels causes bleeding, can infect
+Bite Wounds - Opiates
+Gunshot Wounds - Opiates
+Organ Damage - Opiates
+Deep Tissue Injury - Opiates
+
+/// Antibleeding Update ///
+ITEMS
+Plaster
+Tourniquet
+
+AFFLICTIONS
+Bandaged (Dirty)
+Tourniqueted
+Gangrene
+
+/// Sepsis Update ///
+ITEMS
+Antiseptic Liquid
+Alcohol Wipes
+
+AFFLICTIONS
+Sepsis
+
+/// Organ/Surgery Update ///
+AFFLICTIONS
+Brain Damage
+Hypoxemia
+Heart Damage
+Lung Damage
+Liver Damage
+Kidney Damage
+
+/// Opioid Update ///
+AFFLICTIONS
+> Opioid Use Disorder
+> Acute Opioid Withdrawl
+> Chronic Opioid Withdrawl
+> Opioid Addiction
+> Analgesia
+> Opioid Overdose
+
+ANTI-OPIOID ITEMS
+> Narcan
+> Methadone Pills
+> Naloxone Autoinjector
+> Naloxone
+
+OPIOIDS
+> Fentanyl
+> Heroin
+> Morphine
+> Morphine Autoinjector
+> Oxycodone
+> Opium
+> Codein
+
+NON-OPIOID PAINKILLERS
+> Ibuprofen
+> Aspirin
+
+OTHER
+> Propofol
+> Pantoprazol

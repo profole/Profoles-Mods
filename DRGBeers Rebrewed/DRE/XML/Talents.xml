@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Talents>
+  <!-- /// Vanilla/HE Overrides - Captain Talents /// -->
+    <!-- Drunken Sailor - Add DRG beer recipes -->
+    <Talent identifier="drunkensailor">
+      <Description tag="talentdescription.drunkensailor">
+        <Replace tag="[stunresistance]" value="75" color="gui.green" />
+      </Description>
+      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.rum" color="gui.orange" />
+      </Description>
+      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.dre_blackoutstoutkeg" color="gui.orange" />
+      </Description>
+      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.dre_redrockblasterkeg" color="gui.orange" />
+      </Description>
+      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.dre_skullcrusheralekeg" color="gui.orange" />
+      </Description>
+      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.dre_smartstoutkeg" color="gui.orange" />
+      </Description>
+      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.dre_burninglovekeg" color="gui.orange" />
+      </Description>
+      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.dre_blackreachblondekeg" color="gui.orange" />
+      </Description>
+      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.dre_flintlockesdelightkeg" color="gui.orange" />
+      </Description>
+      <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="3,0" sheetelementsize="128,128" />
+      <AbilityGroupInterval interval="1.0">
+        <Conditions>
+          <AbilityConditionHasAffliction afflictionidentifier="drunknodebuffs" />
+        </Conditions>
+        <Abilities>
+          <CharacterAbilityModifyResistance resistanceid="stun" multiplier="0.25" />
+          <CharacterAbilityModifyResistance resistanceid="nausea" multiplier="0" />
+        </Abilities>
+      </AbilityGroupInterval>
+      <AbilityGroupInterval interval="1.0">
+        <Abilities>
+          <CharacterAbilityReplaceAffliction affliction="drunk" newaffliction="drunknodebuffs" />
+        </Abilities>
+      </AbilityGroupInterval>
+      <AddedRecipe itemidentifier="rum" />
+      <AddedRecipe itemidentifier="dre_blackoutstoutkeg" />
+      <AddedRecipe itemidentifier="dre_redrockblasterkeg" />
+      <AddedRecipe itemidentifier="dre_skullcrusheralekeg" />
+      <AddedRecipe itemidentifier="dre_smartstoutkeg" />
+      <AddedRecipe itemidentifier="dre_burninglovekeg" />
+      <AddedRecipe itemidentifier="dre_blackreachblondekeg" />
+      <AddedRecipe itemidentifier="dre_flintlockesdelightkeg" />
+    </Talent>
+  </Talents>
+</Override>
